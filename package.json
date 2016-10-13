@@ -18,10 +18,10 @@
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
-    "eslint": "~3.0.0",
+    "eslint": "git+https://github.com/eslint/eslint.git#7695828dc0472e61c58298bfa3f0c07418c2edac",
     "eslint-config-eslint": "^3.0.0",
     "mocha": "^2.4.5",
-    "typescript-eslint-parser": "^0.4.0"
+    "typescript-eslint-parser": "git+https://github.com/eslint/typescript-eslint-parser.git#79983ec86a54898dd8cdaa6d037f3f30e9822b6d"
   },
   "engines": {
     "node": ">=4"
