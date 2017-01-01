@@ -1,11 +1,11 @@
 # Enforces the use of `as Type` assertions instead of `<Type>` assertions.
 
-Typescript disallows the use of `<Type>` assertions in `.tsx` because of the similitude with  
+TypeScript disallows the use of `<Type>` assertions in `.tsx` because of the similarity with  
 JSX's syntax, which makes it impossible to parse. 
 
 ## Rule Details
 
-This rule aims to standardise the the use of type assertion style across the codebase
+This rule aims to standardise the use of type assertion style across the codebase
 
 The following patterns are considered warnings:
 
