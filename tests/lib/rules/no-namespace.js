@@ -1,5 +1,5 @@
 /**
- * @fileoverview Disallows the use of internal modules and namespaces.
+ * @fileoverview Disallows the use of custom TypeScript modules and namespaces.
  * @author Patricio Trevino
  */
 "use strict";
@@ -25,14 +25,6 @@ ruleTester.run("no-namespace", rule, {
         },
         {
             code: "declare module foo { }",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "declare namespace foo { }",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "declare module foo { }",
             options: [{ allowDeclarations: true }],
             parser: "typescript-eslint-parser"
         },
@@ -48,7 +40,7 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -59,7 +51,7 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -71,7 +63,7 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -83,7 +75,29 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    row: 1,
+                    column: 1
+                }
+            ]
+        },
+        {
+            code: "declare module foo { }",
+            parser: "typescript-eslint-parser",
+            errors: [
+                {
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    row: 1,
+                    column: 1
+                }
+            ]
+        },
+        {
+            code: "declare namespace foo { }",
+            parser: "typescript-eslint-parser",
+            errors: [
+                {
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -95,7 +109,7 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -107,7 +121,7 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 external modules syntax is preferred over internal modules and namespaces",
+                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }

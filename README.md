@@ -55,4 +55,4 @@ Then configure the rules you want to use under the rules section.
 * `typescript/no-triple-slash-reference` - enforces `/// <reference />` is not used.
 * `typescript/no-explicit-any` - enforces the any type is not used.
 * `typescript/no-angle-bracket-type-assertion` - enforces the use of `as Type` assertions instead of `<Type>` assertions.
-* `typescript/no-namespace` - disallows the use of internal modules and namespaces.
+* `typescript/no-namespace` - disallows the use of custom TypeScript modules and namespaces.

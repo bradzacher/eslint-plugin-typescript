@@ -1,35 +1,36 @@
-# Disallows the use of `internal modules` and `namespaces`.
+# Disallows the use of `custom TypeScript modules` and `namespaces`.
 
-Internal modules (`module foo {}`) and namespaces (`namespace foo {}`) are considered outdated 
-ways to organize TypeScript code. ES2015 module syntax is now preferred.   
+Custom TypeScript modules (`module foo {}`) and namespaces (`namespace foo {}`) are considered outdated 
+ways to organize TypeScript code. ES2015 module syntax is now preferred (`import`/`export`).   
 
-This rule still allows the use of external modules (`declare module 'foo' {}`).
+This rule still allows the use of TypeScript module declarations to describe external APIs (`declare module 'foo' {}`).
 
 ## Rule Details
 
-This rule aims to standardise the way TypeScript modules are declared.
+This rule aims to standardise the way modules are declared.
 
 ## Options
 
 This rule, in its default state, does not require any argument. If you would like to enable one 
 or more of the following you may pass an object with the options set as follows:
-- `allowDeclarations` set to `true` will allow you to `declare` internal modules and namespaces (Default: `true`).  
-- `allowDefinitionFiles` set to `true` will allow you to `declare` and use internal modules and namespaces 
-inside definition files (Default: `true`).       
+- `allowDeclarations` set to `true` will allow you to `declare` custom TypeScript modules and namespaces (Default: `false`).  
+- `allowDefinitionFiles` set to `true` will allow you to `declare` and use custom TypeScript modules and namespaces 
+inside definition files (Default: `false`).       
 
-Examples of **incorrect** code for the default `{ "allowDeclarations": true, "allowDefinitionFiles": true }` options:
+Examples of **incorrect** code for the default `{ "allowDeclarations": false, "allowDefinitionFiles": false }` options:
 ```ts
 module foo {}
 namespace foo {}
-```
 
-Examples of **correct** code for the default `{ "allowDeclarations": true, "allowDefinitionFiles": true }` options:
-```ts
-declare module 'foo' {}
 declare module foo {}
 declare namespace foo {}
 
 // anything inside a d.ts file
+```
+
+Examples of **correct** code for the default `{ "allowDeclarations": false, "allowDefinitionFiles": false }` options:
+```ts
+declare module 'foo' {}
 ```
 
 ### allowDeclarations
