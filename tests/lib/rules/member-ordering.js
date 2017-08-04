@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/member-ordering"),
+const rule = require("../../../lib/rules/member-ordering"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -16,7 +16,8 @@ var rule = require("../../../lib/rules/member-ordering"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
+
 ruleTester.run("member-ordering", rule, {
     valid: [
         {
@@ -1093,7 +1094,7 @@ const foo = class Foo {
                 }
             ],
             parser: "typescript-eslint-parser"
-        },
+        }
     ],
     invalid: [
         {
