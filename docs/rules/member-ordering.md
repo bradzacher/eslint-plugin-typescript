@@ -16,25 +16,25 @@ This rule, in its default state, does not require any argument, in which case th
 - `public-instance-field`
 - `protected-instance-field`
 - `private-instance-field`
-- `public-field` (disregard of the scope)
-- `protected-field` (disregard of the scope)
-- `private-field` (disregard of the scope)
-- `static-field` (disregard of the accessibility)
-- `instance-field` (disregard of the accessibility)
-- `field` (disregard of the scope and/or accessibility)
-- `constructor` (disregard of the scope and/or accessibility)
+- `public-field` (ignores scope)
+- `protected-field` (ignores scope)
+- `private-field` (ignores scope)
+- `static-field` (ignores accessibility)
+- `instance-field` (ignores accessibility)
+- `field` (ignores scope and/or accessibility)
+- `constructor` (ignores scope and/or accessibility)
 - `public-static-method`
 - `protected-static-method`
 - `private-static-method`
 - `public-instance-method`
 - `protected-instance-method`
 - `private-instance-method`
-- `public-method` (disregard of the scope)
-- `protected-method` (disregard of the scope)
-- `private-method` (disregard of the scope)
-- `static-method` (disregard of the accessibility)
-- `instance-method` (disregard of the accessibility)
-- `method` (disregard of the scope and/or accessibility)
+- `public-method` (ignores scope)
+- `protected-method` (ignores scope)
+- `private-method` (ignores scope)
+- `static-method` (ignores accessibility)
+- `instance-method` (ignores accessibility)
+- `method` (ignores scope and/or accessibility)
 
 The rule can also take one or more of the following options:
 - `default`, use this to change the default order (used when no specific configuration has been provided). 
