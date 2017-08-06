@@ -10,7 +10,7 @@ This rule will warn when it encounters a reference to an identifier that has not
 
 Examples of **incorrect** code for this rule:
 
-```js
+```ts
 /*eslint no-use-before-define: "error"*/
 /*eslint-env es6*/
 
@@ -30,11 +30,14 @@ var b = 1;
     alert(c);
     let c = 1;
 }
+
+let myVar: StringOrNumber;
+type StringOrNumber = string | number;
 ```
 
 Examples of **correct** code for this rule:
 
-```js
+```ts
 /*eslint no-use-before-define: "error"*/
 /*eslint-env es6*/
 
@@ -55,6 +58,9 @@ function g() {
     let C;
     c++;
 }
+
+type StringOrNumber = string | number;
+let myVar: StringOrNumber;
 ```
 
 ## Options
@@ -81,6 +87,12 @@ function g() {
   This flag determines whether or not the rule checks variable declarations in upper scopes.
   If this is `true`, the rule warns every reference to a variable before the variable declaration.
   Otherwise, the rule ignores a reference if the declaration is in an upper scope, while still reporting the reference if it's in the same scope as the declaration.
+  Default is `true`.
+* `typedefs` (`boolean`, **added** in `eslint-plugin-typescript`) -
+  The flag which shows whether or not this rule checks type declarations.
+  If this is `true`, this rule warns every reference to a type before the type declaration.
+  Otherwise, ignores those references.
+  Type declarations are hoisted, so it's safe.
   Default is `true`.
 
 This rule accepts `"nofunc"` string as an option.
@@ -146,5 +158,17 @@ function baz() {
 
 var foo = 1;
 ```
+
+### typedefs
+
+Examples of **correct** code for the `{ "typedefs": false }` option:
+
+```ts
+/*eslint no-use-before-define: ["error", { "typedefs": false }]*/
+
+let myVar: StringOrNumber;
+type StringOrNumber = string | number;
+```
+
 
 Copied from [the original ESLint rule docs](https://github.com/eslint/eslint/blob/a113cd3/docs/rules/no-use-before-define.md)
