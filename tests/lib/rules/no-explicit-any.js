@@ -364,6 +364,19 @@ type obj = {
         {
             code: `
 class Greeter {
+    constructor(param: Array<any>) {}
+}
+            `,
+            parser: "typescript-eslint-parser",
+            errors: [{
+                message: "Unexpected any. Specify a different type.",
+                line: 3,
+                column: 30
+            }]
+        },
+        {
+            code: `
+class Greeter {
     message: any;
 }
             `,
