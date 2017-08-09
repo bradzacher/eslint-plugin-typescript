@@ -173,12 +173,7 @@ type obj = {
     message: string | number; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 23
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -186,12 +181,7 @@ type obj = {
     message: string | Array<string>; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -199,12 +189,7 @@ type obj = {
     message: string | string[]; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -212,12 +197,7 @@ type obj = {
     message: string | Array<Array<string>>; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -225,12 +205,7 @@ type obj = {
     message: string & number; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 23
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -238,12 +213,7 @@ type obj = {
     message: string & Array<string>; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -251,12 +221,7 @@ type obj = {
     message: string & string[]; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         },
         {
             code: `
@@ -264,12 +229,7 @@ type obj = {
     message: string & Array<Array<string>>; 
 }
             `,
-            parser: "typescript-eslint-parser",
-            errors: [{
-                message: "Unexpected any. Specify a different type.",
-                line: 3,
-                column: 29
-            }]
+            parser: "typescript-eslint-parser"
         }
     ],
     invalid: [
