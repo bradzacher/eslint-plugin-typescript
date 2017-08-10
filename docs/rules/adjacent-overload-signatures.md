@@ -72,7 +72,7 @@ class Foo {
 
 ## When Not To Use It
 
-If you don't care about the general structure of code or grouping related items, then you will not need this rule.
+If you don't care about the general structure of the code, then you will not need this rule.
 
 ## Compatibility
 
