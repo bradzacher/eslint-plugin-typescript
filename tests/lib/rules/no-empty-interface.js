@@ -17,7 +17,7 @@ const rule = require("../../../lib/rules/no-empty-interface"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("member-ordering", rule, {
+ruleTester.run("no-empty-interface", rule, {
     valid: [
         {
             code: `
