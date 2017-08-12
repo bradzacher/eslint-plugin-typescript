@@ -58,7 +58,7 @@ Then configure the rules you want to use under the rules section.
 * `typescript/no-namespace` - disallows the use of custom TypeScript modules and namespaces.
 * `typescript/no-use-before-define` - disallows the use of variables before they are defined.
 * `typescript/prefer-namespace-keyword` - enforces the use of the keyword `namespace` over `module` to declare custom TypeScript modules. (`no-internal-module` from TSLint)
-* `typescript/no-type-literal` - disallows the use of type aliases. (`interface-over-type-literal` from TSLint)
+* `typescript/no-type-alias` - disallows the use of type aliases. (`interface-over-type-literal` from TSLint)
 * `typescript/member-ordering` - enforces a standard member declaration order. (`member-ordering` from TSLint)
 * `typescript/no-unused-vars` - prevents TypeScript-specific constructs from being erroneously flagged as unused
 * `typescript/adjacent-overload-signatures` - enforces member overloads to be consecutive.
