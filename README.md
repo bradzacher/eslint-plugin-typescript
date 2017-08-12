@@ -50,15 +50,15 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * `typescript/type-annotation-spacing` - enforces one space after the colon and zero spaces before the colon of a type annotation.
-* `typescript/explicit-member-accessibility` - enforces accessibility modifiers on class properties and methods.
-* `typescript/interface-name-prefix` - enforces interface names are prefixed.
-* `typescript/no-triple-slash-reference` - enforces `/// <reference />` is not used.
-* `typescript/no-explicit-any` - enforces the any type is not used.
-* `typescript/no-angle-bracket-type-assertion` - enforces the use of `as Type` assertions instead of `<Type>` assertions.
+* `typescript/explicit-member-accessibility` - enforces accessibility modifiers on class properties and methods. (`member-access` from TSLint)
+* `typescript/interface-name-prefix` - enforces interface names are prefixed. (`interface-name` from TSLint)
+* `typescript/no-triple-slash-reference` - enforces `/// <reference />` is not used. (`no-reference` from TSLint)
+* `typescript/no-explicit-any` - enforces the `any` type is not used. (`no-any` from TSLint)
+* `typescript/no-angle-bracket-type-assertion` - enforces the use of `as Type` assertions instead of `<Type>` assertions. (`no-angle-bracket-type-assertion` from TSLint)
 * `typescript/no-namespace` - disallows the use of custom TypeScript modules and namespaces.
-* `typescript/no-use-before-define` - disallows the use of variables before they are defined
-* `typescript/prefer-namespace-keyword` - enforces the use of the keyword `namespace` over `module` to declare custom TypeScript modules.
-* `typescript/no-type-literal` - disallows the use of type aliases.
-* `typescript/member-ordering` - enforces a standard member declaration order.
+* `typescript/no-use-before-define` - disallows the use of variables before they are defined.
+* `typescript/prefer-namespace-keyword` - enforces the use of the keyword `namespace` over `module` to declare custom TypeScript modules. (`no-internal-module` from TSLint)
+* `typescript/no-type-literal` - disallows the use of type aliases. (`interface-over-type-literal` from TSLint)
+* `typescript/member-ordering` - enforces a standard member declaration order. (`member-ordering` from TSLint)
 * `typescript/no-unused-vars` - prevents TypeScript-specific constructs from being erroneously flagged as unused
 * `typescript/adjacent-overload-signatures` - enforces member overloads to be consecutive.
