@@ -6,7 +6,7 @@ Spacing around type annotations improves readability of the code. Although the m
 // with space after, but not before
 let foo: string = "bar";
 
-// with space before and after 
+// with space before and after
 let foo : string = "bar";
 
 // with space before, but not after
@@ -17,13 +17,16 @@ let foo :string = "bar";
 
 This rule aims to enforce specific spacing patterns around type annotations.
 
-## Options 
+## Options
 
 This rule has an object option:
 - `"before": false` (default) disallows spaces before the colon.
 - `"before": true` requires a space before the colon.
 - `"after": true` (default) requires a space after the colon.
 - `"after": false` disallows spaces after the colon.
+- `"overrides"`: specifies overwriting usage of spacing for `colon` and `arrow` (used in function types). This is empty by default but can be used to enforce or disallow spacing around type annotations.
+
+It also accepts overrides
 
 ### after
 Examples of **incorrect** code for this rule with the default `{ "before": false, "after": true }` options:
@@ -92,6 +95,100 @@ function foo() : string {}
 
 class Foo {
     name : string;
+}
+```
+
+### overrides - colon
+Examples of **incorrect** code for this rule with `{ "before": false, "after": false, overrides: { colon: { before: true, after: true }} }` options:
+```ts
+let foo: string = "bar";
+let foo:string = "bar";
+let foo :string = "bar";
+
+function foo(): string {}
+function foo():string {}
+function foo() :string {}
+
+class Foo {
+    name: string;
+}
+
+class Foo {
+    name:string;
+}
+
+class Foo {
+    name :string;
+}
+
+type Foo = {
+    name: (name:string) => string;
+}
+```
+
+Examples of **correct** code for this rule with `{ "before": true, "after": true, overrides: { colon: { before: true, after: true }} }` options:
+```ts
+let foo : string = "bar";
+
+function foo() : string {}
+
+class Foo {
+    name : string;
+}
+
+type Foo = {
+    name: (name : string)=>string;
+}
+```
+
+### overrides - arrow
+Examples of **incorrect** code for this rule with `{ "before": false, "after": false, overrides: { arrow: { before: true, after: true }} }` options:
+```ts
+let foo: string = "bar";
+let foo : string = "bar";
+let foo :string = "bar";
+
+function foo(): string {}
+function foo():string {}
+function foo() :string {}
+
+class Foo {
+    name: string;
+}
+
+class Foo {
+    name : string;
+}
+
+class Foo {
+    name :string;
+}
+
+type Foo = {
+    name: (name : string)=>string;
+}
+
+type Foo = {
+    name: (name : string) =>string;
+}
+
+type Foo = {
+    name: (name : string)=> string;
+}
+```
+
+Examples of **correct** code for this rule with `{ "before": true, "after": true, overrides: { arrow: { before: true, after: true }} }` options:
+```ts
+let foo:string = "bar";
+
+function foo():string {}
+
+class Foo {
+    name:string;
+}
+
+type Foo = {
+    name: (name:string) => string;
 }
 ```
 

@@ -112,6 +112,18 @@ type Foo = {
             parser: "typescript-eslint-parser"
         },
         {
+            code: "type Foo = (name: string) => string;",
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: "let foo: string;",
             options: [{ after: true }],
             parser: "typescript-eslint-parser"
@@ -217,6 +229,20 @@ type Foo = {
             parser: "typescript-eslint-parser"
         },
         {
+            code: "type Foo = (name: string) => string;",
+            options: [{ after: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            options: [{ after: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: "let foo: string;",
             options: [{ after: true, before: false }],
             parser: "typescript-eslint-parser"
@@ -316,6 +342,20 @@ type Foo = {
             code: `
 type Foo = {
     greet(name: string): string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name: string)=> string;",
+            options: [{ after: true, before: false }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name: string)=> string;
 }
             `,
             options: [{ after: true, before: false }],
@@ -421,6 +461,20 @@ type Foo = {
             code: `
 type Foo = {
     greet(name : string) : string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            options: [{ after: true, before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
 }
             `,
             options: [{ after: true, before: true }],
@@ -532,6 +586,20 @@ type Foo = {
             parser: "typescript-eslint-parser"
         },
         {
+            code: "type Foo = (name :string) =>string;",
+            options: [{ after: false, before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name :string) =>string;
+}
+            `,
+            options: [{ after: false, before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: "let foo : string;",
             options: [{ before: true }],
             parser: "typescript-eslint-parser"
@@ -634,6 +702,225 @@ type Foo = {
 }
             `,
             options: [{ before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            options: [{ before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            options: [{ before: true }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "let foo : string;",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "function foo() : string {}",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "function foo(a : string) {}",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+class Foo {
+    name : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+class Foo {
+    constructor(message : string);
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+class Foo {
+    greet() : string { return "hello"; }
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+class Foo {
+    greet(name : string) : string { return name; }
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+interface Foo {
+    name : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+interface Foo {
+    greet() : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+interface Foo {
+    greet(name : string) : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    name : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet() : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet(name : string) : string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name : string)=>string;",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=>string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "type Foo = (name : string) =>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) =>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true
+                        }
+                    }
+                }
+            ],
             parser: "typescript-eslint-parser"
         }
     ],
@@ -643,9 +930,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 8
+                column: 9
             }]
         },
         {
@@ -653,9 +940,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -663,9 +950,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -681,9 +968,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -699,9 +986,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 24
+                column: 25
             }]
         },
         {
@@ -717,9 +1004,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -736,14 +1023,14 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -760,9 +1047,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -778,9 +1065,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -797,14 +1084,14 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -821,9 +1108,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -839,9 +1126,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -858,14 +1145,88 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            parser: "typescript-eslint-parser",
+            output: "type Foo = (name: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            parser: "typescript-eslint-parser",
+            output: "type Foo = (name: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 27
                 }
             ]
         },
@@ -875,9 +1236,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 8
+                column: 9
             }]
         },
         {
@@ -886,9 +1247,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -897,9 +1258,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -916,9 +1277,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -935,9 +1296,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 24
+                column: 25
             }]
         },
         {
@@ -954,9 +1315,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -974,14 +1335,14 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -999,9 +1360,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -1018,9 +1379,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -1038,14 +1399,14 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -1063,9 +1424,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -1082,9 +1443,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -1102,14 +1463,92 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true }],
+            output: "type Foo = (name: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true }],
+            output: "type Foo = (name: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    greet: (name: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 27
                 }
             ]
         },
@@ -1119,9 +1558,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 8
+                column: 9
             }]
         },
         {
@@ -1130,9 +1569,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -1141,9 +1580,9 @@ type Foo = {
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 1,
-                column: 15
+                column: 16
             }]
         },
         {
@@ -1160,9 +1599,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -1179,9 +1618,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 24
+                column: 25
             }]
         },
         {
@@ -1198,9 +1637,9 @@ class Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -1218,14 +1657,14 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -1243,9 +1682,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -1262,9 +1701,9 @@ interface Foo {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -1282,14 +1721,14 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
                 }
             ]
         },
@@ -1307,9 +1746,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 9
+                column: 10
             }]
         },
         {
@@ -1326,9 +1765,9 @@ type Foo = {
 }
             `,
             errors: [{
-                message: "Unexpected space before the colon.",
+                message: "Unexpected space before the ':'",
                 line: 3,
-                column: 12
+                column: 13
             }]
         },
         {
@@ -1346,14 +1785,92 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 15
+                    column: 16
                 },
                 {
-                    message: "Unexpected space before the colon.",
+                    message: "Unexpected space before the ':'",
                     line: 3,
-                    column: 25
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string) => string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: false }],
+            output: "type Foo = (name: string)=> string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Unexpected space before the '=>'",
+                    line: 1,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: false }],
+            output: "type Foo = (name: string)=> string;",
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    greet: (name: string)=> string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Unexpected space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    greet: (name: string)=> string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 18
                 }
             ]
         },
@@ -1364,12 +1881,12 @@ type Foo = {
             output: "let foo : string;",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 7
+                    column: 8
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 8
                 }
@@ -1382,12 +1899,12 @@ type Foo = {
             output: "function foo() : string {}",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 14
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 15
                 }
@@ -1400,12 +1917,12 @@ type Foo = {
             output: "function foo(a : string) {}",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 14
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 15
                 }
@@ -1426,12 +1943,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1452,12 +1969,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 23
+                    column: 24
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 24
                 }
@@ -1478,12 +1995,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -1504,22 +2021,22 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 23
                 }
@@ -1540,12 +2057,12 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1566,12 +2083,12 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -1592,22 +2109,22 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 23
                 }
@@ -1628,12 +2145,12 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1654,12 +2171,12 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -1680,24 +2197,102 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 23
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name: string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: true }],
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: true }],
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name: string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 27
                 }
             ]
         },
@@ -1708,12 +2303,12 @@ type Foo = {
             output: "let foo : string;",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 7
+                    column: 8
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 8
                 }
@@ -1726,12 +2321,12 @@ type Foo = {
             output: "function foo() : string {}",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 14
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 15
                 }
@@ -1744,12 +2339,12 @@ type Foo = {
             output: "function foo(a : string) {}",
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 1,
-                    column: 14
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 1,
                     column: 15
                 }
@@ -1770,12 +2365,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1796,12 +2391,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 23
+                    column: 24
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 24
                 }
@@ -1822,12 +2417,12 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -1848,22 +2443,22 @@ class Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 23
                 }
@@ -1884,12 +2479,12 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1910,12 +2505,12 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -1936,22 +2531,22 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 23
                 }
@@ -1972,12 +2567,12 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 8
+                    column: 9
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 9
                 }
@@ -1998,12 +2593,12 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
-                    column: 11
+                    column: 12
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
                     column: 12
                 }
@@ -2024,24 +2619,584 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: "Expected a space before the colon.",
-                    line: 3,
-                    column: 14
-                },
-                {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 15
                 },
                 {
-                    message: "Expected a space before the colon.",
+                    message: "Expected a space before the ':'",
                     line: 3,
-                    column: 22
+                    column: 15
                 },
                 {
-                    message: "Expected a space after the colon.",
+                    message: "Expected a space after the ':'",
                     line: 3,
                     column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 23
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name: string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ before: true }],
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            parser: "typescript-eslint-parser",
+            options: [{ before: true }],
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name: string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name : string)=> string;
+}
+            `,
+            parser: "typescript-eslint-parser",
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "let foo:string;",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: "let foo : string;",
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 1,
+                    column: 8
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 8
+                }
+            ]
+        },
+        {
+            code: "function foo():string {}",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: "function foo() : string {}",
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 1,
+                    column: 15
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 15
+                }
+            ]
+        },
+        {
+            code: "function foo(a:string) {}",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: "function foo(a : string) {}",
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 1,
+                    column: 15
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 15
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name:string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+class Foo {
+    name : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 9
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message:string);
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+class Foo {
+    constructor(message : string);
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet():string { return "hello"; }
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+class Foo {
+    greet() : string { return "hello"; }
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 12
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 12
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name:string):string { return name; }
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+class Foo {
+    greet(name : string) : string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 23
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name:string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+interface Foo {
+    name : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 9
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet():string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+interface Foo {
+    greet() : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 12
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 12
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name:string):string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+interface Foo {
+    greet(name : string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 23
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name:string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    name : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 9
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet():string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet() : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 12
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 12
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name:string):string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet(name : string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 23
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 23
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name:string)=>string;",
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: "type Foo = (name : string)=>string;",
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 17
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name:string)=>string;
+}
+            `,
+            options: [{ before: false, after: false, overrides: { colon: { before: true, after: true } } }],
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet: (name : string)=>string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 17
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name:string)=>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser",
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space after the '=>'",
+                    line: 1,
+                    column: 25
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name:string)=>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser",
+            output: `
+type Foo = {
+    greet: (name : string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 17
+                },
+                {
+                    message: "Expected a space after the '=>'",
+                    line: 3,
+                    column: 25
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 25
                 }
             ]
         }
