@@ -20,6 +20,10 @@ const ruleTester = new RuleTester();
 ruleTester.run("type-annotation-spacing", rule, {
     valid: [
         {
+            code: "const foo = {} as Foo;",
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: "let foo: string;",
             parser: "typescript-eslint-parser"
         },
