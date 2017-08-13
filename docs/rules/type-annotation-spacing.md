@@ -3,7 +3,7 @@
 Spacing around type annotations improves readability of the code. Although the most commonly used style guideline for type annotations in TypeScript prescribes adding a space after the colon, but not before it, it is subjective to the preferences of a project. For example:
 
 ```ts
-// with space after, but not before
+// with space after, but not before (default if no option is specified)
 let foo: string = "bar";
 
 // with space before and after
@@ -11,6 +11,18 @@ let foo : string = "bar";
 
 // with space before, but not after
 let foo :string = "bar";
+
+// with no spaces between the fat arrow
+type Foo = (string: name)=>string;
+
+// with space after, but not before the fat arrow
+type Foo = (string: name)=> string;
+
+// with space before, but not after the fat arrow
+type Foo = (string: name) =>string;
+
+// with spaces before and after the fat arrow (default if no option is specified)
+type Foo = (string: name) => string;
 ```
 
 ## Rule Details
@@ -177,7 +189,7 @@ type Foo = {
 }
 ```
 
-Examples of **correct** code for this rule with `{ "before": true, "after": true, overrides: { arrow: { before: true, after: true }} }` options:
+Examples of **correct** code for this rule with `{ "before": false, "after": false, overrides: { arrow: { before: true, after: true }} }` options:
 ```ts
 let foo:string = "bar";
 
