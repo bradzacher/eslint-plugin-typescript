@@ -2,6 +2,15 @@ root: true
 
 plugins:
     - node
+    - prettier
 extends:
     - "eslint"
     - "plugin:node/recommended"
+    - "prettier"
+rules:
+    prettier/prettier:
+    - error
+    - tabWidth: 4
+      printWidth: 120
+    lines-around-comment: off
+
