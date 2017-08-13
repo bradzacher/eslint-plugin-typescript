@@ -62,3 +62,4 @@ Then configure the rules you want to use under the rules section.
 * `typescript/member-ordering` - enforces a standard member declaration order.
 * `typescript/no-unused-vars` - prevents TypeScript-specific constructs from being erroneously flagged as unused
 * `typescript/adjacent-overload-signatures` - enforces member overloads to be consecutive.
+* `typescript/class-name-casing` - enforces PascalCased class and interface names.
