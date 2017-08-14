@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/no-type-alias"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -19,7 +18,6 @@ const rule = require("../../../lib/rules/no-type-alias"),
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-type-alias", rule, {
-
     valid: [
         {
             code: "type Foo = 'a';",

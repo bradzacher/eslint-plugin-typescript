@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/no-angle-bracket-type-assertion"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -19,7 +18,6 @@ const rule = require("../../../lib/rules/no-angle-bracket-type-assertion"),
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-angle-bracket-type-assertion", rule, {
-
     valid: [
         {
             code: `

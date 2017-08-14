@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/member-ordering"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -626,7 +625,8 @@ class Foo {
                         "constructor",
                         "public-field",
                         "protected-field",
-                        "private-field"]
+                        "private-field"
+                    ]
                 }
             ],
             parser: "typescript-eslint-parser"
@@ -2025,7 +2025,8 @@ class Foo {
                         "constructor",
                         "public-field",
                         "protected-field",
-                        "private-field"]
+                        "private-field"
+                    ]
                 }
             ],
             parser: "typescript-eslint-parser",
@@ -2451,7 +2452,13 @@ const foo = class {
             `,
             options: [
                 {
-                    classExpressions: ["public-method", "constructor", "public-field", "private-field", "protected-field"]
+                    classExpressions: [
+                        "public-method",
+                        "constructor",
+                        "public-field",
+                        "private-field",
+                        "protected-field"
+                    ]
                 }
             ],
             parser: "typescript-eslint-parser",
@@ -2496,7 +2503,8 @@ const foo = class {
                         "constructor",
                         "public-field",
                         "protected-field",
-                        "private-field"]
+                        "private-field"
+                    ]
                 }
             ],
             parser: "typescript-eslint-parser",
@@ -2644,10 +2652,6 @@ const foo = class {
                 }
             ]
         },
-
-
-
-
 
         {
             code: `

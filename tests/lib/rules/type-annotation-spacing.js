@@ -933,31 +933,37 @@ type Foo = {
             code: "let foo : string;",
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 9
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 9
+                }
+            ]
         },
         {
             code: "function foo() : string {}",
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: "function foo(a : string) {}",
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: `
@@ -971,11 +977,13 @@ class Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -989,11 +997,13 @@ class Foo {
     constructor(message: string);
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 25
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 25
+                }
+            ]
         },
         {
             code: `
@@ -1007,11 +1017,13 @@ class Foo {
     greet(): string { return "hello"; }
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1050,11 +1062,13 @@ interface Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1068,11 +1082,13 @@ interface Foo {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1111,11 +1127,13 @@ type Foo = {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1129,11 +1147,13 @@ type Foo = {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1239,33 +1259,39 @@ type Foo = {
             options: [{ after: true }],
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 9
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 9
+                }
+            ]
         },
         {
             code: "function foo() : string {}",
             options: [{ after: true }],
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: "function foo(a : string) {}",
             options: [{ after: true }],
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: `
@@ -1280,11 +1306,13 @@ class Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1299,11 +1327,13 @@ class Foo {
     constructor(message: string);
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 25
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 25
+                }
+            ]
         },
         {
             code: `
@@ -1318,11 +1348,13 @@ class Foo {
     greet(): string { return "hello"; }
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1363,11 +1395,13 @@ interface Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1382,11 +1416,13 @@ interface Foo {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1427,11 +1463,13 @@ type Foo = {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1446,11 +1484,13 @@ type Foo = {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1561,33 +1601,39 @@ type Foo = {
             options: [{ after: true, before: false }],
             parser: "typescript-eslint-parser",
             output: "let foo: string;",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 9
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 9
+                }
+            ]
         },
         {
             code: "function foo() : string {}",
             options: [{ after: true, before: false }],
             parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: "function foo(a : string) {}",
             options: [{ after: true, before: false }],
             parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 1,
-                column: 16
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 1,
+                    column: 16
+                }
+            ]
         },
         {
             code: `
@@ -1602,11 +1648,13 @@ class Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1621,11 +1669,13 @@ class Foo {
     constructor(message: string);
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 25
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 25
+                }
+            ]
         },
         {
             code: `
@@ -1640,11 +1690,13 @@ class Foo {
     greet(): string { return "hello"; }
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1685,11 +1737,13 @@ interface Foo {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1704,11 +1758,13 @@ interface Foo {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `
@@ -1749,11 +1805,13 @@ type Foo = {
     name: string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 10
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 10
+                }
+            ]
         },
         {
             code: `
@@ -1768,11 +1826,13 @@ type Foo = {
     greet(): string;
 }
             `,
-            errors: [{
-                message: "Unexpected space before the ':'",
-                line: 3,
-                column: 13
-            }]
+            errors: [
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 13
+                }
+            ]
         },
         {
             code: `

@@ -497,8 +497,6 @@ class Foo {
             ]
         },
 
-
-
         {
             code: `
 class Foo {

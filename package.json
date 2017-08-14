@@ -12,7 +12,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib/ tests/",
-    "lint:fix": "eslint lib/ test/ --fix",
+    "lint:fix": "eslint lib/ tests/ --fix",
     "mocha": "mocha tests --recursive",
     "test": "npm run lint && npm run mocha"
   },
