@@ -62,3 +62,4 @@ Then configure the rules you want to use under the rules section.
 * [`typescript/member-ordering`](./docs/rules/member-ordering.md) — enforces a standard member declaration order. (`member-ordering` from TSLint)
 * [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) — prevents TypeScript-specific constructs from being erroneously flagged as unused
 * [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) — enforces member overloads to be consecutive.
+* [`typescript/member-delimiter-style`](./docs/rules/member-delimiter-style.md) - enforces a member delimiter style in interfaces and type literals.
