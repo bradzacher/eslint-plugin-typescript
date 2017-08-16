@@ -36,9 +36,7 @@ This rule has an object option:
 - `"before": true` requires a space before the colon.
 - `"after": true` (default) requires a space after the colon.
 - `"after": false` disallows spaces after the colon.
-- `"overrides"`: specifies overwriting usage of spacing for `colon` and `arrow` (used in function types). This is empty by default but can be used to enforce or disallow spacing around type annotations.
-
-It also accepts overrides
+- `"overrides"`: overrides the default options for type annotations with `colon` (e.g. `const foo: string`) and function types with `arrow` (e.g. type Foo = () => {}).
 
 ### after
 Examples of **incorrect** code for this rule with the default `{ "before": false, "after": true }` options:
