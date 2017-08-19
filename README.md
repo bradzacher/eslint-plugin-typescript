@@ -63,3 +63,5 @@ Then configure the rules you want to use under the rules section.
 * [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) — prevents TypeScript-specific constructs from being erroneously flagged as unused
 * [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) — enforces member overloads to be consecutive.
 * [`typescript/class-name-casing`](./docs/rules/adjacent-overload-signatures.md) - enforces PascalCased class and interface names. (`class-name` from TSLint)
+* [`typescript/member-delimiter-style`](./docs/rules/member-delimiter-style.md) - enforces a member delimiter style in interfaces and type literals.
+* [`typescript/no-empty-interface`](./docs/rules/no-empty-interface.md) - disallows the declaration of empty interfaces. (`no-empty-interface` from TSLint)
