@@ -42,7 +42,11 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
             parser
         },
         {
-            code: ["import { ClassDecorator } from 'decorators'", "@ClassDecorator", "export class Foo {}"].join("\n"),
+            code: [
+                "import { ClassDecorator } from 'decorators'",
+                "@ClassDecorator",
+                "export class Foo {}"
+            ].join("\n"),
             parser
         },
         {
@@ -165,18 +169,26 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
             parser
         },
         {
-            code: ["interface Base {}", "class Thing implements Base {}", "new Thing()"].join("\n"),
+            code: [
+                "interface Base {}",
+                "class Thing implements Base {}",
+                "new Thing()"
+            ].join("\n"),
             parser
         }
     ],
 
     invalid: [
         {
-            code: ["import { ClassDecoratorFactory } from 'decorators'", "export class Foo {}"].join("\n"),
+            code: [
+                "import { ClassDecoratorFactory } from 'decorators'",
+                "export class Foo {}"
+            ].join("\n"),
             parser,
             errors: [
                 {
-                    message: "'ClassDecoratorFactory' is defined but never used.",
+                    message:
+                        "'ClassDecoratorFactory' is defined but never used.",
                     line: 1,
                     column: 10
                 }

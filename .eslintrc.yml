@@ -11,6 +11,5 @@ rules:
     prettier/prettier:
     - error
     - tabWidth: 4
-      printWidth: 120
     lines-around-comment: off
 

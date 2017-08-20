@@ -156,7 +156,12 @@ interface Foo {
     age: number;
 }
             `,
-            options: [{ delimiter: "comma", overrides: { interface: { delimiter: "semi" } } }],
+            options: [
+                {
+                    delimiter: "comma",
+                    overrides: { interface: { delimiter: "semi" } }
+                }
+            ],
             parser: "typescript-eslint-parser"
         },
         {
@@ -229,7 +234,12 @@ interface Foo {
     age: number,
 }
             `,
-            options: [{ delimiter: "semi", overrides: { interface: { delimiter: "comma" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { interface: { delimiter: "comma" } }
+                }
+            ],
             parser: "typescript-eslint-parser"
         },
         {
@@ -1004,7 +1014,12 @@ interface Foo {
     age: number
 }
             `,
-            options: [{ delimiter: "comma", overrides: { interface: { delimiter: "semi" } } }],
+            options: [
+                {
+                    delimiter: "comma",
+                    overrides: { interface: { delimiter: "semi" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {
@@ -1081,7 +1096,12 @@ interface Foo {
     age: number
 }
             `,
-            options: [{ delimiter: "semi", overrides: { interface: { delimiter: "comma" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { interface: { delimiter: "comma" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {
@@ -1158,7 +1178,12 @@ interface Foo {
     age: number;
 }
             `,
-            options: [{ delimiter: "semi", overrides: { interface: { delimiter: "comma" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { interface: { delimiter: "comma" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {
@@ -1265,7 +1290,12 @@ interface Foo {
     age: number;
 }
             `,
-            options: [{ delimiter: "semi", overrides: { interface: { delimiter: "none" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { interface: { delimiter: "none" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {
@@ -1367,7 +1397,12 @@ interface Foo {
     age: number,
 }
             `,
-            options: [{ delimiter: "semi", overrides: { interface: { delimiter: "none" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { interface: { delimiter: "none" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {
@@ -2127,7 +2162,12 @@ type Foo = {
     age: number;
 }
             `,
-            options: [{ delimiter: "semi", overrides: { typeLiteral: { delimiter: "none" } } }],
+            options: [
+                {
+                    delimiter: "semi",
+                    overrides: { typeLiteral: { delimiter: "none" } }
+                }
+            ],
             parser: "typescript-eslint-parser",
             errors: [
                 {

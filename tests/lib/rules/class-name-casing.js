@@ -47,7 +47,8 @@ ruleTester.run("class-name-casing", rule, {
             code: "class Another_Invalid_Class_Name {}",
             errors: [
                 {
-                    message: "Class 'Another_Invalid_Class_Name' must be PascalCased",
+                    message:
+                        "Class 'Another_Invalid_Class_Name' must be PascalCased",
                     line: 1,
                     column: 7
                 }

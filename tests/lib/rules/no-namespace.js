@@ -40,7 +40,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -51,7 +52,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -63,7 +65,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -75,7 +78,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -86,7 +90,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -97,7 +102,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -109,7 +115,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }
@@ -121,7 +128,8 @@ ruleTester.run("no-namespace", rule, {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
+                    message:
+                        "ES2015 module syntax is preferred over custom TypeScript modules and namespaces",
                     row: 1,
                     column: 1
                 }

@@ -46,7 +46,8 @@ const bar = new Generic<int>() as Foo;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as number' instead of '<number>' when doing type assertions",
+                    message:
+                        "Prefer 'as number' instead of '<number>' when doing type assertions",
                     row: 1,
                     column: 20
                 }
@@ -60,7 +61,8 @@ const b : number = a as number;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as number' instead of '<number>' when doing type assertions",
+                    message:
+                        "Prefer 'as number' instead of '<number>' when doing type assertions",
                     row: 3,
                     column: 20
                 }
@@ -71,7 +73,8 @@ const b : number = a as number;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as Array<number>' instead of '<Array<number>>' when doing type assertions",
+                    message:
+                        "Prefer 'as Array<number>' instead of '<Array<number>>' when doing type assertions",
                     row: 1,
                     column: 27
                 }
@@ -118,12 +121,14 @@ const bar = <Foo>new Generic<int>();
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as Foo' instead of '<Foo>' when doing type assertions",
+                    message:
+                        "Prefer 'as Foo' instead of '<Foo>' when doing type assertions",
                     row: 8,
                     column: 13
                 },
                 {
-                    message: "Prefer 'as Foo' instead of '<Foo>' when doing type assertions",
+                    message:
+                        "Prefer 'as Foo' instead of '<Foo>' when doing type assertions",
                     row: 9,
                     column: 13
                 }
@@ -134,7 +139,8 @@ const bar = <Foo>new Generic<int>();
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as number' instead of '<number>' when doing type assertions",
+                    message:
+                        "Prefer 'as number' instead of '<number>' when doing type assertions",
                     row: 1,
                     column: 20
                 }
@@ -148,7 +154,8 @@ const b : number = <number>a;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as number' instead of '<number>' when doing type assertions",
+                    message:
+                        "Prefer 'as number' instead of '<number>' when doing type assertions",
                     row: 3,
                     column: 20
                 }
@@ -159,7 +166,8 @@ const b : number = <number>a;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as Array<number>' instead of '<Array<number>>' when doing type assertions",
+                    message:
+                        "Prefer 'as Array<number>' instead of '<Array<number>>' when doing type assertions",
                     row: 1,
                     column: 27
                 }
@@ -176,7 +184,8 @@ const a : A = <A>b;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as A' instead of '<A>' when doing type assertions",
+                    message:
+                        "Prefer 'as A' instead of '<A>' when doing type assertions",
                     row: 6,
                     column: 15
                 }
@@ -197,7 +206,8 @@ const a: A = <A>b;
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Prefer 'as A' instead of '<A>' when doing type assertions",
+                    message:
+                        "Prefer 'as A' instead of '<A>' when doing type assertions",
                     row: 9,
                     column: 14
                 }

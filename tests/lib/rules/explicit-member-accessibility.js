@@ -45,7 +45,8 @@ class Test {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Missing accessibility modifier on class property x.",
+                    message:
+                        "Missing accessibility modifier on class property x.",
                     line: 3,
                     column: 3
                 }
@@ -63,7 +64,8 @@ class Test {
             parser: "typescript-eslint-parser",
             errors: [
                 {
-                    message: "Missing accessibility modifier on method definition getX.",
+                    message:
+                        "Missing accessibility modifier on method definition getX.",
                     line: 4,
                     column: 3
                 }
