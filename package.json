@@ -15,7 +15,7 @@
     "lint:fix": "eslint lib/ tests/ --fix",
     "mocha": "mocha tests --recursive",
     "test": "npm run lint && npm run mocha",
-    "precommit": "lint-staged && npm test"
+    "precommit": "npm test && lint-staged"
   },
   "dependencies": {
     "requireindex": "~1.1.0"
