@@ -21,6 +21,17 @@ ruleTester.run("adjacent-overload-signatures", rule, {
     valid: [
         {
             code: `
+import { connect } from 'react-redux';
+export interface ErrorMessageModel { message: string; }
+function mapStateToProps() { }
+function mapDispatchToProps() { }
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorMessage);
+            `,
+            parserOptions: { sourceType: "module" },
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
 export const foo = "a", bar = "b";
 export interface Foo {}
 export class Foo {}
