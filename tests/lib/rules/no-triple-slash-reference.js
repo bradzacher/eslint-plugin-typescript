@@ -30,6 +30,17 @@ ruleTester.run("no-triple-slash-reference", rule, {
     ],
     invalid: [
         {
+            code: '/// <reference path="Animal" />',
+            parser: "typescript-eslint-parser",
+            errors: [
+                {
+                    message: "Do not use a triple slash reference",
+                    line: 1,
+                    column: 1
+                }
+            ]
+        },
+        {
             code: '/// <reference path="Animal" />\nlet a',
             parser: "typescript-eslint-parser",
             errors: [
