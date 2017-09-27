@@ -56,6 +56,7 @@ Then configure the rules you want to use under the rules section.
 * [`typescript/explicit-member-accessibility`](./docs/rules/explicit-member-accessibility.md) — Require explicit accessibility modifiers on class properties and methods (`member-access` from TSLint)
 * [`typescript/interface-name-prefix`](./docs/rules/interface-name-prefix.md) — Require that interface names be prefixed with `I` (`interface-name` from TSLint)
 * [`typescript/member-delimiter-style`](./docs/rules/member-delimiter-style.md) — Require a specific member delimiter style for interfaces and type literals
+* [`typescript/member-naming`](./docs/rules/member-naming.md) — enforces naming conventions for class members by visibility
 * [`typescript/member-ordering`](./docs/rules/member-ordering.md) — Require a consistent member declaration order (`member-ordering` from TSLint)
 * [`typescript/no-angle-bracket-type-assertion`](./docs/rules/no-angle-bracket-type-assertion.md) — Enforces the use of `as Type` assertions instead of `<Type>` assertions (`no-angle-bracket-type-assertion` from TSLint)
 * [`typescript/no-empty-interface`](./docs/rules/no-empty-interface.md) — Disallow the declaration of empty interfaces (`no-empty-interface` from TSLint)
