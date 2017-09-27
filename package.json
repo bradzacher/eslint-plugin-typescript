@@ -15,7 +15,7 @@
     "lint:fix": "eslint lib/ tests/ --fix",
     "docs": "eslint-docs",
     "docs:check": "eslint-docs check",
-    "test": "npm run lint && npm run mocha",
+    "mocha": "mocha tests --recursive --reporter=dot",
     "test": "npm run lint && npm run mocha && npm run docs:check",
     "precommit": "npm test && lint-staged"
   },
