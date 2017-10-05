@@ -410,14 +410,6 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
                 "}"
             ].join("\n"),
             parser
-        },
-        {
-            code: [
-                "import { Nullable } from 'nullable'",
-                "const a: Nullable[] = 'hello'",
-                "console.log(a)"
-            ].join("\n"),
-            parser
         }
     ],
 
