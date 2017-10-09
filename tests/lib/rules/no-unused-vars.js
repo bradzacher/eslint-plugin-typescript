@@ -376,8 +376,8 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
         {
             code: [
                 "import { Nullable } from 'nullable'",
-                "const foo = ({ nullable }: Nullable)  => nullable",
-                "foo()"
+                "const foo = ({ nullable }: Nullable) => nullable",
+                "foo({ nullable: null })"
             ].join("\n"),
             parser
         },
