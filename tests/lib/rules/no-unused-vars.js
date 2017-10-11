@@ -383,6 +383,14 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
         },
         {
             code: [
+                "import { ReproInterface } from 'ReproInterface'",
+                "const x = ({ a = null } : { a: ReproInterface }) => a",
+                "console.log(x)"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
                 "import { Nullable } from 'nullable'",
                 "import { SomeOther } from 'some'",
                 "import { Another } from 'some'",
