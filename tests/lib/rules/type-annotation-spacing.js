@@ -1175,6 +1175,25 @@ class Foo {
             `,
             options: [{ before: true }],
             parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+interface Foo { a: string }
+type Bar = Record<keyof Foo, string>
+            `,
+            options: [
+                {
+                    after: true,
+                    before: false,
+                    overrides: {
+                        arrow: {
+                            after: true,
+                            before: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser"
         }
     ],
     invalid: [
