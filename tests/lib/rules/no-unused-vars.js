@@ -343,7 +343,7 @@ baz<Bar>()
             errors: [
                 {
                     message: "'Foo' is defined but never used.",
-                    line: 1,
+                    line: 2,
                     column: 10
                 }
             ]

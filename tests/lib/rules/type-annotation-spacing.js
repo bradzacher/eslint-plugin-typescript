@@ -1019,7 +1019,7 @@ class Foo {
     greet : (name : string) => void = {}
 }
             `,
-            options: [{ before: true }],
+            options: [{ before: true }]
         },
         {
             code: `
