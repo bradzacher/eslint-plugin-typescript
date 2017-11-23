@@ -136,6 +136,10 @@ type Foo = {
             parser: "typescript-eslint-parser"
         },
         {
+            code: "type Foo = (name: string) => ({ foo: string });",
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: `
 type Foo = {
     greet: (name: string) => string;
