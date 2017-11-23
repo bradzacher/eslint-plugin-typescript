@@ -186,6 +186,36 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
         },
         {
             code: [
+                "import { Foo } from 'foo'",
+                "function bar<T>() {}",
+                "bar<Foo>()"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
+                "import { Foo } from 'foo'",
+                "const bar = function <T>() {}",
+                "bar<Foo>()"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
+                "import { Foo } from 'foo'",
+                "const bar = <T>() => {}",
+                "bar<Foo>()"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: ["import { Foo } from 'foo'", "<Foo>(<T>() => {})()"].join(
+                "\n"
+            ),
+            parser
+        },
+        {
+            code: [
                 "import { Nullable } from 'nullable'",
                 "const a: Nullable<string> = 'hello'",
                 "console.log(a)"
@@ -376,6 +406,22 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
         {
             code: [
                 "import { Nullable } from 'nullable'",
+                "const foo = ({ nullable }: Nullable) => nullable",
+                "foo({ nullable: null })"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
+                "import { ReproInterface } from 'ReproInterface'",
+                "const x = ({ a = null } : { a: ReproInterface }) => a",
+                "console.log(x)"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
+                "import { Nullable } from 'nullable'",
                 "import { SomeOther } from 'some'",
                 "import { Another } from 'some'",
                 "class A extends Nullable<SomeOther> {",
@@ -418,6 +464,22 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
                 "}"
             ].join("\n"),
             parser
+        },
+        {
+            code: [
+                "import Foo from 'foo'",
+                "const bar: Foo.Bar = null",
+                "console.log(bar)"
+            ].join("\n"),
+            parser
+        },
+        {
+            code: [
+                "import Foo from 'foo'",
+                "const baz: Foo.Bar.Baz = null",
+                "console.log(baz)"
+            ].join("\n"),
+            parser
         }
     ],
 
@@ -432,6 +494,21 @@ ruleTester.run("no-unused-vars", ruleNoUnusedVars, {
                 {
                     message:
                         "'ClassDecoratorFactory' is defined but never used.",
+                    line: 1,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: [
+                "import { Foo, Bar } from 'foo';",
+                "function baz<Foo>() {}",
+                "baz<Bar>()"
+            ].join("\n"),
+            parser,
+            errors: [
+                {
+                    message: "'Foo' is defined but never used.",
                     line: 1,
                     column: 10
                 }

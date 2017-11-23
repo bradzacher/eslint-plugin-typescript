@@ -20,6 +20,14 @@ const ruleTester = new RuleTester();
 ruleTester.run("type-annotation-spacing", rule, {
     valid: [
         {
+            code: `
+interface resolve {
+    resolver: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+            `,
+            parser: "typescript-eslint-parser"
+        },
+        {
             code: "const foo = {} as Foo;",
             parser: "typescript-eslint-parser"
         },
@@ -1193,6 +1201,18 @@ type Bar = Record<keyof Foo, string>
                     }
                 }
             ],
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: "let resolver: (() => PromiseLike<T>) | PromiseLike<T>;",
+            parser: "typescript-eslint-parser"
+        },
+        {
+            code: `
+interface resolve {
+    resolver: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+            `,
             parser: "typescript-eslint-parser"
         }
     ],
