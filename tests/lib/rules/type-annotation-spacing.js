@@ -15,140 +15,93 @@ const rule = require("../../../lib/rules/type-annotation-spacing"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+    parser: "typescript-eslint-parser"
+});
 
 ruleTester.run("type-annotation-spacing", rule, {
     valid: [
-        {
-            code: "const foo = {} as Foo;",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "let foo: string;",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "function foo(): void {}",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "function foo(a: string) {}",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `
+interface resolve {
+    resolver: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+        `,
+        "const foo = {} as Foo;",
+        "let foo: string;",
+        "function foo(): void {}",
+        "function foo(a: string) {}",
+        `
 class Foo {
     name: string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 class Foo {
     constructor(message: string);
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 class Foo {
     greet(): string { return "hello"; }
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 class Foo {
     greet(name: string): string { return name; }
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 interface Foo {
     name: string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 interface Foo {
     greet(): string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 interface Foo {
     greet(name: string): string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 interface Foo {
     thing: { [key in string]: number };
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 type Foo = {
     name: string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 type Foo = {
     greet(): string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        `
 type Foo = {
     greet(name: string): string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: "type Foo = (name: string) => string;",
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
+        `,
+        "type Foo = (name: string) => string;",
+        `
 type Foo = {
     greet: (name: string) => string;
 }
-            `,
-            parser: "typescript-eslint-parser"
-        },
+        `,
         {
             code: "let foo: string;",
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: "function foo(): string {}",
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: "function foo(a: string) {}",
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -156,8 +109,7 @@ class Foo {
     name: string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -165,8 +117,7 @@ class Foo {
     constructor(message: string);
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -174,8 +125,7 @@ class Foo {
     greet(): string { return "hello"; }
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -183,8 +133,7 @@ class Foo {
     greet(name: string): string { return name; }
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -192,8 +141,7 @@ interface Foo {
     name: string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -201,8 +149,7 @@ interface Foo {
     greet(): string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -210,8 +157,7 @@ interface Foo {
     greet(name: string): string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -219,8 +165,7 @@ type Foo = {
     name: string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -228,8 +173,7 @@ type Foo = {
     greet(): string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -237,13 +181,11 @@ type Foo = {
     greet(name: string): string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: "type Foo = (name: string) => string;",
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -251,23 +193,19 @@ type Foo = {
     greet: (name: string) => string;
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: "let foo: string;",
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: "function foo(): string {}",
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: "function foo(a: string) {}",
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -275,8 +213,7 @@ class Foo {
     name: string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -284,8 +221,7 @@ class Foo {
     constructor(message: string);
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -293,8 +229,7 @@ class Foo {
     greet(): string { return "hello"; }
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -302,8 +237,7 @@ class Foo {
     greet(name: string): string { return name; }
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -311,8 +245,7 @@ interface Foo {
     name: string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -320,8 +253,7 @@ interface Foo {
     greet(): string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -329,8 +261,7 @@ interface Foo {
     greet(name: string): string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -338,8 +269,7 @@ type Foo = {
     name: string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -347,8 +277,7 @@ type Foo = {
     greet(): string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -356,13 +285,11 @@ type Foo = {
     greet(name: string): string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: "type Foo = (name: string)=> string;",
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -370,23 +297,19 @@ type Foo = {
     greet: (name: string)=> string;
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: "let foo : string;",
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: "function foo() : string {}",
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: "function foo(a : string) {}",
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -394,8 +317,7 @@ class Foo {
     name : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -403,8 +325,7 @@ class Foo {
     constructor(message : string);
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -412,8 +333,7 @@ class Foo {
     greet() : string { return "hello"; }
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -421,8 +341,7 @@ class Foo {
     greet(name : string) : string { return name; }
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -430,8 +349,7 @@ interface Foo {
     name : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -439,8 +357,7 @@ interface Foo {
     greet() : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -448,8 +365,7 @@ interface Foo {
     greet(name : string) : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -457,8 +373,7 @@ type Foo = {
     name : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -466,8 +381,7 @@ type Foo = {
     greet() : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -475,13 +389,11 @@ type Foo = {
     greet(name : string) : string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: "type Foo = (name : string) => string;",
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -489,23 +401,19 @@ type Foo = {
     greet : (name : string) => string;
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: "let foo :string;",
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: "function foo() :string {}",
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: "function foo(a :string) {}",
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -513,8 +421,7 @@ class Foo {
     name :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -522,8 +429,7 @@ class Foo {
     constructor(message :string);
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -531,8 +437,7 @@ class Foo {
     greet() :string { return "hello"; }
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -540,8 +445,7 @@ class Foo {
     greet(name :string) :string { return name; }
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -549,8 +453,7 @@ interface Foo {
     name :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -558,8 +461,7 @@ interface Foo {
     greet() :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -567,8 +469,7 @@ interface Foo {
     greet(name :string) :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -576,8 +477,7 @@ type Foo = {
     name :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -585,8 +485,7 @@ type Foo = {
     greet() :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -594,13 +493,11 @@ type Foo = {
     greet(name :string) :string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: "type Foo = (name :string) =>string;",
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -608,23 +505,19 @@ type Foo = {
     greet :(name :string) =>string;
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: "let foo : string;",
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: "function foo() : string {}",
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: "function foo(a : string) {}",
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -632,8 +525,7 @@ class Foo {
     name : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -641,8 +533,7 @@ class Foo {
     constructor(message : string);
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -650,8 +541,7 @@ class Foo {
     greet() : string { return "hello"; }
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -659,8 +549,7 @@ class Foo {
     greet(name : string) : string { return name; }
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -668,8 +557,7 @@ interface Foo {
     name : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -677,8 +565,7 @@ interface Foo {
     greet() : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -686,8 +573,7 @@ interface Foo {
     greet(name : string) : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -695,8 +581,7 @@ type Foo = {
     name : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -704,8 +589,7 @@ type Foo = {
     greet() : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -713,13 +597,11 @@ type Foo = {
     greet(name : string) : string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: "type Foo = (name : string) => string;",
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: `
@@ -727,8 +609,7 @@ type Foo = {
     greet : (name : string) => string;
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
         },
         {
             code: "let foo : string;",
@@ -738,8 +619,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: "function foo() : string {}",
@@ -749,8 +629,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: "function foo(a : string) {}",
@@ -760,8 +639,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -775,8 +653,7 @@ class Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -790,8 +667,7 @@ class Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -805,8 +681,7 @@ class Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -820,8 +695,7 @@ class Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -835,8 +709,7 @@ interface Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -850,8 +723,7 @@ interface Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -865,8 +737,7 @@ interface Foo {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -880,8 +751,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -895,8 +765,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -910,8 +779,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: "type Foo = (name : string)=>string;",
@@ -921,8 +789,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -936,8 +803,7 @@ type Foo = {
                     after: false,
                     overrides: { colon: { before: true, after: true } }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: "type Foo = (name : string) => string;",
@@ -956,8 +822,7 @@ type Foo = {
                         }
                     }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -980,8 +845,7 @@ type Foo = {
                         }
                     }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: "type Foo = (name : string) =>string;",
@@ -999,8 +863,7 @@ type Foo = {
                         }
                     }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -1022,8 +885,7 @@ type Foo = {
                         }
                     }
                 }
-            ],
-            parser: "typescript-eslint-parser"
+            ]
         },
         {
             code: `
@@ -1031,8 +893,7 @@ interface Foo {
     thing: { [key in string]: number };
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -1040,8 +901,7 @@ interface Foo {
     thing: { [key in string]: number };
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -1049,8 +909,7 @@ interface Foo {
     thing : { [key in string] : number };
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -1058,8 +917,7 @@ interface Foo {
     thing :{ [key in string] :number };
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -1067,8 +925,14 @@ interface Foo {
     thing : { [key in string] : number };
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    thing: { [key in string]: number };
+}
+            `
         },
         {
             code: `
@@ -1076,7 +940,7 @@ type Foo = {
     thing: { [key in string]: number };
 }
             `,
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -1084,17 +948,7 @@ type Foo = {
     thing: { [key in string]: number };
 }
             `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
-type Foo = {
-    thing: { [key in string]: number };
-}
-            `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -1102,8 +956,7 @@ type Foo = {
     thing : { [key in string] : number };
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -1111,8 +964,7 @@ type Foo = {
     thing :{ [key in string] :number };
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -1120,8 +972,14 @@ type Foo = {
     thing : { [key in string] : number };
 }
             `,
-            options: [{ before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet: (name: string) => void = {}
+}
+            `
         },
         {
             code: `
@@ -1129,16 +987,7 @@ class Foo {
     greet: (name: string) => void = {}
 }
             `,
-            parser: "typescript-eslint-parser"
-        },
-        {
-            code: `
-class Foo {
-    greet: (name: string) => void = {}
-}
-            `,
-            options: [{ after: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true }]
         },
         {
             code: `
@@ -1146,8 +995,7 @@ class Foo {
     greet: (name: string)=> void = {}
 }
             `,
-            options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: false }]
         },
         {
             code: `
@@ -1155,8 +1003,7 @@ class Foo {
     greet : (name : string) => void = {}
 }
             `,
-            options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: true, before: true }]
         },
         {
             code: `
@@ -1164,8 +1011,7 @@ class Foo {
     greet :(name :string) =>void = {}
 }
             `,
-            options: [{ after: false, before: true }],
-            parser: "typescript-eslint-parser"
+            options: [{ after: false, before: true }]
         },
         {
             code: `
@@ -1173,14 +1019,37 @@ class Foo {
     greet : (name : string) => void = {}
 }
             `,
-            options: [{ before: true }],
+            options: [{ before: true }]
+        },
+        {
+            code: `
+interface Foo { a: string }
+type Bar = Record<keyof Foo, string>
+            `,
+            options: [
+                {
+                    after: true,
+                    before: false,
+                    overrides: {
+                        arrow: {
+                            after: true,
+                            before: true
+                        }
+                    }
+                }
+            ],
             parser: "typescript-eslint-parser"
-        }
+        },
+        "let resolver: (() => PromiseLike<T>) | PromiseLike<T>;",
+        `
+interface resolve {
+    resolver: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+        `
     ],
     invalid: [
         {
             code: "let foo : string;",
-            parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [
                 {
@@ -1192,7 +1061,6 @@ class Foo {
         },
         {
             code: "function foo() : string {}",
-            parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [
                 {
@@ -1204,7 +1072,6 @@ class Foo {
         },
         {
             code: "function foo(a : string) {}",
-            parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [
                 {
@@ -1220,7 +1087,6 @@ class Foo {
     name : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name: string;
@@ -1240,7 +1106,6 @@ class Foo {
     constructor(message : string);
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message: string);
@@ -1260,7 +1125,6 @@ class Foo {
     greet() : string { return "hello"; }
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(): string { return "hello"; }
@@ -1280,7 +1144,6 @@ class Foo {
     greet(name : string) : string { return name; }
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name: string): string { return name; }
@@ -1305,7 +1168,6 @@ interface Foo {
     name : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name: string;
@@ -1325,7 +1187,6 @@ interface Foo {
     greet() : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(): string;
@@ -1345,7 +1206,6 @@ interface Foo {
     greet(name : string) : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name: string): string;
@@ -1370,7 +1230,6 @@ type Foo = {
     name : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name: string;
@@ -1390,7 +1249,6 @@ type Foo = {
     greet() : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(): string;
@@ -1410,7 +1268,6 @@ type Foo = {
     greet(name : string) : string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name: string): string;
@@ -1431,7 +1288,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string) => string;",
-            parser: "typescript-eslint-parser",
             output: "type Foo = (name: string) => string;",
             errors: [
                 {
@@ -1443,7 +1299,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string)=> string;",
-            parser: "typescript-eslint-parser",
             output: "type Foo = (name: string) => string;",
             errors: [
                 {
@@ -1464,7 +1319,6 @@ type Foo = {
     greet: (name : string) => string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet: (name: string) => string;
@@ -1484,7 +1338,6 @@ type Foo = {
     greet: (name : string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet: (name: string) => string;
@@ -1506,7 +1359,6 @@ type Foo = {
         {
             code: "let foo : string;",
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [
                 {
@@ -1519,7 +1371,6 @@ type Foo = {
         {
             code: "function foo() : string {}",
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [
                 {
@@ -1532,7 +1383,6 @@ type Foo = {
         {
             code: "function foo(a : string) {}",
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [
                 {
@@ -1549,7 +1399,6 @@ class Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name: string;
@@ -1570,7 +1419,6 @@ class Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message: string);
@@ -1591,7 +1439,6 @@ class Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(): string { return "hello"; }
@@ -1612,7 +1459,6 @@ class Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name: string): string { return name; }
@@ -1638,7 +1484,6 @@ interface Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name: string;
@@ -1659,7 +1504,6 @@ interface Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(): string;
@@ -1680,7 +1524,6 @@ interface Foo {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name: string): string;
@@ -1706,7 +1549,6 @@ type Foo = {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name: string;
@@ -1727,7 +1569,6 @@ type Foo = {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(): string;
@@ -1748,7 +1589,6 @@ type Foo = {
 }
             `,
             options: [{ after: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name: string): string;
@@ -1769,7 +1609,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string) => string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true }],
             output: "type Foo = (name: string) => string;",
             errors: [
@@ -1782,7 +1621,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true }],
             output: "type Foo = (name: string) => string;",
             errors: [
@@ -1804,7 +1642,6 @@ type Foo = {
     greet: (name : string) => string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true }],
             output: `
 type Foo = {
@@ -1825,7 +1662,6 @@ type Foo = {
     greet: (name : string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true }],
             output: `
 type Foo = {
@@ -1848,7 +1684,6 @@ type Foo = {
         {
             code: "let foo : string;",
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: "let foo: string;",
             errors: [
                 {
@@ -1861,7 +1696,6 @@ type Foo = {
         {
             code: "function foo() : string {}",
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: "function foo(): string {}",
             errors: [
                 {
@@ -1874,7 +1708,6 @@ type Foo = {
         {
             code: "function foo(a : string) {}",
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: "function foo(a: string) {}",
             errors: [
                 {
@@ -1891,7 +1724,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name: string;
@@ -1912,7 +1744,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message: string);
@@ -1933,7 +1764,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(): string { return "hello"; }
@@ -1954,7 +1784,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name: string): string { return name; }
@@ -1980,7 +1809,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name: string;
@@ -2001,7 +1829,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(): string;
@@ -2022,7 +1849,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name: string): string;
@@ -2048,7 +1874,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name: string;
@@ -2069,7 +1894,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(): string;
@@ -2090,7 +1914,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: false }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name: string): string;
@@ -2111,7 +1934,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string) => string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: false }],
             output: "type Foo = (name: string)=> string;",
             errors: [
@@ -2129,7 +1951,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: false }],
             output: "type Foo = (name: string)=> string;",
             errors: [
@@ -2146,7 +1967,6 @@ type Foo = {
     greet: (name : string) => string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: false }],
             output: `
 type Foo = {
@@ -2172,7 +1992,6 @@ type Foo = {
     greet: (name : string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: false }],
             output: `
 type Foo = {
@@ -2190,7 +2009,6 @@ type Foo = {
         {
             code: "let foo:string;",
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: "let foo : string;",
             errors: [
                 {
@@ -2208,7 +2026,6 @@ type Foo = {
         {
             code: "function foo():string {}",
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo() : string {}",
             errors: [
                 {
@@ -2226,7 +2043,6 @@ type Foo = {
         {
             code: "function foo(a:string) {}",
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo(a : string) {}",
             errors: [
                 {
@@ -2248,7 +2064,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name : string;
@@ -2274,7 +2089,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message : string);
@@ -2300,7 +2114,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet() : string { return "hello"; }
@@ -2326,7 +2139,6 @@ class Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name : string) : string { return name; }
@@ -2362,7 +2174,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name : string;
@@ -2388,7 +2199,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet() : string;
@@ -2414,7 +2224,6 @@ interface Foo {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name : string) : string;
@@ -2450,7 +2259,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name : string;
@@ -2476,7 +2284,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet() : string;
@@ -2502,7 +2309,6 @@ type Foo = {
 }
             `,
             options: [{ after: true, before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name : string) : string;
@@ -2533,7 +2339,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name: string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: true }],
             output: "type Foo = (name : string) => string;",
             errors: [
@@ -2551,7 +2356,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: true }],
             output: "type Foo = (name : string) => string;",
             errors: [
@@ -2568,7 +2372,6 @@ type Foo = {
     greet: (name: string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: true }],
             output: `
 type Foo = {
@@ -2599,7 +2402,6 @@ type Foo = {
     greet : (name : string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ after: true, before: true }],
             output: `
 type Foo = {
@@ -2617,7 +2419,6 @@ type Foo = {
         {
             code: "let foo:string;",
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: "let foo : string;",
             errors: [
                 {
@@ -2635,7 +2436,6 @@ type Foo = {
         {
             code: "function foo():string {}",
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo() : string {}",
             errors: [
                 {
@@ -2653,7 +2453,6 @@ type Foo = {
         {
             code: "function foo(a:string) {}",
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: "function foo(a : string) {}",
             errors: [
                 {
@@ -2675,7 +2474,6 @@ class Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name : string;
@@ -2701,7 +2499,6 @@ class Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message : string);
@@ -2727,7 +2524,6 @@ class Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet() : string { return "hello"; }
@@ -2753,7 +2549,6 @@ class Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name : string) : string { return name; }
@@ -2789,7 +2584,6 @@ interface Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name : string;
@@ -2815,7 +2609,6 @@ interface Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet() : string;
@@ -2841,7 +2634,6 @@ interface Foo {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name : string) : string;
@@ -2877,7 +2669,6 @@ type Foo = {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name : string;
@@ -2903,7 +2694,6 @@ type Foo = {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet() : string;
@@ -2929,7 +2719,6 @@ type Foo = {
 }
             `,
             options: [{ before: true }],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name : string) : string;
@@ -2960,7 +2749,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name: string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ before: true }],
             output: "type Foo = (name : string) => string;",
             errors: [
@@ -2978,7 +2766,6 @@ type Foo = {
         },
         {
             code: "type Foo = (name : string)=> string;",
-            parser: "typescript-eslint-parser",
             options: [{ before: true }],
             output: "type Foo = (name : string) => string;",
             errors: [
@@ -2995,7 +2782,6 @@ type Foo = {
     greet: (name: string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ before: true }],
             output: `
 type Foo = {
@@ -3026,7 +2812,6 @@ type Foo = {
     greet : (name : string)=> string;
 }
             `,
-            parser: "typescript-eslint-parser",
             options: [{ before: true }],
             output: `
 type Foo = {
@@ -3050,7 +2835,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: "let foo : string;",
             errors: [
                 {
@@ -3074,7 +2858,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: "function foo() : string {}",
             errors: [
                 {
@@ -3098,7 +2881,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: "function foo(a : string) {}",
             errors: [
                 {
@@ -3126,7 +2908,6 @@ class Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     name : string;
@@ -3158,7 +2939,6 @@ class Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     constructor(message : string);
@@ -3190,7 +2970,6 @@ class Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet() : string { return "hello"; }
@@ -3222,7 +3001,6 @@ class Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 class Foo {
     greet(name : string) : string { return name; }
@@ -3264,7 +3042,6 @@ interface Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     name : string;
@@ -3296,7 +3073,6 @@ interface Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet() : string;
@@ -3328,7 +3104,6 @@ interface Foo {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 interface Foo {
     greet(name : string) : string;
@@ -3370,7 +3145,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     name : string;
@@ -3402,7 +3176,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet() : string;
@@ -3434,7 +3207,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet(name : string) : string;
@@ -3472,7 +3244,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: "type Foo = (name : string)=>string;",
             errors: [
                 {
@@ -3500,7 +3271,6 @@ type Foo = {
                     overrides: { colon: { before: true, after: true } }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet : (name : string)=>string;
@@ -3537,7 +3307,6 @@ type Foo = {
                     }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: "type Foo = (name : string) => string;",
             errors: [
                 {
@@ -3584,7 +3353,6 @@ type Foo = {
                     }
                 }
             ],
-            parser: "typescript-eslint-parser",
             output: `
 type Foo = {
     greet : (name : string) => string;
