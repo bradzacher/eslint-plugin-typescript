@@ -36,6 +36,11 @@ var arrowFn = (): string => 'test';
         `,
         `
 class Test {
+  constructor() {}
+  get prop(): number {
+    return 1;
+  }
+  set prop() {}
   method(): void {
     return;
   }
@@ -86,6 +91,11 @@ var arrowFn = () => 'test';
         {
             code: `
 class Test {
+  constructor() {}
+  get prop() {
+      return 1;
+  }
+  set prop() {}
   method() {
     return;
   }
@@ -94,7 +104,12 @@ class Test {
             errors: [
                 {
                     message: "Missing return type on function.",
-                    line: 3,
+                    line: 4,
+                    column: 11
+                },
+                {
+                    message: "Missing return type on function.",
+                    line: 8,
                     column: 9
                 }
             ]
