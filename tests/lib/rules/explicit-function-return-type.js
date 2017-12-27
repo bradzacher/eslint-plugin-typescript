@@ -21,20 +21,31 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("explicit-function-return-type", rule, {
     valid: [
-        `
+        {
+            filename: "test.ts",
+            code: `
 function test(): void {
     return;
 }
-        `,
-        `
+            `
+        },
+        {
+            filename: "test.ts",
+            code: `
 var fn = function(): number {
     return 1;
 };
-        `,
-        `
+            `
+        },
+        {
+            filename: "test.ts",
+            code: `
 var arrowFn = (): string => 'test';
-        `,
-        `
+            `
+        },
+        {
+            filename: "test.ts",
+            code: `
 class Test {
   constructor() {}
   get prop(): number {
@@ -45,10 +56,20 @@ class Test {
     return;
   }
 }
-        `
+            `
+        },
+        {
+            filename: "test.js",
+            code: `
+function test() {
+    return;
+}
+            `
+        }
     ],
     invalid: [
         {
+            filename: "test.ts",
             code: `
 function test() {
     return;
@@ -63,6 +84,7 @@ function test() {
             ]
         },
         {
+            filename: "test.ts",
             code: `
 var fn = function() {
     return 1;
@@ -77,6 +99,7 @@ var fn = function() {
             ]
         },
         {
+            filename: "test.ts",
             code: `
 var arrowFn = () => 'test';
             `,
@@ -89,6 +112,7 @@ var arrowFn = () => 'test';
             ]
         },
         {
+            filename: "test.ts",
             code: `
 class Test {
   constructor() {}
