@@ -40,5 +40,3 @@ If you do not want to enforce a naming convention for type variables.
 
 ## Further Reading
 - [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
-
-^[A-Z]+$
