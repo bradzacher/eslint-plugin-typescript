@@ -22,7 +22,11 @@ ruleTester.run("generic-type-naming", rule, {
         { code: "interface SimpleMap<V> { }", options: [] },
         { code: "function get<T>() {}", options: [] },
         { code: "interface GenericIdentityFn { <T>(arg: T): T }", options: [] },
-        { code: "class<x> { }", options: ["^x+$"] }
+        { code: "class<x> { }", options: ["^x+$"] },
+        {
+            code: "class CounterContainer extends Container<Counter> { }",
+            options: ["^T$"]
+        }
     ],
     invalid: [
         {

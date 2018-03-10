@@ -1,7 +1,7 @@
 # Enforces naming of generic type variables (generic-type-naming)
 
 It can be helpful to enforce a consistent naming style for generic type variables used within a type.
-For example, prefixing them with  `T`  and ensuring a somewhat descriptive name, or enforcing Hungarian notation.
+For example, prefixing them with `T` and ensuring a somewhat descriptive name, or enforcing Hungarian notation.
 
 ## Rule Details
 
@@ -11,7 +11,7 @@ This rule allows you to enforce conventions over type variables. By default, it 
 
 The rule takes a single string option, which is a regular expression that type variables should match.
 
-Examples of  **correct**  code with a configuration of  `'^T[A-Z][a-zA-Z]+$'`:
+Examples of **correct** code with a configuration of `'^T[A-Z][a-zA-Z]+$'`:
 
 ```typescript
 type ReadOnly<TType extends object> = {
@@ -23,7 +23,7 @@ interface SimpleMap<TValue> {
 }
 ```
 
-Examples of  **incorrect**  code with a configuration of  `'^T[A-Z][a-zA-Z]+$'`:
+Examples of **incorrect** code with a configuration of `'^T[A-Z][a-zA-Z]+$'`:
 
 ```typescript
 type ReadOnly<T extends object> = {
@@ -40,3 +40,5 @@ If you do not want to enforce a naming convention for type variables.
 
 ## Further Reading
 - [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/generics.html)
+
+^[A-Z]+$
