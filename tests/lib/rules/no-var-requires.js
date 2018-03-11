@@ -20,7 +20,7 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run("no-var-requires", rule, {
-    valid: ["import foo = require('foo')"],
+    valid: ["import foo = require('foo')", "require('foo')"],
     invalid: [
         {
             code: "var foo = require('foo')",
@@ -49,16 +49,6 @@ ruleTester.run("no-var-requires", rule, {
                     message: "Require statement not part of import statement",
                     line: 1,
                     column: 11
-                }
-            ]
-        },
-        {
-            code: "require('foo')",
-            errors: [
-                {
-                    message: "Require statement not part of import statement",
-                    line: 1,
-                    column: 1
                 }
             ]
         }
