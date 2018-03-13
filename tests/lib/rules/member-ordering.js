@@ -1199,9 +1199,9 @@ class Foo {
 class Foo {
     J() {}
     K = () => {}
-    L: () => {}
     constructor () {}
     A: string;
+    L: () => {}
 }
             `,
             options: [{ default: ["method", "constructor", "field"] }]
@@ -1209,8 +1209,8 @@ class Foo {
         `
 interface Foo {
     A: string;
+    K: () => {};
     J();
-    K: () => {}
 }
         `,
         {
@@ -1226,8 +1226,8 @@ interface Foo {
         `
 type Foo = {
     A: string;
-    J();
     K: () => {}
+    J();
 }
         `,
         {
@@ -2918,12 +2918,6 @@ class Foo {
                         "Member K should be declared before all constructor definitions.",
                     line: 5,
                     column: 5
-                },
-                {
-                    message:
-                        "Member L should be declared before all constructor definitions.",
-                    line: 6,
-                    column: 5
                 }
             ]
         },
@@ -2931,32 +2925,14 @@ class Foo {
             code: `
 interface Foo {
     K: () => {}
-    A: string;
     J();
+    A: string;
 }
             `,
             errors: [
                 {
                     message:
                         "Member A should be declared before all method definitions.",
-                    line: 4,
-                    column: 5
-                }
-            ]
-        },
-        {
-            code: `
-interface Foo {
-    J();
-    A: string;
-    K: () => {}
-}
-            `,
-            options: [{ default: ["method", "constructor", "field"] }],
-            errors: [
-                {
-                    message:
-                        "Member K should be declared before all field definitions.",
                     line: 5,
                     column: 5
                 }
@@ -2966,15 +2942,15 @@ interface Foo {
             code: `
 type Foo = {
     K: () => {}
-    A: string;
     J();
+    A: string;
 }
             `,
             errors: [
                 {
                     message:
                         "Member A should be declared before all method definitions.",
-                    line: 4,
+                    line: 5,
                     column: 5
                 }
             ]
@@ -2982,16 +2958,16 @@ type Foo = {
         {
             code: `
 type Foo = {
-    J();
     A: string;
     K: () => {}
+    J();
 }
             `,
             options: [{ default: ["method", "constructor", "field"] }],
             errors: [
                 {
                     message:
-                        "Member K should be declared before all field definitions.",
+                        "Member J should be declared before all field definitions.",
                     line: 5,
                     column: 5
                 }
