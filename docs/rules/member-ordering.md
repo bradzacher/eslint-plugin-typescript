@@ -50,38 +50,40 @@ The rule can also take one or more of the following options:
 Disable using `never` or use one of the following values to specify an order:
 
 * Fields:
-  `public-static-field`
-  `protected-static-field`
-  `private-static-field`
-  `public-instance-field`
-  `protected-instance-field`
-  `private-instance-field`
-  `public-field` (= public-_-field)
-  `protected-field` (= protected-_-field)
-  `private-field` (= private-_-field)
-  `static-field` (= _-static-field)
-  `instance-field` (= \*-instance-field)
-  `field` (= all)
+
+  * `public-static-field`
+  * `protected-static-field`
+  * `private-static-field`
+  * `public-instance-field`
+  * `protected-instance-field`
+  * `private-instance-field`
+  * `public-field` (= public-\_-field)
+  * `protected-field` (= protected-\_-field)
+  * `private-field` (= private-\_-field)
+  * `static-field` (= \_-static-field)
+  * `instance-field` (= \*-instance-field)
+  * `field` (= all)
 
 * Constructors:
-  `public-constructor`
-  `protected-constructor`
-  `private-constructor`
-  `constructor` (= \*-constructor)
+
+  * `public-constructor`
+  * `protected-constructor`
+  * `private-constructor`
+  * `constructor` (= \*-constructor)
 
 * Methods:
-  `public-static-method`
-  `protected-static-method`
-  `private-static-method`
-  `public-instance-method`
-  `protected-instance-method`
-  `private-instance-method`
-  `public-method` (= public-_-method)
-  `protected-method` (= protected-_-method)
-  `private-method` (= private-_-method)
-  `static-method` (= _-static-method)
-  `instance-method` (= \*-instance-method)
-  `method` (= all)
+  * `public-static-method`
+  * `protected-static-method`
+  * `private-static-method`
+  * `public-instance-method`
+  * `protected-instance-method`
+  * `private-instance-method`
+  * `public-method` (= public-\_-method)
+  * `protected-method` (= protected-\_-method)
+  * `private-method` (= private-\_-method)
+  * `static-method` (= \_-static-method)
+  * `instance-method` (= \*-instance-method)
+  * `method` (= all)
 
 Examples of **incorrect** code for the `{ "default": [...] }` option:
 
