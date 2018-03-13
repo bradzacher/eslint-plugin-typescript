@@ -541,6 +541,21 @@ class Foo {
         {
             code: `
 class Foo {
+    private required: boolean;
+    private typeChecker: (data: any) => boolean;
+    constructor(validator: (data: any) => boolean) {
+        this.typeChecker = validator;
+    }
+    check(data: any): boolean {
+        return this.typeChecker(data);
+    }
+}
+            `,
+            options: [{ classes: ["field", "constructor", "method"] }]
+        },
+        {
+            code: `
+class Foo {
     public static G() {}
     protected static H() {}
     private static I() {}
