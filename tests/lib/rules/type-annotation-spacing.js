@@ -4166,6 +4166,1737 @@ type Foo = {
                     column: 26
                 }
             ]
+        },
+
+        // optional
+        {
+            code: "function foo(a ?: string) {}",
+            output: "function foo(a?: string) {}",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            output: `
+class Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            output: `
+class Foo {
+    constructor(message?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            output: `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            output: `
+interface Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            output: `
+interface Foo {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            output: `
+type Foo = {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            output: `
+type Foo = {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            output: "type Foo = (name?: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string)=> string;",
+            output: "type Foo = (name?: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string) => string;
+}
+            `,
+            output: `
+type Foo = {
+    greet: (name?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string)=> string;
+}
+            `,
+            output: `
+type Foo = {
+    greet: (name?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: "function foo(a ?: string) {}",
+            options: [{ after: true }],
+            output: "function foo(a?: string) {}",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+class Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            options: [{ after: true }],
+            output: `
+class Foo {
+    constructor(message?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            options: [{ after: true }],
+            output: `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+interface Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+interface Foo {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            options: [{ after: true }],
+            output: "type Foo = (name?: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string)=> string;",
+            options: [{ after: true }],
+            output: "type Foo = (name?: string) => string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string) => string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    greet: (name?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string)=> string;
+}
+            `,
+            options: [{ after: true }],
+            output: `
+type Foo = {
+    greet: (name?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: "function foo(a ?: string) {}",
+            options: [{ after: true, before: false }],
+            output: "function foo(a?: string) {}",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+class Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+class Foo {
+    constructor(message?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+interface Foo {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+interface Foo {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    name?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    greet(name?: string): string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Unexpected space before the ':'",
+                    line: 3,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            options: [{ after: true, before: false }],
+            output: "type Foo = (name?: string)=> string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Unexpected space before the '=>'",
+                    line: 1,
+                    column: 29
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string)=> string;",
+            options: [{ after: true, before: false }],
+            output: "type Foo = (name?: string)=> string;",
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string) => string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    greet: (name?: string)=> string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Unexpected space before the '=>'",
+                    line: 3,
+                    column: 29
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet: (name ?: string)=> string;
+}
+            `,
+            options: [{ after: true, before: false }],
+            output: `
+type Foo = {
+    greet: (name?: string)=> string;
+}
+            `,
+            errors: [
+                {
+                    message: "Unexpected space before the '?:'",
+                    line: 3,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: "function foo(a?:string) {}",
+            options: [{ after: true, before: true }],
+            output: "function foo(a ?: string) {}",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name?:string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+class Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message?:string);
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name?:string):string { return name; }
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name?:string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name?:string):string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name?:string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name?:string):string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name?: string)=> string;",
+            options: [{ after: true, before: true }],
+            output: "type Foo = (name ?: string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string)=> string;",
+            options: [{ after: true, before: true }],
+            output: "type Foo = (name ?: string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet?: (name?: string)=> string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 10
+                },
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name ?: string)=> string;
+}
+            `,
+            options: [{ after: true, before: true }],
+            output: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 30
+                }
+            ]
+        },
+        {
+            code: "function foo(a?:string) {}",
+            options: [{ before: true }],
+            output: "function foo(a ?: string) {}",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name?:string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+class Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message?:string);
+}
+            `,
+            options: [{ before: true }],
+            output: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name?:string):string { return name; }
+}
+            `,
+            options: [{ before: true }],
+            output: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name?:string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name?:string):string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name?:string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name?:string):string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name?: string)=> string;",
+            options: [{ before: true }],
+            output: "type Foo = (name ?: string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name : string)=> string;",
+            options: [{ before: true }],
+            output: "type Foo = (name : string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 27
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet?: (name?: string)=> string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 10
+                },
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 18
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name ?: string)=> string;
+}
+            `,
+            options: [{ before: true }],
+            output: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 30
+                }
+            ]
+        },
+        {
+            code: "function foo(a?:string) {}",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: "function foo(a ?: string) {}",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 1,
+                    column: 16
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name?:string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+class Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message?:string);
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 25
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name?:string):string { return name; }
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name?:string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name?:string):string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name?:string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 9
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 10
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name?:string):string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 15
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 16
+                },
+                {
+                    message: "Expected a space after the ':'",
+                    line: 3,
+                    column: 24
+                },
+                {
+                    message: "Expected a space before the ':'",
+                    line: 3,
+                    column: 24
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name?:string)=>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: "type Foo = (name ?: string)=>string;",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 1,
+                    column: 18
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name?:string)=>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ],
+            output: `
+type Foo = {
+    greet ?: (name ?: string)=>string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 19
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 20
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name?:string)=>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            output: "type Foo = (name ?: string) => string;",
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 1,
+                    column: 17
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 1,
+                    column: 18
+                },
+                {
+                    message: "Expected a space after the '=>'",
+                    line: 1,
+                    column: 26
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 1,
+                    column: 26
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name?:string)=>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ],
+            output: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            errors: [
+                {
+                    message: "Expected a space before the '?:'",
+                    line: 3,
+                    column: 19
+                },
+                {
+                    message: "Expected a space after the '?:'",
+                    line: 3,
+                    column: 20
+                },
+                {
+                    message: "Expected a space after the '=>'",
+                    line: 3,
+                    column: 28
+                },
+                {
+                    message: "Expected a space before the '=>'",
+                    line: 3,
+                    column: 28
+                }
+            ]
         }
     ]
 });
