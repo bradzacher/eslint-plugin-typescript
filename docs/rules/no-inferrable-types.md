@@ -33,6 +33,9 @@ class Foo {
 
 function fn(a = 5, b = true) {
 }
+
+function fn(a: number, b: boolean, c: string) {
+}
 ```
 
 The following are invalid:

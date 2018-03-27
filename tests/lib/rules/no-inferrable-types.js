@@ -28,6 +28,7 @@ ruleTester.run("no-inferrable-types", rule, {
         "const fn = (a = 5, b = true, c = 'foo') => {}",
         "const fn = function(a = 5, b = true, c = 'foo') {}",
         "function fn(a = 5, b = true, c = 'foo') {}",
+        "function fn(a: number, b: boolean, c: string) {}",
 
         "class Foo { a = 5; b = true; c = 'foo'; }",
         "class Foo { readonly a: number = 5; }",
