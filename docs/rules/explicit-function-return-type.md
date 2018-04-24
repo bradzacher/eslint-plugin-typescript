@@ -65,14 +65,14 @@ The rule accepts an options object with the following properties:
 
 ### allowExpressions
 
-Examples of *incorrect* code for this rule with `{ allowExpressions: true }`:
+Examples of **incorrect** code for this rule with `{ allowExpressions: true }`:
 
 ```ts
 function test() {
 }
 ```
 
-Examples of *correct* code for this rule with `{ allowExpressions: true }`:
+Examples of **correct** code for this rule with `{ allowExpressions: true }`:
 
 ```ts
 node.addEventListener('click', () => {});
