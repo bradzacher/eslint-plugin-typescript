@@ -63,6 +63,9 @@ The rule accepts an options object with the following properties:
 
 * `allowExpressions` if true, only functions which are part of a declaration will be checked
 
+By default, `allowExpressions: false` is used, meaning all declarations and
+expressions _must_ have a return type.
+
 ### allowExpressions
 
 Examples of **incorrect** code for this rule with `{ allowExpressions: true }`:
