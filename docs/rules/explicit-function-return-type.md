@@ -55,15 +55,6 @@ class Test {
         return;
     }
 }
-
-/*eslint explicit-function-return-type: ["error", { allowExpressions: true }]*/
-node.addEventListener('click', () => {});
-
-/*eslint explicit-function-return-type: ["error", { allowExpressions: true }]*/
-node.addEventListener('click', function() {});
-
-/*eslint explicit-function-return-type: ["error", { allowExpressions: true }]*/
-const foo = arr.map(i => i * i);
 ```
 
 ## Options
@@ -71,6 +62,25 @@ const foo = arr.map(i => i * i);
 The rule accepts an options object with the following properties:
 
 * `allowExpressions` if true, only functions which are part of a declaration will be checked
+
+### allowExpressions
+
+Examples of *incorrect* code for this rule with `{ allowExpressions: true }`:
+
+```ts
+function test() {
+}
+```
+
+Examples of *correct* code for this rule with `{ allowExpressions: true }`:
+
+```ts
+node.addEventListener('click', () => {});
+
+node.addEventListener('click', function() {});
+
+const foo = arr.map(i => i * i);
+```
 
 ## When Not To Use It
 
