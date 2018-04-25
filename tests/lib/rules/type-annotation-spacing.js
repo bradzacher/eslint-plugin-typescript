@@ -1045,792 +1045,6 @@ type Bar = Record<keyof Foo, string>
 interface resolve {
     resolver: (() => PromiseLike<T>) | PromiseLike<T>;
 }
-        `,
-
-        // optional
-        `
-interface resolve {
-    resolver?: (() => PromiseLike<T>) | PromiseLike<T>;
-}
-        `,
-        "function foo(a?: string) {}",
-        `
-class Foo {
-    name?: string;
-}
-        `,
-        `
-class Foo {
-    constructor(message?: string);
-}
-        `,
-        `
-class Foo {
-    greet(name?: string): string { return name; }
-}
-        `,
-        `
-interface Foo {
-    name?: string;
-}
-        `,
-        `
-interface Foo {
-    greet(name?: string): string;
-}
-        `,
-        `
-interface Foo {
-    thing?: { [key in string]?: number };
-}
-        `,
-        `
-type Foo = {
-    name?: string;
-}
-        `,
-        `
-type Foo = {
-    greet(name?: string): string;
-}
-        `,
-        "type Foo = (name?: string) => string;",
-        `
-type Foo = {
-    greet?: (name?: string) => string;
-}
-        `,
-        {
-            code: "function foo(a?: string) {}",
-            options: [{ after: true }]
-        },
-        {
-            code: `
-class Foo {
-    name?: string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message?: string);
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet(name?: string): string { return name; }
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-interface Foo {
-    name?: string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name?: string): string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-type Foo = {
-    name?: string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name?: string): string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: "type Foo = (name?: string) => string;",
-            options: [{ after: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet?: (name?: string) => string;
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: "function foo(a?: string) {}",
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-class Foo {
-    name?: string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message?: string);
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-class Foo {
-    greet(name?: string): string { return name; }
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-interface Foo {
-    name?: string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name?: string): string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-type Foo = {
-    name?: string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name?: string): string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: "type Foo = (name?: string)=> string;",
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-type Foo = {
-    greet?: (name?: string)=> string;
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: "function foo(a ?: string) {}",
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    name ?: string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message ?: string);
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet(name ?: string) : string { return name; }
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    name ?: string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    name ?: string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: "type Foo = (name ?: string) => string;",
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet ?: (name : string) => string;
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: "function foo(a ?:string) {}",
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    name ?:string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message ?:string);
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet(name ?:string) :string { return name; }
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    name ?:string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name ?:string) :string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    name ?:string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name ?:string) :string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: "type Foo = (name ?:string) =>string;",
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet :(name ?:string) =>string;
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: "function foo(a ?: string) {}",
-            options: [{ before: true }]
-        },
-        {
-            code: `
-class Foo {
-    name ?: string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message ?: string);
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet(name ?: string) : string { return name; }
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    name ?: string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    name ?: string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: "type Foo = (name ?: string) => string;",
-            options: [{ before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    greet : (name ?: string) => string;
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: "function foo(a ?: string) {}",
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-class Foo {
-    name ?: string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-class Foo {
-    constructor(message ?: string);
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-class Foo {
-    greet(name ?: string) : string { return name; }
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-interface Foo {
-    name ?: string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-interface Foo {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-type Foo = {
-    name ?: string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-type Foo = {
-    greet(name ?: string) : string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: "type Foo = (name ?: string)=>string;",
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: `
-type Foo = {
-    greet ?: (name ?: string)=>string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: { colon: { before: true, after: true } }
-                }
-            ]
-        },
-        {
-            code: "type Foo = (name ?: string) => string;",
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: {
-                        colon: {
-                            before: true,
-                            after: true
-                        },
-                        arrow: {
-                            before: true,
-                            after: true
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            code: `
-type Foo = {
-    greet ?: (name ?: string) => string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: {
-                        colon: {
-                            before: true,
-                            after: true
-                        },
-                        arrow: {
-                            before: true,
-                            after: true
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            code: "type Foo = (name ?: string) =>string;",
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: {
-                        colon: {
-                            before: true,
-                            after: true
-                        },
-                        arrow: {
-                            before: true
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            code: `
-type Foo = {
-    greet : (name ?: string) =>string;
-}
-            `,
-            options: [
-                {
-                    before: false,
-                    after: false,
-                    overrides: {
-                        colon: {
-                            before: true,
-                            after: true
-                        },
-                        arrow: {
-                            before: true
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            code: `
-interface Foo {
-    thing?: { [key in string]?: number };
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-interface Foo {
-    thing?: { [key in string]?: number };
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-interface Foo {
-    thing ?: { [key in string] ?: number };
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    thing ?:{ [key in string] ?:number };
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-interface Foo {
-    thing ?: { [key in string] ?: number };
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    thing?: { [key in string]?: number };
-}
-            `
-        },
-        {
-            code: `
-type Foo = {
-    thing?: { [key in string]?: number };
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-type Foo = {
-    thing?: { [key in string]?: number };
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-type Foo = {
-    thing ?: { [key in string] ?: number };
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    thing ?:{ [key in string] ?:number };
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-type Foo = {
-    thing ?: { [key in string] ?: number };
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet: (name?: string) => void = {}
-}
-            `
-        },
-        {
-            code: `
-class Foo {
-    greet: (name?: string) => void = {}
-}
-            `,
-            options: [{ after: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet: (name?: string)=> void = {}
-}
-            `,
-            options: [{ after: true, before: false }]
-        },
-        {
-            code: `
-class Foo {
-    greet : (name ?: string) => void = {}
-}
-            `,
-            options: [{ after: true, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet :(name ?:string) =>void = {}
-}
-            `,
-            options: [{ after: false, before: true }]
-        },
-        {
-            code: `
-class Foo {
-    greet : (name ?: string) => void = {}
-}
-            `,
-            options: [{ before: true }]
-        },
-        {
-            code: `
-interface Foo { a?: string }
-type Bar = Record<keyof Foo, string>
-            `,
-            options: [
-                {
-                    after: true,
-                    before: false,
-                    overrides: {
-                        arrow: {
-                            after: true,
-                            before: true
-                        }
-                    }
-                }
-            ],
-            parser: "typescript-eslint-parser"
-        },
-        `
-interface resolve {
-    resolver?: (() => PromiseLike<T>) | PromiseLike<T>;
-}
         `
     ],
     invalid: [
@@ -4166,9 +3380,802 @@ type Foo = {
                     column: 26
                 }
             ]
-        },
+        }
+    ]
+});
 
-        // optional
+//------------------------------------------------------------------------------
+// Optional Annotation Tests
+//------------------------------------------------------------------------------
+
+ruleTester.run("type-annotation-spacing", rule, {
+    valid: [
+        `
+interface resolve {
+    resolver?: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+        `,
+        "function foo(a?: string) {}",
+        `
+class Foo {
+    name?: string;
+}
+        `,
+        `
+class Foo {
+    constructor(message?: string);
+}
+        `,
+        `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+        `,
+        `
+interface Foo {
+    name?: string;
+}
+        `,
+        `
+interface Foo {
+    greet(name?: string): string;
+}
+        `,
+        `
+interface Foo {
+    thing?: { [key in string]?: number };
+}
+        `,
+        `
+type Foo = {
+    name?: string;
+}
+        `,
+        `
+type Foo = {
+    greet(name?: string): string;
+}
+        `,
+        "type Foo = (name?: string) => string;",
+        `
+type Foo = {
+    greet?: (name?: string) => string;
+}
+        `,
+        {
+            code: "function foo(a?: string) {}",
+            options: [{ after: true }]
+        },
+        {
+            code: `
+class Foo {
+    name?: string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message?: string);
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+interface Foo {
+    name?: string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name?: string): string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+type Foo = {
+    name?: string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name?: string): string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: "type Foo = (name?: string) => string;",
+            options: [{ after: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet?: (name?: string) => string;
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: "function foo(a?: string) {}",
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+class Foo {
+    name?: string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message?: string);
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+class Foo {
+    greet(name?: string): string { return name; }
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+interface Foo {
+    name?: string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name?: string): string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+type Foo = {
+    name?: string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name?: string): string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: "type Foo = (name?: string)=> string;",
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+type Foo = {
+    greet?: (name?: string)=> string;
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: "function foo(a ?: string) {}",
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name : string) => string;
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: "function foo(a ?:string) {}",
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    name ?:string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?:string);
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?:string) :string { return name; }
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    name ?:string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?:string) :string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    name ?:string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?:string) :string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: "type Foo = (name ?:string) =>string;",
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet :(name ?:string) =>string;
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: "function foo(a ?: string) {}",
+            options: [{ before: true }]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            options: [{ before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    greet : (name ?: string) => string;
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: "function foo(a ?: string) {}",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    name ?: string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    constructor(message ?: string);
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+class Foo {
+    greet(name ?: string) : string { return name; }
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    name ?: string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    name ?: string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet(name ?: string) : string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string)=>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name ?: string)=>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: { colon: { before: true, after: true } }
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string) => string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet ?: (name ?: string) => string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true,
+                            after: true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            code: "type Foo = (name ?: string) =>string;",
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            code: `
+type Foo = {
+    greet : (name ?: string) =>string;
+}
+            `,
+            options: [
+                {
+                    before: false,
+                    after: false,
+                    overrides: {
+                        colon: {
+                            before: true,
+                            after: true
+                        },
+                        arrow: {
+                            before: true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            code: `
+interface Foo {
+    thing?: { [key in string]?: number };
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+interface Foo {
+    thing?: { [key in string]?: number };
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+interface Foo {
+    thing ?: { [key in string] ?: number };
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    thing ?:{ [key in string] ?:number };
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+interface Foo {
+    thing ?: { [key in string] ?: number };
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    thing?: { [key in string]?: number };
+}
+            `
+        },
+        {
+            code: `
+type Foo = {
+    thing?: { [key in string]?: number };
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+type Foo = {
+    thing?: { [key in string]?: number };
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+type Foo = {
+    thing ?: { [key in string] ?: number };
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    thing ?:{ [key in string] ?:number };
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+type Foo = {
+    thing ?: { [key in string] ?: number };
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet: (name?: string) => void = {}
+}
+            `
+        },
+        {
+            code: `
+class Foo {
+    greet: (name?: string) => void = {}
+}
+            `,
+            options: [{ after: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet: (name?: string)=> void = {}
+}
+            `,
+            options: [{ after: true, before: false }]
+        },
+        {
+            code: `
+class Foo {
+    greet : (name ?: string) => void = {}
+}
+            `,
+            options: [{ after: true, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet :(name ?:string) =>void = {}
+}
+            `,
+            options: [{ after: false, before: true }]
+        },
+        {
+            code: `
+class Foo {
+    greet : (name ?: string) => void = {}
+}
+            `,
+            options: [{ before: true }]
+        },
+        {
+            code: `
+interface Foo { a?: string }
+type Bar = Record<keyof Foo, string>
+            `,
+            options: [
+                {
+                    after: true,
+                    before: false,
+                    overrides: {
+                        arrow: {
+                            after: true,
+                            before: true
+                        }
+                    }
+                }
+            ],
+            parser: "typescript-eslint-parser"
+        },
+        `
+interface resolve {
+    resolver?: (() => PromiseLike<T>) | PromiseLike<T>;
+}
+        `
+    ],
+    invalid: [
         {
             code: "function foo(a ?: string) {}",
             output: "function foo(a?: string) {}",
