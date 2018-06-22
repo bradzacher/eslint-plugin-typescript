@@ -323,6 +323,13 @@ import { Foo } from './types';
 class Bar<T extends Foo> {}
 
 new Bar<number>()
+        `,
+        `
+import { Foo, Bar } from './types';
+
+class Baz<T extends Foo & Bar> {}
+
+new Baz<any>()
         `
     ],
 
