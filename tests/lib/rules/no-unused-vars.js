@@ -316,6 +316,13 @@ import { Another } from 'some';
 interface A extends Nullable<SomeOther> {
     do(a: Nullable<Another>);
 }
+        `,
+        `
+import { Foo } from './types';
+
+class Bar<T extends Foo> {}
+
+new Bar<number>()
         `
     ],
 
