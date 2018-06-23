@@ -22,6 +22,8 @@ var bar = class invalidName {}
 
 interface someInterface {}
 
+type someTypeAlias = number;
+
 ```
 
 Examples of **correct** code for this rule:
@@ -39,6 +41,8 @@ export default class {
 var foo = class {};
 
 interface SomeInterface {}
+
+type SomeTypeAlias = number;
 
 ```
 

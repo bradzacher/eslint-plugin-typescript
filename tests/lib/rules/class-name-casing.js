@@ -30,7 +30,8 @@ ruleTester.run("class-name-casing", rule, {
         },
         "var Foo = class {};",
         "interface SomeInterface {}",
-        "class ClassNameWithDigit2 {}"
+        "class ClassNameWithDigit2 {}",
+        "type Cool = number"
     ],
 
     invalid: [
@@ -82,6 +83,16 @@ ruleTester.run("class-name-casing", rule, {
                     message: "Interface 'someInterface' must be PascalCased",
                     line: 1,
                     column: 11
+                }
+            ]
+        },
+        {
+            code: "type someTypeAlias = number",
+            errors: [
+                {
+                    message: "Type alias 'someTypeAlias' must be PascalCased",
+                    line: 1,
+                    column: 6
                 }
             ]
         }
