@@ -73,5 +73,6 @@ Then configure the rules you want to use under the rules section.
 * [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) — Disallow the use of variables before they are defined
 * [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) — Disallows the use of require statements except in import statements (`no-var-requires` from TSLint)
 * [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) — Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint)
+* [`typescript/space-infix-ops`](./docs/rules/space-infix-ops.md) — Require spacing around infix operators in TypeScript-specific constructs (to be used in tandem with the code `space-infix-ops` rule)
 * [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) — Require consistent spacing around type annotations
 <!-- end rule list -->
