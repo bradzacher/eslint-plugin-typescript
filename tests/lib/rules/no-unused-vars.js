@@ -220,6 +220,7 @@ console.log(a);
 import { Nullable } from 'nullable';
 import { Component } from 'react';
 class Foo implements Component<Nullable>{};
+
 new Foo();
 		`,
         `
@@ -316,6 +317,90 @@ import { Another } from 'some';
 interface A extends Nullable<SomeOther> {
     do(a: Nullable<Another>);
 }
+        `,
+        `
+import { Foo } from './types';
+
+class Bar<T extends Foo> {}
+
+new Bar<number>()
+        `,
+        `
+import { Foo, Bar } from './types';
+
+class Baz<T extends Foo & Bar> {}
+
+new Baz<any>()
+        `,
+        `
+import { Foo } from './types';
+
+class Bar<T = Foo> {}
+
+new Bar<number>()
+        `,
+        `
+import { Foo } from './types';
+
+class Foo<T = any> {}
+
+new Foo()
+        `,
+        `
+import { Foo } from './types';
+
+class Foo<T = {}> {}
+
+new Foo()
+        `,
+        `
+import { Foo } from './types';
+
+class Foo<T extends {} = {}> {}
+
+new Foo()
+        `,
+        `
+type Foo = "a" | "b" | "c"
+type Bar = number
+
+export const map: { [name in Foo]: Bar } = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+        `,
+        `
+import { Nullable } from 'nullable';
+class A<T> {
+    bar: T
+}
+new A<Nullable>();
+        `,
+        `
+import { Nullable } from 'nullable';
+import { SomeOther } from 'other';
+function foo<T extends Nullable>() {
+}
+foo<SomeOther>();
+        `,
+        `
+import { Nullable } from 'nullable';
+import { SomeOther } from 'other';
+class A<T extends Nullable> {
+    bar: T;
+}
+new A<SomeOther>();
+        `,
+        `
+import { Nullable } from 'nullable';
+import { SomeOther } from 'other';
+interface A<T extends Nullable> {
+    bar: T;
+}
+export const a: A<SomeOther> = {
+    foo: "bar"
+};
         `
     ],
 
