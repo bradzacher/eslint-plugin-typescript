@@ -35,7 +35,7 @@
     "mocha": "^4.0.1",
     "prettier": "^1.11.1",
     "typescript": "~2.9",
-    "typescript-eslint-parser": "^16.0.1"
+    "typescript-eslint-parser": "^17.0.1"
   },
   "lint-staged": {
     "*.js": [
