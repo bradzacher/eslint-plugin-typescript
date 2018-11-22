@@ -76,3 +76,7 @@ Then configure the rules you want to use under the rules section.
 * [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) — Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint)
 * [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) — Require consistent spacing around type annotations
 <!-- end rule list -->
+
+## Shareable configs that use this plugin
+
+* [eslint-config-standard-with-typescript](https://www.npmjs.com/package/eslint-config-standard-with-typescript)
