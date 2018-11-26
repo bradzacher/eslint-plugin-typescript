@@ -1,6 +1,8 @@
 /**
  * @fileoverview Tests for camelcase rule
- * @author Guy Lilian & Shahar Or
+ * @author Guy Lilian
+ * @author Shahar Or
+ * @author Patricio Trevino
  */
 "use strict";
 
@@ -8,12 +10,12 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const ruleCamelcase = require("eslint/lib/rules/camelcase");
+const ruleCamelcase = require("../../../lib/rules/camelcase");
 const RuleTester = require("eslint").RuleTester;
 
-const parser = "typescript-eslint-parser";
-
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+    parser: "typescript-eslint-parser"
+});
 
 //------------------------------------------------------------------------------
 // Tests
@@ -23,15 +25,17 @@ ruleTester.run("camelcase", ruleCamelcase, {
     valid: [
         {
             code: "interface Foo { b_ar: null }",
-            parser,
             options: [{ properties: "never" }]
+        },
+        {
+            code: "interface Foo { bar: null }",
+            options: [{ properties: "always" }]
         }
     ],
 
     invalid: [
         {
             code: "interface Foo { b_ar: null }",
-            parser,
             options: [{ properties: "always" }],
             errors: [
                 {
