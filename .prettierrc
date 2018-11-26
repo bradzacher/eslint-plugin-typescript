@@ -1,7 +1,6 @@
 {
     "arrowParens": "avoid",
     "bracketSpacing": true,
-    "parser": "typescript",
     "jsxBracketSameLine": true,
     "proseWrap": "preserve",
     "semi": true,
