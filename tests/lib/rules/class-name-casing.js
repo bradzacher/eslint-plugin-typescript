@@ -1,6 +1,7 @@
 /**
  * @fileoverview Enforces PascalCased class and interface names.
  * @author Jed Fox
+ * @author Armano <https://github.com/armano2>
  */
 "use strict";
 
@@ -16,7 +17,7 @@ const rule = require("../../../lib/rules/class-name-casing"),
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({
-    parser: "typescript-eslint-parser"
+    parser: "typescript-eslint-parser",
 });
 
 ruleTester.run("class-name-casing", rule, {
@@ -25,12 +26,14 @@ ruleTester.run("class-name-casing", rule, {
         {
             code: "export default class {}",
             parserOptions: {
-                sourceType: "module"
-            }
+                sourceType: "module",
+            },
         },
         "var Foo = class {};",
         "interface SomeInterface {}",
-        "class ClassNameWithDigit2 {}"
+        "class ClassNameWithDigit2 {}",
+        "abstract class ClassNameWithDigit2 {}",
+        "var ba_zz = class Foo {};",
     ],
 
     invalid: [
@@ -40,9 +43,9 @@ ruleTester.run("class-name-casing", rule, {
                 {
                     message: "Class 'invalidClassName' must be PascalCased",
                     line: 1,
-                    column: 7
-                }
-            ]
+                    column: 7,
+                },
+            ],
         },
         {
             code: "class Another_Invalid_Class_Name {}",
@@ -51,9 +54,9 @@ ruleTester.run("class-name-casing", rule, {
                     message:
                         "Class 'Another_Invalid_Class_Name' must be PascalCased",
                     line: 1,
-                    column: 7
-                }
-            ]
+                    column: 7,
+                },
+            ],
         },
         {
             code: "var foo = class {};",
@@ -61,9 +64,19 @@ ruleTester.run("class-name-casing", rule, {
                 {
                     message: "Class 'foo' must be PascalCased",
                     line: 1,
-                    column: 5
-                }
-            ]
+                    column: 5,
+                },
+            ],
+        },
+        {
+            code: "const foo = class {};",
+            errors: [
+                {
+                    message: "Class 'foo' must be PascalCased",
+                    line: 1,
+                    column: 7,
+                },
+            ],
         },
         {
             code: "var bar = class invalidName {}",
@@ -71,9 +84,9 @@ ruleTester.run("class-name-casing", rule, {
                 {
                     message: "Class 'invalidName' must be PascalCased",
                     line: 1,
-                    column: 17
-                }
-            ]
+                    column: 17,
+                },
+            ],
         },
         {
             code: "interface someInterface {}",
@@ -81,9 +94,30 @@ ruleTester.run("class-name-casing", rule, {
                 {
                     message: "Interface 'someInterface' must be PascalCased",
                     line: 1,
-                    column: 11
-                }
-            ]
-        }
-    ]
+                    column: 11,
+                },
+            ],
+        },
+        {
+            code: "abstract class invalidClassName {}",
+            errors: [
+                {
+                    message:
+                        "Abstract class 'invalidClassName' must be PascalCased",
+                    line: 1,
+                    column: 16,
+                },
+            ],
+        },
+        {
+            code: "declare class invalidClassName {}",
+            errors: [
+                {
+                    message: "Class 'invalidClassName' must be PascalCased",
+                    line: 1,
+                    column: 15,
+                },
+            ],
+        },
+    ],
 });
