@@ -25,7 +25,8 @@
         "precommit": "npm test && lint-staged"
     },
     "dependencies": {
-        "requireindex": "~1.2.0"
+        "requireindex": "~1.2.0",
+        "typescript-eslint-parser": "^17.0.1"
     },
     "devDependencies": {
         "eslint": "^5.9.0",
@@ -38,12 +39,10 @@
         "lint-staged": "^8.1.0",
         "mocha": "^5.2.0",
         "prettier-eslint-cli": "^4.7.1",
-        "typescript": "~2.9",
-        "typescript-eslint-parser": "^17.0.1"
+        "typescript": "~2.9"
     },
     "peerDependencies": {
-        "eslint": ">=4.13.1 < 6",
-        "typescript-eslint-parser": "^17.0.0"
+        "eslint": ">=4.13.1 < 6"
     },
     "lint-staged": {
         "*.js": [
