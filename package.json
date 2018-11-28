@@ -46,7 +46,7 @@
     },
     "lint-staged": {
         "*.js": [
-            "yarn format-check",
+            "yarn format",
             "git add"
         ]
     },
