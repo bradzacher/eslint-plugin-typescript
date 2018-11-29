@@ -1,6 +1,7 @@
 /**
  * @fileoverview Enforces the use of the keyword `namespace` over `module` to declare custom TypeScript modules.
  * @author Patricio Trevino
+ * @author Armano <https://github.com/armano2>
  */
 "use strict";
 
@@ -21,6 +22,7 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("prefer-namespace-keyword", rule, {
     valid: [
+        "declare module 'foo'",
         "declare module 'foo' { }",
         "namespace foo { }",
         "declare namespace foo { }",
@@ -29,6 +31,7 @@ ruleTester.run("prefer-namespace-keyword", rule, {
     invalid: [
         {
             code: "module foo { }",
+            output: "namespace foo { }",
             errors: [
                 {
                     message:
@@ -41,6 +44,7 @@ ruleTester.run("prefer-namespace-keyword", rule, {
         },
         {
             code: "declare module foo { }",
+            output: "declare namespace foo { }",
             errors: [
                 {
                     message:
@@ -57,22 +61,21 @@ declare module foo {
     declare module bar { }
 }
             `,
+            output: `
+declare namespace foo {
+    declare namespace bar { }
+}
+            `,
             errors: [
                 {
                     message:
                         "Use 'namespace' instead of 'module' to declare custom TypeScript modules",
-                    output: "declare namespace foo { }",
                     row: 2,
                     column: 1,
                 },
                 {
                     message:
                         "Use 'namespace' instead of 'module' to declare custom TypeScript modules",
-                    output: `
-declare namespace foo {
-    declare namespace bar { }
-}
-            `,
                     row: 3,
                     column: 5,
                 },
