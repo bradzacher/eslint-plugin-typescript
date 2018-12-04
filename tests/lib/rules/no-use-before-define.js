@@ -199,6 +199,26 @@ export class Test {}
             parserOptions: { ecmaVersion: 6, sourceType: "module" },
             options: [{ classes: false }],
         },
+        // https://github.com/bradzacher/eslint-plugin-typescript/issues/141
+        {
+            code: `
+interface ITest {
+  first : boolean;
+  second : string;
+  third : boolean;
+}
+
+let first = () => console.log('first');
+
+export let second = () => console.log('second');
+
+export namespace Third {
+  export let third = () => console.log('third');
+}
+            `,
+            parserOptions: { ecmaVersion: 6, sourceType: "module" },
+            parser: "typescript-eslint-parser",
+        },
     ],
     invalid: [
         {
