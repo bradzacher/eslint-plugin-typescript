@@ -20,8 +20,6 @@ const ruleTester = new RuleTester({
     parser: "typescript-eslint-parser",
 });
 
-const errors = rule.errorMessages;
-
 ruleTester.run("member-delimiter-style", rule, {
     valid: [
         {
@@ -670,12 +668,12 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -697,12 +695,12 @@ interface Foo {
             options: [{ delimiter: "semi" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -724,12 +722,12 @@ interface Foo {
             options: [{ delimiter: "semi", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -751,7 +749,7 @@ interface Foo {
             options: [{ delimiter: "semi", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
@@ -773,7 +771,7 @@ interface Foo {
             options: [{ delimiter: "semi", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -795,12 +793,12 @@ interface Foo {
             options: [{ delimiter: "comma" }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -822,12 +820,12 @@ interface Foo {
             options: [{ delimiter: "comma", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -849,7 +847,7 @@ interface Foo {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
@@ -871,12 +869,12 @@ interface Foo {
             options: [{ delimiter: "comma" }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -898,12 +896,12 @@ interface Foo {
             options: [{ delimiter: "comma", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -925,7 +923,7 @@ interface Foo {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -947,12 +945,12 @@ interface Foo {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -974,12 +972,12 @@ interface Foo {
             options: [{ delimiter: "none" }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1001,12 +999,12 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: true }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1028,7 +1026,7 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
@@ -1050,7 +1048,7 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1072,12 +1070,12 @@ interface Foo {
             options: [{ delimiter: "none" }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1099,12 +1097,12 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: true }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1126,7 +1124,7 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -1148,7 +1146,7 @@ interface Foo {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1175,12 +1173,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1210,12 +1208,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1245,7 +1243,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1272,12 +1270,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -1307,12 +1305,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -1342,7 +1340,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
@@ -1369,12 +1367,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1404,12 +1402,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1439,7 +1437,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -1469,12 +1467,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1501,12 +1499,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1536,12 +1534,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1571,7 +1569,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
@@ -1601,7 +1599,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -1628,12 +1626,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1663,12 +1661,12 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1698,7 +1696,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -1728,7 +1726,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1749,12 +1747,12 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1776,12 +1774,12 @@ type Foo = {
             options: [{ delimiter: "semi" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1803,12 +1801,12 @@ type Foo = {
             options: [{ delimiter: "semi", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1830,7 +1828,7 @@ type Foo = {
             options: [{ delimiter: "semi", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -1852,12 +1850,12 @@ type Foo = {
             options: [{ delimiter: "comma" }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -1879,12 +1877,12 @@ type Foo = {
             options: [{ delimiter: "comma", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -1906,7 +1904,7 @@ type Foo = {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
@@ -1928,12 +1926,12 @@ type Foo = {
             options: [{ delimiter: "comma" }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1955,12 +1953,12 @@ type Foo = {
             options: [{ delimiter: "comma", requireLast: true }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -1982,7 +1980,7 @@ type Foo = {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -2004,12 +2002,12 @@ type Foo = {
             options: [{ delimiter: "comma", requireLast: false }],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2031,12 +2029,12 @@ type Foo = {
             options: [{ delimiter: "none" }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2058,12 +2056,12 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: true }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2085,7 +2083,7 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
@@ -2107,7 +2105,7 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2129,12 +2127,12 @@ type Foo = {
             options: [{ delimiter: "none" }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2156,12 +2154,12 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: true }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2183,7 +2181,7 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -2205,7 +2203,7 @@ type Foo = {
             options: [{ delimiter: "none", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2232,12 +2230,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -2267,12 +2265,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -2302,7 +2300,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 4,
                     column: 16,
                 },
@@ -2329,12 +2327,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -2364,12 +2362,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 16,
                 },
@@ -2399,7 +2397,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
@@ -2426,12 +2424,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2461,12 +2459,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2496,7 +2494,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -2526,12 +2524,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 17,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2558,12 +2556,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2593,12 +2591,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2628,7 +2626,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 3,
                     column: 18,
                 },
@@ -2658,7 +2656,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -2685,12 +2683,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2720,12 +2718,12 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2755,7 +2753,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 3,
                     column: 18,
                 },
@@ -2785,7 +2783,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.comma,
+                    messageId: "unexpectedComma",
                     line: 4,
                     column: 17,
                 },
@@ -2826,22 +2824,22 @@ type Bar = {
             ],
             errors: [
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 3,
                     column: 18,
                 },
                 {
-                    message: errors.expected.comma,
+                    messageId: "expectedComma",
                     line: 4,
                     column: 17,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 8,
                     column: 18,
                 },
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 9,
                     column: 17,
                 },
@@ -2860,7 +2858,7 @@ interface Foo {
             `,
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 23,
                 },
@@ -2880,7 +2878,7 @@ interface Foo {
             options: [{ singleLine: "none" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 23,
                 },
@@ -2892,7 +2890,7 @@ interface Foo {
             options: [{ singleLine: "semi" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 35,
                 },
@@ -2909,7 +2907,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 35,
                 },
@@ -2929,7 +2927,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 35,
                 },
@@ -2948,7 +2946,7 @@ type Foo = {
             `,
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 23,
                 },
@@ -2968,7 +2966,7 @@ type Foo = {
             options: [{ singleLine: "semi" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 3,
                     column: 23,
                 },
@@ -2980,7 +2978,7 @@ type Foo = {
             options: [{ singleLine: "semi" }],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 32,
                 },
@@ -2997,7 +2995,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 32,
                 },
@@ -3017,7 +3015,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 32,
                 },
@@ -3033,7 +3031,7 @@ interface Foo {
             options: [{ delimiter: "semi", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -3060,7 +3058,7 @@ interface Foo {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -3070,7 +3068,7 @@ interface Foo {
             code: "interface Foo { [key: string]: any }",
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 35,
                 },
@@ -3086,7 +3084,7 @@ type Foo = {
             options: [{ delimiter: "semi", requireLast: false }],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -3110,7 +3108,7 @@ type Foo = {
             ],
             errors: [
                 {
-                    message: errors.unexpected.semi,
+                    messageId: "unexpectedSemi",
                     line: 4,
                     column: 17,
                 },
@@ -3120,7 +3118,7 @@ type Foo = {
             code: "type Foo = { [key: string]: any }",
             errors: [
                 {
-                    message: errors.expected.semi,
+                    messageId: "expectedSemi",
                     line: 1,
                     column: 32,
                 },
