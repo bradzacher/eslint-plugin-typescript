@@ -37,70 +37,11 @@ interface Foo {
     age: number;
 }
                     `,
-            options: [{ delimiter: "semi", requireLast: true }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string;
-    age: number;
-}
-                    `,
-            options: [{ delimiter: "semi" }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string;
-    age: number
-}
-                    `,
-            options: [{ delimiter: "semi", requireLast: false }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string,
-    age: number,
-}
-                    `,
-            options: [{ delimiter: "comma", requireLast: true }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string,
-    age: number,
-}
-                    `,
-            options: [{ delimiter: "comma" }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string,
-    age: number
-}
-                    `,
-            options: [{ delimiter: "comma", requireLast: false }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string
-    age: number
-}
-                    `,
-            options: [{ delimiter: "none", requireLast: true }],
-        },
-        {
-            code: `
-interface Foo {
-    name: string
-    age: number
-}
-                    `,
-            options: [{ delimiter: "none", requireLast: false }],
+            options: [
+                {
+                    multiline: { delimiter: "semi", requireLast: true },
+                },
+            ],
         },
         {
             code: `
@@ -111,12 +52,105 @@ interface Foo {
                     `,
             options: [
                 {
-                    delimiter: "comma",
-                    requireLast: false,
-                    overrides: {
-                        interface: {
-                            delimiter: "semi",
-                            requireLast: true,
+                    multiline: { delimiter: "semi" },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string;
+    age: number
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "semi", requireLast: false },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string,
+    age: number,
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "comma", requireLast: true },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string,
+    age: number,
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "comma" },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string,
+    age: number
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "comma", requireLast: false },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string
+    age: number
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "none", requireLast: true },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string
+    age: number
+}
+                    `,
+            options: [
+                {
+                    multiline: { delimiter: "none", requireLast: false },
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+    name: string;
+    age: number;
+}
+                    `,
+            options: [
+                {
+                    multiline: {
+                        delimiter: "comma",
+                        requireLast: false,
+                        overrides: {
+                            interface: {
+                                delimiter: "semi",
+                                requireLast: true,
+                            },
                         },
                     },
                 },
