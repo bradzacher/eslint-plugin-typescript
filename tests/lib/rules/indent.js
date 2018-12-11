@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("eslint/lib/rules/indent"),
+const rule = require("../../../lib/rules/indent"),
     RuleTester = require("eslint").RuleTester;
 
 const ruleTester = new RuleTester({
@@ -21,57 +21,223 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run("indent", rule, {
-    valid: [
-        `
-@Component({
-    components: {
-        ErrorPage: () => import('@/components/ErrorPage.vue'),
-    },
-    head: {
-        titleTemplate(title) {
-            if (title) {
-                return \`test\`
-            }
-            return 'Title'
-        },
-        htmlAttrs: {
-            lang: 'en',
-        },
-        meta: [
-            { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        ],
-    },
-})
-export default class App extends Vue 
-{
-    get error() 
-    {
-        return this.$store.state.errorHandler.error
-    }
+    valid: [],
+    invalid: [
+        {
+            code: `
+type Foo = {
+bar : string,
+age : number,
 }
-        `,
-        // https://github.com/eslint/typescript-eslint-parser/issues/474
-        `
-/**
- * @param {string} name
- * @param {number} age
- * @returns {string}
- */
-function foo(name: string, age: number): string {}
-        `,
-        `
-const firebaseApp = firebase.apps.length
-    ? firebase.app()
-    : firebase.initializeApp({
-        apiKey: __FIREBASE_API_KEY__,
-        authDomain: __FIREBASE_AUTH_DOMAIN__,
-        databaseURL: __FIREBASE_DATABASE_URL__,
-        projectId: __FIREBASE_PROJECT_ID__,
-        storageBucket: __FIREBASE_STORAGE_BUCKET__,
-        messagingSenderId: __FIREBASE_MESSAGING_SENDER_ID__,
-    })
-        `,
+            `,
+            output: `
+type Foo = {
+    bar : string,
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+bar : string,
+age : number,
+}
+            `,
+            output: `
+interface Foo {
+    bar : string,
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo {
+bar : {
+baz : string,
+},
+age : number,
+}
+            `,
+            output: `
+interface Foo {
+    bar : {
+        baz : string,
+    },
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 6,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+const foo : Foo<{
+bar : string,
+age : number,
+}>
+            `,
+            output: `
+const foo : Foo<{
+    bar : string,
+    age : number,
+}>
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+type T = {
+bar : string,
+age : number,
+} | {
+bar : string,
+age : number,
+}
+            `,
+            output: `
+type T = {
+    bar : string,
+    age : number,
+} | {
+    bar : string,
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 6,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 7,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+type T =
+    | {
+bar : string,
+age : number,
+}
+    | {
+    bar : string,
+    age : number,
+}
+            `,
+            output: `
+type T =
+    | {
+        bar : string,
+        age : number,
+    }
+    | {
+        bar : string,
+        age : number,
+    }
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 6,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 4.`,
+                    line: 8,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 4.`,
+                    line: 9,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 10,
+                    column: 1,
+                },
+            ],
+        },
     ],
-    invalid: [],
 });
