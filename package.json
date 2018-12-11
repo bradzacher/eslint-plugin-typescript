@@ -30,6 +30,7 @@
     "eslint-config-eslint": "^5.0.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-docs": "^0.1.1",
+    "eslint-plugin-eslint-plugin": "^2.0.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.2.0",
@@ -49,7 +50,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn test && yarn docs:check && lint-staged"
+      "pre-commit": "yarn check --verify-tree && yarn lint && yarn format-check && yarn test && yarn docs:check && lint-staged"
     }
   },
   "engines": {
