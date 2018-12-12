@@ -323,5 +323,71 @@ class Foo {}
                 },
             ],
         },
+        {
+            code: `
+enum Foo {
+bar,
+baz = 1,
+buzz = '',
+}
+            `,
+            output: `
+enum Foo {
+    bar,
+    baz = 1,
+    buzz = '',
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+const enum Foo {
+bar,
+baz = 1,
+buzz = '',
+}
+            `,
+            output: `
+const enum Foo {
+    bar,
+    baz = 1,
+    buzz = '',
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
     ],
 });
