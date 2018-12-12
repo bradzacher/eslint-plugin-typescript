@@ -183,6 +183,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "string" },
                     line: 1,
                     column: 8,
                 },
@@ -195,6 +196,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 8,
                 },
@@ -207,6 +209,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "Bar" },
                     line: 1,
                     column: 16,
                 },
@@ -219,6 +222,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "string" },
                     line: 1,
                     column: 8,
                 },
@@ -231,6 +235,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 8,
                 },
@@ -243,6 +248,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "Bar" },
                     line: 1,
                     column: 21,
                 },
@@ -255,6 +261,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "Bar" },
                     line: 1,
                     column: 27,
                 },
@@ -266,11 +273,13 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "Bar" },
                     line: 1,
                     column: 18,
                 },
                 {
                     messageId: "errorStringArray",
+                    data: { type: "Bar" },
                     line: 1,
                     column: 31,
                 },
@@ -283,6 +292,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "undefined" },
                     line: 1,
                     column: 8,
                 },
@@ -295,6 +305,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "object" },
                     line: 1,
                     column: 9,
                 },
@@ -307,6 +318,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "string" },
                     line: 1,
                     column: 20,
                 },
@@ -319,6 +331,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "any" },
                     line: 1,
                     column: 8,
                 },
@@ -331,6 +344,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 23,
                 },
@@ -343,6 +357,7 @@ ruleTester.run("array-type", rule, {
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 15,
                 },
@@ -357,6 +372,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 2,
                     column: 15,
                 },
@@ -379,6 +395,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "T" },
                     line: 2,
                     column: 10,
                 },
@@ -395,6 +412,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 27,
                 },
@@ -407,6 +425,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 13,
                 },
@@ -419,6 +438,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 17,
                 },
@@ -431,6 +451,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 24,
                 },
@@ -443,6 +464,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArraySimple",
+                    data: { type: "fooName.BarType" },
                     line: 1,
                     column: 8,
                 },
@@ -455,6 +477,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGenericSimple",
+                    data: { type: "T" },
                     line: 1,
                     column: 8,
                 },
@@ -467,6 +490,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "undefined" },
                     line: 1,
                     column: 8,
                 },
@@ -479,6 +503,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "string" },
                     line: 1,
                     column: 20,
                 },
@@ -491,6 +516,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "any" },
                     line: 1,
                     column: 8,
                 },
@@ -503,6 +529,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 15,
                 },
@@ -517,6 +544,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 2,
                     column: 15,
                 },
@@ -537,6 +565,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 2,
                     column: 10,
                 },
@@ -553,6 +582,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 27,
                 },
@@ -565,6 +595,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 13,
                 },
@@ -577,6 +608,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 17,
                 },
@@ -589,6 +621,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringArray",
+                    data: { type: "T" },
                     line: 1,
                     column: 24,
                 },
@@ -601,6 +634,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "number" },
                     line: 1,
                     column: 31,
                 },
@@ -613,6 +647,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "string" },
                     line: 1,
                     column: 8,
                 },
@@ -625,6 +660,7 @@ let yyyy: Arr<Arr<string>[][]> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 23,
                 },
@@ -639,6 +675,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 2,
                     column: 15,
                 },
@@ -659,6 +696,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 3,
                     column: 10,
                 },
@@ -675,6 +713,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 27,
                 },
@@ -687,6 +726,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 13,
                 },
@@ -699,6 +739,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 17,
                 },
@@ -711,6 +752,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "T" },
                     line: 1,
                     column: 24,
                 },
@@ -727,6 +769,7 @@ let yyyy: Arr<Array<Array<Arr<string>>>> = [[[["2"]]]];`,
             errors: [
                 {
                     messageId: "errorStringGeneric",
+                    data: { type: "string" },
                     line: 2,
                     column: 19,
                 },
