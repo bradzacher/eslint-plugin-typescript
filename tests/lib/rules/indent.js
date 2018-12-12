@@ -23,6 +23,7 @@ const ruleTester = new RuleTester({
 ruleTester.run("indent", rule, {
     valid: [],
     invalid: [
+        /*
         {
             code: `
 type Foo = {
@@ -385,6 +386,22 @@ const enum Foo {
                 {
                     message: `Expected indentation of 4 spaces but found 0.`,
                     line: 5,
+                    column: 1,
+                },
+            ],
+        },
+        */
+        {
+            code: `
+    export = Foo;
+            `,
+            output: `
+export = Foo;
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 0 spaces but found 4.`,
+                    line: 2,
                     column: 1,
                 },
             ],
