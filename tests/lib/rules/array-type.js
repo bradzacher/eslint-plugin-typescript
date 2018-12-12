@@ -1,5 +1,5 @@
 /**
- * @fileoverview Requires using either 'T[]' or 'Array' for arrays.
+ * @fileoverview Requires using either `T[]` or `Array<T>` for arrays.
  * @author Mackie Underdown
  * @author Armano <https://github.com/armano2>
  */

@@ -1,4 +1,4 @@
-# Requires using either 'T[]' or 'Array' for arrays (array-type)
+# Requires using either `T[]` or `Array<T>` for arrays (array-type)
 
 ```ts
 class Foo<T = Array<Array<Bar>>> extends Bar<T, Array<T>> implements Baz<Array<T>> {
