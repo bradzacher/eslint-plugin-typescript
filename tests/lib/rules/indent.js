@@ -168,6 +168,100 @@ interface Foo {
         },
         {
             code: `
+interface Foo extends Bar {
+bar : string,
+age : number,
+}
+            `,
+            output: `
+interface Foo extends Bar {
+    bar : string,
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+            ],
+        },
+        // this is just to show how eslint handles class with extends on a new line so we can keep the interface indent
+        // handling the same
+        {
+            code: `
+class Foo
+extends Bar {
+bar : string = "asdf";
+age : number = 1;
+}
+            `,
+            output: `
+class Foo
+    extends Bar {
+    bar : string = "asdf";
+    age : number = 1;
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+interface Foo
+extends Bar {
+bar : string,
+age : number,
+}
+            `,
+            output: `
+interface Foo
+    extends Bar {
+    bar : string,
+    age : number,
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
 const foo : Foo<{
 bar : string,
 age : number,
