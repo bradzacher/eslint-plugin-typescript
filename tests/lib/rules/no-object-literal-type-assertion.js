@@ -66,7 +66,7 @@ ruleTester.run("no-object-literal-type-assertion", rule, {
             code: `<T> ({});`,
             errors: [
                 {
-                    messageId: "errorMessage",
+                    messageId: "unexpectedTypeAssertion",
                     line: 1,
                     column: 1,
                 },
@@ -76,7 +76,7 @@ ruleTester.run("no-object-literal-type-assertion", rule, {
             code: `({}) as T;`,
             errors: [
                 {
-                    messageId: "errorMessage",
+                    messageId: "unexpectedTypeAssertion",
                     line: 1,
                     column: 1,
                 },
@@ -86,7 +86,7 @@ ruleTester.run("no-object-literal-type-assertion", rule, {
             code: `const x = {} as T;`,
             errors: [
                 {
-                    messageId: "errorMessage",
+                    messageId: "unexpectedTypeAssertion",
                     line: 1,
                     column: 11,
                 },
