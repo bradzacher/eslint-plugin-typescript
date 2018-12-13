@@ -31,7 +31,7 @@ interface I {
 ## Options
 ```json
 {
-    "typescript/no-misused-new": "error"]
+    "typescript/no-misused-new": "error"
 }
 ```
 
