@@ -549,5 +549,39 @@ export = Foo;
                 },
             ],
         },
+        {
+            code: `
+    declare function h(x: number): number;
+            `,
+            output: `
+declare function h(x: number): number;
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 0 spaces but found 4.`,
+                    line: 2,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+declare function h(
+x: number,
+): number;
+            `,
+            output: `
+declare function h(
+    x: number,
+): number;
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+            ],
+        },
     ],
 });
