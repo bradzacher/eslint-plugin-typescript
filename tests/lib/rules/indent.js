@@ -466,6 +466,10 @@ foo : string;
 constructor() {
 const foo = "";
 }
+constructor(
+asdf : number,
+private test : boolean,
+) {}
 }
             `,
             output: `
@@ -478,6 +482,10 @@ class Foo {
     constructor() {
         const foo = "";
     }
+    constructor(
+        asdf : number,
+        private test : boolean,
+    ) {}
 }
             `,
             errors: [
@@ -519,6 +527,26 @@ class Foo {
                 {
                     message: `Expected indentation of 4 spaces but found 0.`,
                     line: 10,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 11,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 12,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 13,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 14,
                     column: 1,
                 },
             ],
