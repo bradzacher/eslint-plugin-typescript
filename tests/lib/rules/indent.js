@@ -105,12 +105,28 @@ type Foo = {
 interface Foo {
 bar : string,
 age : number,
+foo(): boolean,
+baz(
+asdf: string,
+): boolean,
+new(): Foo,
+new(
+asdf: string,
+): Foo,
 }
             `,
             output: `
 interface Foo {
     bar : string,
     age : number,
+    foo(): boolean,
+    baz(
+        asdf: string,
+    ): boolean,
+    new(): Foo,
+    new(
+        asdf: string,
+    ): Foo,
 }
             `,
             errors: [
@@ -122,6 +138,46 @@ interface Foo {
                 {
                     message: `Expected indentation of 4 spaces but found 0.`,
                     line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 6,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 7,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 8,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 9,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 10,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 11,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 12,
                     column: 1,
                 },
             ],
@@ -407,6 +463,9 @@ private bar : string;
 protected bar : string;
 abstract bar : string;
 foo : string;
+constructor() {
+const foo = "";
+}
 }
             `,
             output: `
@@ -416,6 +475,9 @@ class Foo {
     protected bar : string;
     abstract bar : string;
     foo : string;
+    constructor() {
+        const foo = "";
+    }
 }
             `,
             errors: [
@@ -442,6 +504,21 @@ class Foo {
                 {
                     message: `Expected indentation of 4 spaces but found 0.`,
                     line: 7,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 8,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 9,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 10,
                     column: 1,
                 },
             ],
