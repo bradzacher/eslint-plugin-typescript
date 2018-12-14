@@ -660,5 +660,71 @@ declare function h(
                 },
             ],
         },
+        {
+            code: `
+namespace Validation {
+export interface StringValidator {
+isAcceptable(s: string): boolean;
+}
+}
+            `,
+            output: `
+namespace Validation {
+    export interface StringValidator {
+        isAcceptable(s: string): boolean;
+    }
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+declare module "Validation" {
+export interface StringValidator {
+isAcceptable(s: string): boolean;
+}
+}
+            `,
+            output: `
+declare module "Validation" {
+    export interface StringValidator {
+        isAcceptable(s: string): boolean;
+    }
+}
+            `,
+            errors: [
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 3,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 8 spaces but found 0.`,
+                    line: 4,
+                    column: 1,
+                },
+                {
+                    message: `Expected indentation of 4 spaces but found 0.`,
+                    line: 5,
+                    column: 1,
+                },
+            ],
+        },
     ],
 });
