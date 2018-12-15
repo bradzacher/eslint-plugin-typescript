@@ -5,7 +5,7 @@
 ✅ = done  
 🌟 = in ESLint core  
 🔌 = in another plugin  
-🛑 = unimplemented
+🛑 = unimplemented  
 ❓ = implementations differ or ESLint version is missing functionality
 
 ### TypeScript-specific
