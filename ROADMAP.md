@@ -114,62 +114,64 @@
 | [`no-require-imports`]       | 🛑  | N/A                                                                                                                                                |
 | [`object-literal-sort-keys`] | ❓  | [`sort-keys`](https://eslint.org/docs/rules/sort-keys) (missing support for blank line delimited sections)                                         |
 | [`prefer-const`]             | 🌟  | [`prefer-const`](https://eslint.org/docs/rules/prefer-const)                                                                                       |
-| [`prefer-readonly`]          |     | N/A                                                                                                                                                |
+| [`prefer-readonly`]          | 🛑  | N/A                                                                                                                                                |
 | [`trailing-comma`]           | ❓  | [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle) or [Prettier](https://prettier.io/)                                                   |
 
-| TSLint rule                         |     | ESLint rule                                      |
-| ----------------------------------- | :-: | ------------------------------------------------ |
-| [`align`]                           |     | [`typescript/align`]()                           |
-| [`array-type`]                      |     | [`typescript/array-type`]()                      |
-| [`arrow-parens`]                    |     | [`typescript/arrow-parens`]()                    |
-| [`arrow-return-shorthand`]          |     | [`typescript/arrow-return-shorthand`]()          |
-| [`binary-expression-operand-order`] |     | [`typescript/binary-expression-operand-order`]() |
-| [`callable-types`]                  |     | [`typescript/callable-types`]()                  |
-| [`class-name`]                      |     | [`typescript/class-name`]()                      |
-| [`comment-format`]                  |     | [`typescript/comment-format`]()                  |
-| [`completed-docs`]                  |     | [`typescript/completed-docs`]()                  |
-| [`encoding`]                        |     | [`typescript/encoding`]()                        |
-| [`file-header`]                     |     | [`typescript/file-header`]()                     |
-| [`file-name-casing`]                |     | [`typescript/file-name-casing`]()                |
-| [`import-spacing`]                  |     | [`typescript/import-spacing`]()                  |
-| [`interface-name`]                  |     | [`typescript/interface-name`]()                  |
-| [`interface-over-type-literal`]     |     | [`typescript/interface-over-type-literal`]()     |
-| [`jsdoc-format`]                    |     | [`typescript/jsdoc-format`]()                    |
-| [`match-default-export-name`]       |     | [`typescript/match-default-export-name`]()       |
-| [`newline-before-return`]           |     | [`typescript/newline-before-return`]()           |
-| [`newline-per-chained-call`]        |     | [`typescript/newline-per-chained-call`]()        |
-| [`new-parens`]                      |     | [`typescript/new-parens`]()                      |
-| [`no-angle-bracket-type-assertion`] |     | [`typescript/no-angle-bracket-type-assertion`]() |
-| [`no-boolean-literal-compare`]      |     | [`typescript/no-boolean-literal-compare`]()      |
-| [`no-consecutive-blank-lines`]      |     | [`typescript/no-consecutive-blank-lines`]()      |
-| [`no-irregular-whitespace`]         |     | [`typescript/no-irregular-whitespace`]()         |
-| [`no-parameter-properties`]         |     | [`typescript/no-parameter-properties`]()         |
-| [`no-redundant-jsdoc`]              |     | [`typescript/no-redundant-jsdoc`]()              |
-| [`no-reference-import`]             |     | [`typescript/no-reference-import`]()             |
-| [`no-trailing-whitespace`]          |     | [`typescript/no-trailing-whitespace`]()          |
-| [`no-unnecessary-callback-wrapper`] |     | [`typescript/no-unnecessary-callback-wrapper`]() |
-| [`no-unnecessary-initializer`]      |     | [`typescript/no-unnecessary-initializer`]()      |
-| [`no-unnecessary-qualifier`]        |     | [`typescript/no-unnecessary-qualifier`]()        |
-| [`number-literal-format`]           |     | [`typescript/number-literal-format`]()           |
-| [`object-literal-key-quotes`]       |     | [`typescript/object-literal-key-quotes`]()       |
-| [`object-literal-shorthand`]        |     | [`typescript/object-literal-shorthand`]()        |
-| [`one-line`]                        |     | [`typescript/one-line`]()                        |
-| [`one-variable-per-declaration`]    |     | [`typescript/one-variable-per-declaration`]()    |
-| [`ordered-imports`]                 |     | [`typescript/ordered-imports`]()                 |
-| [`prefer-function-over-method`]     |     | [`typescript/prefer-function-over-method`]()     |
-| [`prefer-method-signature`]         |     | [`typescript/prefer-method-signature`]()         |
-| [`prefer-switch`]                   |     | [`typescript/prefer-switch`]()                   |
-| [`prefer-template`]                 |     | [`typescript/prefer-template`]()                 |
-| [`prefer-while`]                    |     | [`typescript/prefer-while`]()                    |
-| [`quotemark`]                       |     | [`typescript/quotemark`]()                       |
-| [`return-undefined`]                |     | [`typescript/return-undefined`]()                |
-| [`semicolon`]                       |     | [`typescript/semicolon`]()                       |
-| [`space-before-function-paren`]     |     | [`typescript/space-before-function-paren`]()     |
-| [`space-within-parens`]             |     | [`typescript/space-within-parens`]()             |
-| [`switch-final-break`]              |     | [`typescript/switch-final-break`]()              |
-| [`type-literal-delimiter`]          |     | [`typescript/type-literal-delimiter`]()          |
-| [`variable-name`]                   |     | [`typescript/variable-name`]()                   |
-| [`whitespace`]                      |     | [`typescript/whitespace`]()                      |
+### Style
+
+| TSLint rule                         |     | ESLint rule                                                                                                                                                                                                                                                     |
+| ----------------------------------- | :-: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`align`]                           | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`array-type`]                      | ✅  | [`typescript/array-type`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/array-type.md)                                                                                                                                          |
+| [`arrow-parens`]                    | 🌟  | [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)                                                                                                                                                                                                    |
+| [`arrow-return-shorthand`]          | 🌟  | [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style)                                                                                                                                                                                            |
+| [`binary-expression-operand-order`] | 🌟  | [`yoda`](https://eslint.org/docs/rules/yoda)                                                                                                                                                                                                                    |
+| [`callable-types`]                  | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`class-name`]                      | ✅  | [`typescript/class-name-casing`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/class-name-casing.md)                                                                                                                            |
+| [`comment-format`]                  | 🌟  | [`capitalized-comments`](https://eslint.org/docs/rules/capitalized-comments) & [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)                                                                                                                 |
+| [`completed-docs`]                  | 🔌  | [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                                                                                                                                                                           |
+| [`encoding`]                        | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`file-header`]                     | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`file-name-casing`]                | 🔌  | [`unicorn/filename-case`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md)                                                                                                                                        |
+| [`import-spacing`]                  | 🔌  | Use [Prettier](https://prettier.io)                                                                                                                                                                                                                             |
+| [`interface-name`]                  | ✅  | [`typescript/interface-name-prefix`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/interface-name-prefix.md)                                                                                                                    |
+| [`interface-over-type-literal`]     | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`jsdoc-format`]                    | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`match-default-export-name`]       | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`newline-before-return`]           | 🌟  | [`padding-line-between-statements`](https://eslint.org/docs/rules/padding-line-between-statements) (`{ blankLine: "always", prev: "*", next: "return" }`)                                                                                                       |
+| [`newline-per-chained-call`]        | 🌟  | [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call)                                                                                                                                                                            |
+| [`new-parens`]                      | 🌟  | [`new-parens`](https://eslint.org/docs/rules/new-parens)                                                                                                                                                                                                        |
+| [`no-angle-bracket-type-assertion`] | ✅  | [`typescript/no-angle-bracket-type-assertion`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-angle-bracket-type-assertion.md)                                                                                                |
+| [`no-boolean-literal-compare`]      | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`no-consecutive-blank-lines`]      | 🌟  | [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)                                                                                                                                                                              |
+| [`no-irregular-whitespace`]         | 🌟  | [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) with `skipStrings: false`                                                                                                                                                    |
+| [`no-parameter-properties`]         | ✅  | [`typescript/no-parameter-properties`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-parameter-properties.md)                                                                                                                |
+| [`no-redundant-jsdoc`]              | 🛑  | N/A ([open issue](https://github.com/gajus/eslint-plugin-jsdoc/issues/134))                                                                                                                                                                                     |
+| [`no-reference-import`]             | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`no-trailing-whitespace`]          | 🌟  | [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)                                                                                                                                                                                        |
+| [`no-unnecessary-callback-wrapper`] | 🛑  | N/A and this might be unsafe (i.e. with `forEach`)                                                                                                                                                                                                              |
+| [`no-unnecessary-initializer`]      | 🌟  | [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)                                                                                                                                                                                                  |
+| [`no-unnecessary-qualifier`]        | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`number-literal-format`]           | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`object-literal-key-quotes`]       | 🌟  | [`quote-props`](https://eslint.org/docs/rules/quote-props)                                                                                                                                                                                                      |
+| [`object-literal-shorthand`]        | 🌟  | [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand)                                                                                                                                                                                            |
+| [`one-line`]                        | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`one-variable-per-declaration`]    | 🌟  | [`one-var`](https://eslint.org/docs/rules/one-var)                                                                                                                                                                                                              |
+| [`ordered-imports`]                 | 🔌  | [`import/order`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md)                                                                                                                                                             |
+| [`prefer-function-over-method`]     | 🌟  | [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)                                                                                                                                                                                |
+| [`prefer-method-signature`]         | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`prefer-switch`]                   | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`prefer-template`]                 | 🌟  | [`prefer-template`](https://eslint.org/docs/rules/prefer-template)                                                                                                                                                                                              |
+| [`prefer-while`]                    | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`quotemark`]                       | 🌟  | [`quotes`](https://eslint.org/docs/rules/quotes)                                                                                                                                                                                                                |
+| [`return-undefined`]                | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`semicolon`]                       | 🌟  | [`semi`](https://eslint.org/docs/rules/semi)                                                                                                                                                                                                                    |
+| [`space-before-function-paren`]     | 🌟  | [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren)                                                                                                                                                                      |
+| [`space-within-parens`]             | 🌟  | [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens)                                                                                                                                                                                              |
+| [`switch-final-break`]              | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`type-literal-delimiter`]          | ✅  | [`typescript/member-delimiter-style`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md)                                                                                                                  |
+| [`variable-name`]                   | 🌟  | [`camelcase`](https://eslint.org/docs/rules/camelcase), [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle), [`id-blacklist`](https://eslint.org/docs/rules/id-blacklist), and/or [`id-match`](https://eslint.org/docs/rules/id-match) |
+| [`whitespace`]                      | 🔌  | Use [Prettier](https://prettier.io)                                                                                                                                                                                                                             |
 
 [`adjacent-overload-signatures`]: https://palantir.github.io/tslint/rules/adjacent-overload-signatures
 [`ban-types`]: https://palantir.github.io/tslint/rules/ban-types
