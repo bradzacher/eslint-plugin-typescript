@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "requireindex": "^1.2.0",
-    "typescript-eslint-parser": "21.0.2"
+    "typescript-eslint-parser": "git+https://github.com/uniqueiniquity/typescript-eslint-parser.git#0625f29a9721c6f10a7522de6c9d236a671bd1ac"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
