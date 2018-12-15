@@ -1,4 +1,4 @@
-# enforce consistent indentation (indent)
+# Enforce consistent indentation (indent)
 
 There are several common guidelines which require specific indentation of nested blocks and statements, like:
 
