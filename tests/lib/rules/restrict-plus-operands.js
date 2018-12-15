@@ -26,8 +26,6 @@ const ruleTester = new RuleTester({
     },
 });
 
-console.log(__dirname);
-
 ruleTester.run("restrict-plus-operands", rule, {
     valid: [
         {
@@ -49,23 +47,26 @@ ruleTester.run("restrict-plus-operands", rule, {
             code: `var foo = "5.5" + "10";`,
         },
         {
+            code: `var foo = parseFloat("5.5", 10) + 10;`,
+        },
+        {
             code: `
-/// <reference lib="es2015" />
-var foo = parseFloat("5.5", 10) + 10;
+function test () : number { return 2; }
+var foo = test("5.5", 10) + 10;
             `,
         },
         {
             code: `
-                var x = 5;
-                var z = 8.2;
-                var foo = x + z;
+var x = 5;
+var z = 8.2;
+var foo = x + z;
             `,
         },
         {
             code: `
-            var w = "6.5";
-            var y = "10";
-            var foo = y + w;
+var w = "6.5";
+var y = "10";
+var foo = y + w;
             `,
         },
         {
@@ -76,37 +77,25 @@ var foo = parseFloat("5.5", 10) + 10;
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = pair.first + 10;
             `,
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = pair.first + (10 as number);
             `,
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = "5.5" + pair.second;
             `,
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = ("5.5" as string) + pair.second;
             `,
         },
@@ -277,48 +266,39 @@ var foo = [] + y;
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = pair.first + "10";
             `,
             errors: [
                 {
                     messageId: "notStrings",
-                    line: 6,
+                    line: 3,
                     column: 11,
                 },
             ],
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair: { first: number, second: string } = { first: 5, second: "10" };
 var foo = 5 + pair.second;
             `,
             errors: [
                 {
                     messageId: "notStrings",
-                    line: 6,
+                    line: 3,
                     column: 11,
                 },
             ],
         },
         {
             code: `
-var pair: { first: number, second: string } = {
-    first: 5,
-    second: "10"
-};
+var pair = { first: 5, second: "10" };
 var foo = pair + pair;
             `,
             errors: [
                 {
                     messageId: "notNumbers",
-                    line: 6,
+                    line: 3,
                     column: 11,
                 },
             ],

@@ -76,5 +76,6 @@ This guarantees 100% compatibility between the plugin and the parser.
 * [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) — Disallow the use of variables before they are defined
 * [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) — Disallows the use of require statements except in import statements (`no-var-requires` from TSLint)
 * [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) — Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint)
+* [`typescript/restrict-plus-operands`](./docs/rules/restrict-plus-operands.md) — When adding two variables, operands must both be of type number or of type string. (`restrict-plus-operands` from TSLint)
 * [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) — Require consistent spacing around type annotations (`typedef-whitespace` from TSLint)
 <!-- end rule list -->
