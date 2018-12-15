@@ -98,24 +98,27 @@
 
 ### Maintainability
 
+| TSLint rule                  |     | ESLint rule                                                                                                                                        |
+| ---------------------------- | :-: | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`cyclomatic-complexity`]    | 🌟  | [`complexity`](https://eslint.org/docs/rules/complexity)                                                                                           |
+| [`deprecation`]              | ❓  | [`import/no-deprecated`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md) only covers imports            |
+| [`eofline`]                  | 🌟  | [`eol-last`](https://eslint.org/docs/rules/eol-last)                                                                                               |
+| [`indent`]                   | ✅  | [`typescript/indent`](https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/indent.md) or [Prettier](https://prettier.io/) |
+| [`linebreak-style`]          | 🌟  | [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) or [Prettier](https://prettier.io/)                                             |
+| [`max-classes-per-file`]     | 🌟  | [`max-classes-per-file`](https://eslint.org/docs/rules/max-classes-per-file)                                                                       |
+| [`max-file-line-count`]      | 🌟  | [`max-lines`](https://eslint.org/docs/rules/max-lines)                                                                                             |
+| [`max-line-length`]          | 🌟  | [`max-len`](https://eslint.org/docs/rules/max-len) or [Prettier](https://prettier.io/)                                                             |
+| [`no-default-export`]        | 🔌  | [`import/no-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-default-export.md)                        |
+| [`no-duplicate-imports`]     | 🔌  | [`import/no-duplicates`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md)                                |
+| [`no-mergeable-namespace`]   | 🛑  | N/A                                                                                                                                                |
+| [`no-require-imports`]       | 🛑  | N/A                                                                                                                                                |
+| [`object-literal-sort-keys`] | ❓  | [`sort-keys`](https://eslint.org/docs/rules/sort-keys) (missing support for blank line delimited sections)                                         |
+| [`prefer-const`]             | 🌟  | [`prefer-const`](https://eslint.org/docs/rules/prefer-const)                                                                                       |
+| [`prefer-readonly`]          |     | N/A                                                                                                                                                |
+| [`trailing-comma`]           | ❓  | [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle) or [Prettier](https://prettier.io/)                                                   |
+
 | TSLint rule                         |     | ESLint rule                                      |
 | ----------------------------------- | :-: | ------------------------------------------------ |
-| [`cyclomatic-complexity`]           |     | [`typescript/cyclomatic-complexity`]()           |
-| [`deprecation`]                     |     | [`typescript/deprecation`]()                     |
-| [`eofline`]                         |     | [`typescript/eofline`]()                         |
-| [`indent`]                          |     | [`typescript/indent`]()                          |
-| [`linebreak-style`]                 |     | [`typescript/linebreak-style`]()                 |
-| [`max-classes-per-file`]            |     | [`typescript/max-classes-per-file`]()            |
-| [`max-file-line-count`]             |     | [`typescript/max-file-line-count`]()             |
-| [`max-line-length`]                 |     | [`typescript/max-line-length`]()                 |
-| [`no-default-export`]               |     | [`typescript/no-default-export`]()               |
-| [`no-duplicate-imports`]            |     | [`typescript/no-duplicate-imports`]()            |
-| [`no-mergeable-namespace`]          |     | [`typescript/no-mergeable-namespace`]()          |
-| [`no-require-imports`]              |     | [`typescript/no-require-imports`]()              |
-| [`object-literal-sort-keys`]        |     | [`typescript/object-literal-sort-keys`]()        |
-| [`prefer-const`]                    |     | [`typescript/prefer-const`]()                    |
-| [`prefer-readonly`]                 |     | [`typescript/prefer-readonly`]()                 |
-| [`trailing-comma`]                  |     | [`typescript/trailing-comma`]()                  |
 | [`align`]                           |     | [`typescript/align`]()                           |
 | [`array-type`]                      |     | [`typescript/array-type`]()                      |
 | [`arrow-parens`]                    |     | [`typescript/arrow-parens`]()                    |
