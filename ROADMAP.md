@@ -76,7 +76,7 @@
 | [`no-switch-case-fall-through`]      | 🌟  | [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)                                                                                                    |
 | [`no-this-assignment`]               | ✅  | [`typescript/no-this-alias`]                                                                                                                                                                |
 | [`no-unbound-method`]                | 🛑  | N/A                                                                                                                                                                 |
-| [`no-unnecessary-class`]             | 🛑  | N/A                                                                                                                                                                 |
+| [`no-unnecessary-class`]             | ✅  | [`typescript/no-extraneous-class`]                                                                                                                                                                 |
 | [`no-unsafe-any`]                    | 🛑  | N/A                                                                                                                                                                 |
 | [`no-unsafe-finally`]                | 🌟  | [`no-unsafe-finally`](https://eslint.org/docs/rules/no-unsafe-finally)                                                                                              |
 | [`no-unused-expression`]             | 🌟  | [`no-unused-expression`](https://eslint.org/docs/rules/no-unused-expressions)                                                                                       |
@@ -341,6 +341,7 @@
 [`typescript/no-misused-new`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-misused-new.md
 [`typescript/no-object-literal-type-assertion`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-object-literal-type-assertion.md
 [`typescript/no-this-alias`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-this-alias.md
+[`typescript/no-extraneous-class`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-extraneous-class.md
 [`typescript/no-unused-vars`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-unused-vars.md
 [`typescript/no-use-before-define`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-use-before-define.md
 [`typescript/indent`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/indent.md
