@@ -4,6 +4,7 @@ Enforces a consistent member delimiter style in interfaces and type literals. Th
 
 -   Semicolon style (default, preferred in TypeScript).
 
+<!-- prettier-ignore -->
 ```ts
 interface Foo {
     name: string;
@@ -13,35 +14,37 @@ interface Foo {
 type Bar = {
     name: string;
     greet(): void;
-};
+}
 ```
 
 -   Comma style (JSON style).
 
+<!-- prettier-ignore -->
 ```ts
 interface Foo {
-    name: string;
-    greet(): void;
+    name: string,
+    greet(): void,
 }
 
 type Bar = {
-    name: string;
-    greet(): void;
-};
+    name: string,
+    greet(): void,
+}
 ```
 
 -   Linebreak (none) style.
 
+<!-- prettier-ignore -->
 ```ts
 interface Foo {
-    name: string;
-    greet(): void;
+    name: string
+    greet(): void
 }
 
 type Bar = {
-    name: string;
-    greet(): void;
-};
+    name: string
+    greet(): void
+}
 ```
 
 The rule also enforces the presence (or absence) of the delimiter in the last member of the interface and/or type literal.
@@ -138,52 +141,52 @@ For example, to require commas for `type`s, and semicolons for multiline `interf
 
 Examples of **incorrect** code for this rule with the default config:
 
+<!-- prettier-ignore -->
 ```ts
 // missing semicolon delimiter
 interface Foo {
-    name: string;
-    greet(): string;
+    name: string
+    greet(): string
 }
 
 // using incorrect delimiter
 interface Bar {
-    name: string;
-    greet(): string;
+    name: string,
+    greet(): string,
 }
 
 // missing last member delimiter
 interface Baz {
     name: string;
-    greet(): string;
+    greet(): string
 }
 
 // incorrect delimiter
-type FooBar = { name: string; greet(): string };
+type FooBar = { name: string, greet(): string }
 
 // last member should not have delimiter
-type FooBar = { name: string; greet(): string };
+type FooBar = { name: string; greet(): string; }
 ```
 
 Examples of **correct** code for this rule with the default config:
 
+<!-- prettier-ignore -->
 ```ts
 interface Foo {
     name: string;
     greet(): string;
 }
 
-interface Foo {
-    name: string;
-}
+interface Foo { name: string }
 
 type Bar = {
     name: string;
     greet(): string;
-};
+}
 
-type Bar = { name: string };
+type Bar = { name: string }
 
-type FooBar = { name: string; greet(): string };
+type FooBar = { name: string; greet(): string }
 ```
 
 ## When Not To Use It
