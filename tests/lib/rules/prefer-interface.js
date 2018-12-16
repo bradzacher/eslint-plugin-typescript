@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/interface-over-type-literal"),
+const rule = require("../../../lib/rules/prefer-interface"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
@@ -21,22 +21,14 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("interface-over-type-literal", rule, {
     valid: [
-        {
-            code: `var foo = { };`,
-        },
-        {
-            code: `type U = string;`,
-        },
-        {
-            code: `type V = { x: number; } | { y: string; };`,
-        },
-        {
-            code: `
+        `var foo = { };`,
+        `type U = string;`,
+        `type V = { x: number; } | { y: string; };`,
+        `
 type Record<T, U> = {
     [K in T]: U;
 }
-            `,
-        },
+        `,
     ],
     invalid: [
         {

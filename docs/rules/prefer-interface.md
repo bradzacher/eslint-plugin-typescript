@@ -1,4 +1,4 @@
-# Prefer an interface declaration over a type literal (type T = { ... }) (interface-over-type-literal)
+# Prefer an interface declaration over a type literal (type T = { ... }) (prefer-interface)
 
 Interfaces are generally preferred over type literals because interfaces can be implemented, extended and merged.
 

@@ -61,7 +61,6 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/explicit-member-accessibility`](./docs/rules/explicit-member-accessibility.md) | Require explicit accessibility modifiers on class properties and methods (`member-access` from TSLint) |  |  |
 | [`typescript/generic-type-naming`](./docs/rules/generic-type-naming.md) | Enforces naming of generic type variables |  |  |
 | [`typescript/interface-name-prefix`](./docs/rules/interface-name-prefix.md) | Require that interface names be prefixed with `I` (`interface-name` from TSLint) |  |  |
-| [`typescript/interface-over-type-literal`](./docs/rules/interface-over-type-literal.md) | Prefer an interface declaration over a type literal (type T = { ... }) (`interface-over-type-literal` from TSLint) |  | :wrench: |
 | [`typescript/member-delimiter-style`](./docs/rules/member-delimiter-style.md) | Require a specific member delimiter style for interfaces and type literals |  | :wrench: |
 | [`typescript/member-naming`](./docs/rules/member-naming.md) | Enforces naming conventions for class members by visibility. |  |  |
 | [`typescript/member-ordering`](./docs/rules/member-ordering.md) | Require a consistent member declaration order (`member-ordering` from TSLint) |  |  |
@@ -80,6 +79,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) | Prevent TypeScript-specific constructs from being erroneously flagged as unused | :heavy_check_mark: |  |
 | [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) | Disallow the use of variables before they are defined |  |  |
 | [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) | Disallows the use of require statements except in import statements (`no-var-requires` from TSLint) |  |  |
+| [`typescript/prefer-interface`](./docs/rules/prefer-interface.md) | Prefer an interface declaration over a type literal (type T = { ... }) (`interface-over-type-literal` from TSLint) |  | :wrench: |
 | [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) | Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint) |  | :wrench: |
 | [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) | Require consistent spacing around type annotations (`typedef-whitespace` from TSLint) |  | :wrench: |
 <!-- end rule list -->
