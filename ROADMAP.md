@@ -74,7 +74,7 @@
 | [`no-string-throw`]                  | 🌟  | [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal)                                                                                                |
 | [`no-submodule-imports`]             | ❓  | [`import/no-internal-modules`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md) (slightly different)                |
 | [`no-switch-case-fall-through`]      | 🌟  | [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)                                                                                                    |
-| [`no-this-assignment`]               | 🛑  | N/A                                                                                                                                                                 |
+| [`no-this-assignment`]               | ✅  | [`typescript/no-this-alias`]                                                                                                                                                                |
 | [`no-unbound-method`]                | 🛑  | N/A                                                                                                                                                                 |
 | [`no-unnecessary-class`]             | 🛑  | N/A                                                                                                                                                                 |
 | [`no-unsafe-any`]                    | 🛑  | N/A                                                                                                                                                                 |
@@ -340,6 +340,7 @@
 [`typescript/type-annotation-spacing`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/type-annotation-spacing.md
 [`typescript/no-misused-new`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-misused-new.md
 [`typescript/no-object-literal-type-assertion`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-object-literal-type-assertion.md
+[`typescript/no-this-alias`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-this-alias.md
 [`typescript/no-unused-vars`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-unused-vars.md
 [`typescript/no-use-before-define`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-use-before-define.md
 [`typescript/indent`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/indent.md
