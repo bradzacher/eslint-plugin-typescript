@@ -22,14 +22,14 @@
     "recommended:update": "node tools/update-recommended.js"
   },
   "dependencies": {
-    "requireindex": "~1.2.0",
+    "requireindex": "^1.2.0",
     "typescript-eslint-parser": "21.0.2"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
     "eslint-config-eslint": "^5.0.1",
     "eslint-config-prettier": "^3.3.0",
-    "eslint-docs": "^0.1.1",
+    "eslint-docs": "^0.2.3",
     "eslint-plugin-eslint-plugin": "^2.0.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^3.0.0",
