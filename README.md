@@ -49,6 +49,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 <!-- Please run `npm run docs` to update this section -->
 <!-- begin rule list -->
 **Key**: :heavy_check_mark: = recommended, :wrench: = fixable
+
 | Name | Description | :heavy_check_mark: | :wrench: |
 | ---- | ----------- | ------------------ | -------- |
 | [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) |  |  |

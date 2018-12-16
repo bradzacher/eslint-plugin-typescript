@@ -707,10 +707,10 @@ eslint-config-prettier@^3.3.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-docs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-docs/-/eslint-docs-0.2.0.tgz#7b50af6a715e95340fa650fd0061e560c022b38f"
-  integrity sha512-xMFQygPgW/8DtmHKOCvGVvQxplX3TE1hX6pfRbfqYXswhRPoeYPvN5B5o1ZKcDXEPGZsjXQgZD1gXuhjL7FaIA==
+eslint-docs@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-docs/-/eslint-docs-0.2.3.tgz#71a583443c1d74bfc7c1af31b3249e258037309c"
+  integrity sha512-6afUYuK65TOPliMul0yIGwCiKWNEqk54RbuNZhJKt1mTVHyG0D2Zbbpa7yTT1/TiCfnUkfQa7TA/l7Jgu998Dw==
   dependencies:
     chalk "^2.4.1"
     detect-newline "^2.1.0"
