@@ -17,12 +17,17 @@ const rule = require("../../../lib/rules/restrict-plus-operands"),
 // Tests
 //------------------------------------------------------------------------------
 
+const rootPath = path.join(process.cwd(), "tests/lib/fixtures/empty");
+// valid filePath is required to get access to lib
+// @see https://github.com/JamesHenry/typescript-estree/issues/50
+const filePath = path.join(rootPath, "empty.ts");
+
 const ruleTester = new RuleTester({
     parser: "typescript-eslint-parser",
     parserOptions: {
         generateServices: true,
-        project: path.join(__dirname, "tsconfig.json"),
-        tsconfigRootDir: path.resolve(__dirname),
+        tsconfigRootDir: rootPath,
+        project: "./tsconfig.json",
     },
 });
 
@@ -47,6 +52,11 @@ ruleTester.run("restrict-plus-operands", rule, {
             code: `var foo = "5.5" + "10";`,
         },
         {
+            filename: filePath,
+            code: `var foo = parseInt("5.5", 10) + 10;`,
+        },
+        {
+            filename: filePath,
             code: `var foo = parseFloat("5.5", 10) + 10;`,
         },
         {
@@ -286,6 +296,17 @@ var foo = 5 + pair.second;
                 {
                     messageId: "notStrings",
                     line: 3,
+                    column: 11,
+                },
+            ],
+        },
+        {
+            filename: filePath,
+            code: `var foo = parseInt("5.5", 10) + "10";`,
+            errors: [
+                {
+                    messageId: "notStrings",
+                    line: 1,
                     column: 11,
                 },
             ],

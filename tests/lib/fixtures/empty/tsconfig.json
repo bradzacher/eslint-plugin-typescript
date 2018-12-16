@@ -6,7 +6,6 @@
         "esModuleInterop": true,
         "lib": [
             "es2015",
-            "dom",
             "es2017"
         ]
     }
