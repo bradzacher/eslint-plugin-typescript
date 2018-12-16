@@ -48,8 +48,10 @@ This guarantees 100% compatibility between the plugin and the parser.
 
 <!-- Please run `npm run docs` to update this section -->
 <!-- begin rule list -->
+
 **Key**: :heavy_check_mark: = recommended, :wrench: = fixable
 
+<!-- prettier-ignore -->
 | Name | Description | :heavy_check_mark: | :wrench: |
 | ---- | ----------- | ------------------ | -------- |
 | [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) |  |  |
@@ -74,7 +76,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-non-null-assertion`](./docs/rules/no-non-null-assertion.md) | Disallows non-null assertions using the `!` postfix operator (`no-non-null-assertion` from TSLint) |  |  |
 | [`typescript/no-object-literal-type-assertion`](./docs/rules/no-object-literal-type-assertion.md) | Forbids an object literal to appear in a type assertion expression (`no-object-literal-type-assertion` from TSLint) |  |  |
 | [`typescript/no-parameter-properties`](./docs/rules/no-parameter-properties.md) | Disallow the use of parameter properties in class constructors. (`no-parameter-properties` from TSLint) |  |  |
-| [`typescript/no-this-alias`](./docs/rules/no-this-alias.md) | Disallow aliasing `this` |  |  |
+| [`typescript/no-this-alias`](./docs/rules/no-this-alias.md) | Disallow aliasing `this` (`no-this-assignment` from TSLint) |  |  |
 | [`typescript/no-triple-slash-reference`](./docs/rules/no-triple-slash-reference.md) | Disallow `/// <reference path="" />` comments (`no-reference` from TSLint) |  |  |
 | [`typescript/no-type-alias`](./docs/rules/no-type-alias.md) | Disallow the use of type aliases (`interface-over-type-literal` from TSLint) |  |  |
 | [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) | Prevent TypeScript-specific constructs from being erroneously flagged as unused | :heavy_check_mark: |  |
@@ -82,4 +84,5 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) | Disallows the use of require statements except in import statements (`no-var-requires` from TSLint) |  |  |
 | [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) | Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint) |  | :wrench: |
 | [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) | Require consistent spacing around type annotations (`typedef-whitespace` from TSLint) |  | :wrench: |
+
 <!-- end rule list -->
