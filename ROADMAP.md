@@ -352,4 +352,3 @@
 [`typescript/no-parameter-properties`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-parameter-properties.md
 [`typescript/member-delimiter-style`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md
 [`typescript/prefer-interface`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/prefer-interface.md
-
