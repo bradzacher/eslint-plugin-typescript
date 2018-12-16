@@ -51,7 +51,7 @@ You can pass an object option:
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
+If you need to assign `this` to variables, you shouldn’t use this rule.
 
 ## Related to
 
