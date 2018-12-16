@@ -1,4 +1,4 @@
 env:
-  mocha: true
+    mocha: true
 rules:
-  node/no-unpublished-require: off # we’re using devDeps here.
+    node/no-unpublished-require: off # we’re using devDeps here.

@@ -48,8 +48,10 @@ This guarantees 100% compatibility between the plugin and the parser.
 
 <!-- Please run `npm run docs` to update this section -->
 <!-- begin rule list -->
+
 **Key**: :heavy_check_mark: = recommended, :wrench: = fixable
 
+<!-- prettier-ignore -->
 | Name | Description | :heavy_check_mark: | :wrench: |
 | ---- | ----------- | ------------------ | -------- |
 | [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) |  |  |
@@ -81,4 +83,5 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) | Disallows the use of require statements except in import statements (`no-var-requires` from TSLint) |  |  |
 | [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) | Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint) |  | :wrench: |
 | [`typescript/type-annotation-spacing`](./docs/rules/type-annotation-spacing.md) | Require consistent spacing around type annotations (`typedef-whitespace` from TSLint) |  | :wrench: |
+
 <!-- end rule list -->
