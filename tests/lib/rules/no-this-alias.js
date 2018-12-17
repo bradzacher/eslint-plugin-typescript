@@ -12,14 +12,13 @@
 const rule = require("../../../lib/rules/no-this-alias"),
     RuleTester = require("eslint").RuleTester;
 
-const idMessage = "Unexpected aliasing of 'this' to local variable";
-const destructureMessage =
-    "Unexpected aliasing of members of 'this' to local variables";
-
-const idError = { message: idMessage, type: "Identifier" };
-const destructureError = { message: destructureMessage, type: "ObjectPattern" };
+const idError = { messageId: "thisAssignment", type: "Identifier" };
+const destructureError = {
+    messageId: "thisDestructure",
+    type: "ObjectPattern",
+};
 const arrayDestructureError = {
-    message: destructureMessage,
+    messageId: "thisDestructure",
     type: "ArrayPattern",
 };
 
@@ -74,12 +73,7 @@ const [foo, bar] = this;
         },
         {
             code: "const { props, state } = this;",
-            errors: [
-                {
-                    message: destructureMessage,
-                    type: "ObjectPattern",
-                },
-            ],
+            errors: [destructureError],
         },
         {
             code: `
