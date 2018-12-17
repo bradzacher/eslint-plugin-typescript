@@ -43,6 +43,15 @@ var foo: Foo = {
         },
         {
             filename: filePath,
+            code: `
+interface Foo {
+    hello: string;
+}
+const foo: string = ({ hello: 'Bar' } as Foo).hello
+            `,
+        },
+        {
+            filename: filePath,
             code: `var foo: number = parseInt("5.5", 10) + 10;`,
         },
     ],
@@ -92,6 +101,30 @@ var foo: Foo = {
                     line: 2,
                     column: 17,
                     type: "Literal",
+                },
+            ],
+        },
+        {
+            filename: filePath,
+            code: `
+interface Foo {
+    hello: string;
+}
+const foo: string = ({ hello: 2 } as Foo)!.foo
+            `,
+            errors: [
+                {
+                    message:
+                        "Conversion of type '{ hello: number; }' to type 'Foo' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.",
+                    line: 5,
+                    column: 22,
+                    type: "ObjectExpression",
+                },
+                {
+                    message: "Property 'foo' does not exist on type 'Foo'.",
+                    line: 5,
+                    column: 44,
+                    type: "Identifier",
                 },
             ],
         },
