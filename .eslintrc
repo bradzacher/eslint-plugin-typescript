@@ -12,18 +12,22 @@
         "plugin:eslint-plugin/recommended"
     ],
     "rules": {
+        "new-cap": "off",
+        "lines-around-comment": "off",
+
         "prettier/prettier": [
             "error",
             {
                 "tabWidth": 4
             }
         ],
-        "lines-around-comment": "off",
+
         "eslint-plugin/prefer-placeholders": "error",
         "eslint-plugin/prefer-replace-text": "error",
         "eslint-plugin/no-deprecated-report-api": "error",
         "eslint-plugin/report-message-format": ["error", "^[A-Z'{].*[\\.}]$"],
         "eslint-plugin/no-deprecated-context-methods": "error",
-        "eslint-plugin/prefer-output-null": "error"
+        "eslint-plugin/prefer-output-null": "error",
+        "eslint-plugin/test-case-shorthand-strings": "error"
     }
 }
