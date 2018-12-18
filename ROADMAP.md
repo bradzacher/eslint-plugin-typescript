@@ -189,21 +189,23 @@ Deprecated rules are excluded (`missing-jsdoc`, `missing-optional-annotation`, `
 
 ### Testing
 
-Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-plugin-chai-expect-keywords), [`chai-expect`](https://github.com/Turbo87/eslint-plugin-chai-expect), and [`chai-friendly`](https://github.com/ihordiachenko/eslint-plugin-chai-friendly)
+Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-plugin-chai-expect-keywords), [`chai-expect`](https://github.com/Turbo87/eslint-plugin-chai-expect), [`chai-friendly`](https://github.com/ihordiachenko/eslint-plugin-chai-friendly), [`mocha`](https://github.com/lo1tuma/eslint-plugin-mocha), and [`jest`](https://github.com/jest-community/eslint-plugin-jest)
 
 | tslint-microsoft-contrib rule      |     | ESLint rule               |
 | ---------------------------------- | :-: | ------------------------- |
 | `chai-prefer-contains-to-index-of` | 🛑  | N/A                       |
 | `chai-vague-errors`                | 🛑  | N/A                       |
 | `mocha-avoid-only`                 | 🔌  | [`jest/no-focused-tests`] |
-| `mocha-unneeded-done`              | TBD |                           |
+| `mocha-unneeded-done`              | 🛑  | N/A                       |
 
 ### TypeScript
 
-| tslint-microsoft-contrib rule |     | ESLint rule |
-| ----------------------------- | :-: | ----------- |
-| `prefer-array-literal`        | TBD |             |
-| `prefer-type-cast`            | TBD |             |
+| tslint-microsoft-contrib rule |     | ESLint rule                                        |
+| ----------------------------- | :-: | -------------------------------------------------- |
+| `prefer-array-literal`        | ❓  | [`typescript/no-array-constructor`] <sup>[1]</sup> |
+| `prefer-type-cast`            | 🛑  | N/A                                                |
+
+<sup>[1]</sup> ESLint rule is slightly less strict, allowing `new Array<Foo>()` and `Array(2)`.
 
 ### Miscellaneous
 
@@ -250,65 +252,63 @@ Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/es
 
 ### Security
 
-| tslint-microsoft-contrib rule              |     | ESLint rule |
-| ------------------------------------------ | :-: | ----------- |
-| `no-disable-auto-sanitization`             | TBD |             |
-| `no-document-domain`                       | TBD |             |
-| `no-function-constructor-with-string-args` | TBD |             |
-| `no-http-string`                           | TBD |             |
-| `no-inner-html`                            | TBD |             |
-| `no-string-based-set-immediate`            | TBD |             |
-| `no-string-based-set-interval`             | TBD |             |
-| `no-string-based-set-timeout`              | TBD |             |
-| `react-iframe-missing-sandbox`             | TBD |             |
-| `react-no-dangerous-html`                  | TBD |             |
+| tslint-microsoft-contrib rule              |     | ESLint rule                                        |
+| ------------------------------------------ | :-: | -------------------------------------------------- |
+| `no-disable-auto-sanitization`             | 🛑  | N/A                                                |
+| `no-document-domain`                       | ❓  | Use [`no-restricted-syntax`][no-restricted-syntax] |
+| `no-function-constructor-with-string-args` | 🌟  | [`no-new-func`][no-new-func]                       |
+| `no-http-string`                           | 🛑  | N/A                                                |
+| `no-inner-html`                            | 🛑  | N/A                                                |
+| `no-string-based-set-immediate`            | 🛑  | N/A                                                |
+| `no-string-based-set-interval`             | 🛑  | N/A                                                |
+| `no-string-based-set-timeout`              | 🛑  | N/A                                                |
+| `react-iframe-missing-sandbox`             | 🛑  | N/A                                                |
+| `react-no-dangerous-html`                  | 🔌  | [`react/no-danger`]                                |
+| `non-literal-fs-path`                      | 🔌  | [`security/detect-non-literal-fs-filename`]        |
+| `non-literal-require`                      | 🔌  | [`security/detect-non-literal-require`]            |
+| `possible-timing-attack`                   | 🔌  | [`security/detect-possible-timing-attacks`]        |
 
 ### Browser
 
-| tslint-microsoft-contrib rule       |     | ESLint rule |
-| ----------------------------------- | :-: | ----------- |
-| `jquery-deferred-must-complete`     | 🛑  | N/A         |
-| `no-backbone-get-set-outside-model` | TBD |             |
-| `no-cookies`                        | TBD |             |
-| `no-document-write`                 | TBD |             |
-| `no-exec-script`                    | TBD |             |
-| `no-jquery-raw-elements`            | TBD |             |
-| `no-unsupported-browser-code`       | TBD |             |
-| `react-this-binding-issue`          | TBD |             |
-| `react-tsx-curly-spacing`           | TBD |             |
-| `react-unused-props-and-state`      | TBD |             |
-
-### Node
-
-| tslint-microsoft-contrib rule |     | ESLint rule |
-| ----------------------------- | :-: | ----------- |
-| `non-literal-fs-path`         | TBD |             |
-| `non-literal-require`         | TBD |             |
-| `possible-timing-attack`      | TBD |             |
+| tslint-microsoft-contrib rule       |     | ESLint rule                                        |
+| ----------------------------------- | :-: | -------------------------------------------------- |
+| `jquery-deferred-must-complete`     | 🛑  | N/A                                                |
+| `no-backbone-get-set-outside-model` | 🛑  | N/A                                                |
+| `no-cookies`                        | ❓  | Use [`no-restricted-syntax`][no-restricted-syntax] |
+| `no-document-write`                 | ❓  | Use [`no-restricted-syntax`][no-restricted-syntax] |
+| `no-exec-script`                    | ❓  | Use [`no-restricted-syntax`][no-restricted-syntax] |
+| `no-jquery-raw-elements`            | 🛑  | N/A                                                |
+| `no-unsupported-browser-code`       | 🔌  | [`eslint-plugin-compat`][plugin:compat]            |
+| `react-this-binding-issue`          | 🛑  |                                                    |
+| `react-tsx-curly-spacing`           | 🔌  | [`react/jsx-curly-spacing`]                        |
+| `react-unused-props-and-state`      | ❓  | [`react/no-unused-state`]                          |
 
 ### React A11y
 
-| tslint-microsoft-contrib rule             |     | ESLint rule                      |
-| ----------------------------------------- | :-: | -------------------------------- |
-| `react-a11y-accessible-headings`          | ❓  | [`jsx-a11y/heading-has-content`] |
-| `react-a11y-anchors`                      | TBD |                                  |
-| `react-a11y-aria-unsupported-elements`    | TBD |                                  |
-| `react-a11y-event-has-role`               | TBD |                                  |
-| `react-a11y-image-button-has-alt`         | TBD |                                  |
-| `react-a11y-img-has-alt`                  | TBD |                                  |
-| `react-a11y-input-elements`               | TBD |                                  |
-| `react-a11y-lang`                         | TBD |                                  |
-| `react-a11y-meta`                         | TBD |                                  |
-| `react-a11y-no-onchange`                  | TBD |                                  |
-| `react-a11y-props`                        | TBD |                                  |
-| `react-a11y-proptypes`                    | TBD |                                  |
-| `react-a11y-required`                     | TBD |                                  |
-| `react-a11y-role-has-required-aria-props` | TBD |                                  |
-| `react-a11y-role-supports-aria-props`     | TBD |                                  |
-| `react-a11y-role`                         | TBD |                                  |
-| `react-a11y-tabindex-no-positive`         | TBD |                                  |
-| `react-a11y-titles`                       | TBD |                                  |
-| `react-anchor-blank-noopener`             | TBD |                                  |
+| tslint-microsoft-contrib rule             |     | ESLint rule                                                |
+| ----------------------------------------- | :-: | ---------------------------------------------------------- |
+| `react-a11y-accessible-headings`          | ❓  | [`jsx-a11y/heading-has-content`] <sup>[1]</sup>            |
+| `react-a11y-anchors`                      | 🔌  | [`jsx-a11y/anchor-is-valid`]                               |
+| `react-a11y-aria-unsupported-elements`    | 🔌  | [`jsx-a11y/aria-unsupported-elements`]                     |
+| `react-a11y-event-has-role`               | ❓  | [`jsx-a11y/no-static-element-interactions`] <sup>[2]</sup> |
+| `react-a11y-image-button-has-alt`         | 🔌  | [`jsx-a11y/alt-text`]                                      |
+| `react-a11y-img-has-alt`                  | 🔌  | [`jsx-a11y/alt-text`]                                      |
+| `react-a11y-input-elements`               | 🛑  | N/A                                                        |
+| `react-a11y-lang`                         | 🔌  | [`jsx-a11y/html-has-lang`] & [`jsx-a11y/lang`]             |
+| `react-a11y-meta`                         | 🛑  | N/A                                                        |
+| `react-a11y-no-onchange`                  | 🔌  | [`jsx-a11y/no-onchange`]                                   |
+| `react-a11y-props`                        | 🔌  | [`jsx-a11y/aria-props`]                                    |
+| `react-a11y-proptypes`                    | 🔌  | [`jsx-a11y/aria-proptypes`]                                |
+| `react-a11y-required`                     | 🛑  | N/A                                                        |
+| `react-a11y-role-has-required-aria-props` | 🔌  | [`jsx-a11y/role-has-required-aria-props`]                  |
+| `react-a11y-role-supports-aria-props`     | 🔌  | [`jsx-a11y/role-supports-aria-props`]                      |
+| `react-a11y-role`                         | 🔌  | [`jsx-a11y/aria-role`]                                     |
+| `react-a11y-tabindex-no-positive`         | 🔌  | [`jsx-a11y/tabindex-no-positive`]                          |
+| `react-a11y-titles`                       | 🛑  | N/A                                                        |
+| `react-anchor-blank-noopener`             | 🛑  | N/A                                                        |
+
+<sup>[1]</sup> TSLint rule is more strict  
+<sup>[2]</sup> ESLint rule only reports for click handlers
 
 [prettier]: https://prettier.io
 
@@ -541,6 +541,7 @@ Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/es
 [no-control-regex]: https://eslint.org/docs/rules/no-control-regex
 [no-invalid-regexp]: https://eslint.org/docs/rules/no-invalid-regexp
 [no-regex-spaces]: https://eslint.org/docs/rules/no-regex-spaces
+[no-new-func]: https://eslint.org/docs/rules/no-new-func
 
 <!-- eslint-plugin-typescript -->
 
@@ -571,6 +572,7 @@ Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/es
 [`typescript/no-parameter-properties`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-parameter-properties.md
 [`typescript/member-delimiter-style`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md
 [`typescript/prefer-interface`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/prefer-interface.md
+[`typescript/no-array-constructor`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-array-constructor.md
 
 <!-- eslint-plugin-import -->
 
@@ -582,6 +584,34 @@ Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/es
 [`import/no-duplicates`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
 [`import/order`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
 
+<!-- eslint-plugin-react -->
+
+[`react/no-danger`]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger.md
+[`react/jsx-curly-spacing`]: https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/jsx-curly-spacing.md
+[`react/no-unused-state`]: https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-unused-state.md
+
+<!-- eslint-plugin-react-a11y -->
+
+[`jsx-a11y/anchor-is-valid`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
+[`jsx-a11y/aria-unsupported-elements`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
+[`jsx-a11y/no-static-element-interactions`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
+[`jsx-a11y/alt-text`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
+[`jsx-a11y/html-has-lang`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/html-has-lang.md
+[`jsx-a11y/lang`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
+[`jsx-a11y/no-onchange`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-onchange.md
+[`jsx-a11y/aria-props`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
+[`jsx-a11y/aria-proptypes`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
+[`jsx-a11y/role-has-required-aria-props`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
+[`jsx-a11y/role-supports-aria-props`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
+[`jsx-a11y/aria-role`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
+[`jsx-a11y/tabindex-no-positive`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
+
+<!-- eslint-plugin-security -->
+
+[`security/detect-non-literal-fs-filename`]: https://github.com/nodesecurity/eslint-plugin-security#detect-non-literal-fs-filename
+[`security/detect-non-literal-require`]: https://github.com/nodesecurity/eslint-plugin-security#detect-non-literal-require
+[`security/detect-possible-timing-attacks`]: https://github.com/nodesecurity/eslint-plugin-security#detect-possible-timing-attacks
+
 <!-- Miscellaneous plugins -->
 
 [`prefer-arrow/prefer-arrow-functions`]: https://github.com/TristonJ/eslint-plugin-prefer-arrow
@@ -589,6 +619,7 @@ Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/es
 [plugin:jsdoc]: https://github.com/gajus/eslint-plugin-jsdoc
 [plugin:header]: https://github.com/Stuk/eslint-plugin-header
 [plugin:file-header]: https://github.com/Sekhmet/eslint-plugin-file-header
+[plugin:compat]: https://github.com/amilajack/eslint-plugin-compat
 [`no-null/no-null`]: https://github.com/nene/eslint-plugin-no-null
 [`unicorn/filename-case`]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
 [`jest/no-focused-tests`]: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-focused-tests.md
