@@ -182,6 +182,134 @@
 <sup>[1]</sup> Recommended config: `["error", { blankLine: "always", prev: "*", next: "return" }]`  
 <sup>[2]</sup> [`camelcase`][camelcase], [`no-underscore-dangle`][no-underscore-dangle], [`id-blacklist`][id-blacklist], and/or [`id-match`]
 
+## tslint-microsoft-contrib rules
+
+Rule listing is [here](https://github.com/Microsoft/tslint-microsoft-contrib#supported-rules).
+Deprecated rules are excluded (`missing-jsdoc`, `missing-optional-annotation`, `no-duplicate-case`, `no-duplicate-parameter-names`, `no-empty-interfaces`, `no-missing-visibility-modifiers`, `no-multiple-var-decl`, `no-reserved-keywords`, `no-stateless-class`, `no-var-self`, and `valid-typeof`). See the docs in the link above to find out what to use instead.
+
+### Testing
+
+Chai relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-plugin-chai-expect-keywords), [`chai-expect`](https://github.com/Turbo87/eslint-plugin-chai-expect), and [`chai-friendly`](https://github.com/ihordiachenko/eslint-plugin-chai-friendly)
+
+| tslint-microsoft-contrib rule      |     | ESLint rule               |
+| ---------------------------------- | :-: | ------------------------- |
+| `chai-prefer-contains-to-index-of` | 🛑  | N/A                       |
+| `chai-vague-errors`                | 🛑  | N/A                       |
+| `mocha-avoid-only`                 | 🔌  | [`jest/no-focused-tests`] |
+| `mocha-unneeded-done`              | TBD |                           |
+
+### TypeScript
+
+| tslint-microsoft-contrib rule |     | ESLint rule |
+| ----------------------------- | :-: | ----------- |
+| `prefer-array-literal`        | TBD |             |
+| `prefer-type-cast`            | TBD |             |
+
+### Miscellaneous
+
+| tslint-microsoft-contrib rule         |     | ESLint rule                                      |
+| ------------------------------------- | :-: | ------------------------------------------------ |
+| `export-name`                         | TBD | ?                                                |
+| `function-name`                       | TBD | ?                                                |
+| `import-name`                         | TBD | ?                                                |
+| `function-name`                       | TBD | ?                                                |
+| `informative-docs`                    | TBD | ?                                                |
+| `insecure-random`                     | 🔌  | [custom implementation][insecure-random]         |
+| `max-func-body-length`                | 🌟  | [`max-statements`][max-statements]               |
+| `missing-jsdoc`                       | TBD | [`max-statements`][max-statements]               |
+| `no-banned-terms`                     | 🌟  | [`no-callee`][no-callee] & [`no-eval`][no-eval]  |
+| `no-constant-condition`               | 🌟  | [`no-constant-condition`][no-constant-condition] |
+| `no-control-regex`                    | 🌟  | [`no-control-regex`][no-control-regex]           |
+| `no-delete-expression`                | TBD |                                                  |
+| `no-empty-line-after-opening-brace`   | TBD |                                                  |
+| `no-for-in`                           | TBD |                                                  |
+| `no-function-expression`              | TBD |                                                  |
+| `no-increment-decrement`              | TBD |                                                  |
+| `no-invalid-regexp`                   | 🌟  | [`no-invalid-regexp`][no-invalid-regexp]         |
+| `no-multiline-string`                 | TBD |                                                  |
+| `no-octal-literal`                    | TBD |                                                  |
+| `no-regex-spaces`                     | 🌟  | [`no-regex-spaces`][no-regex-spaces]             |
+| `no-relative-imports`                 | TBD |                                                  |
+| `no-single-line-block-comment`        | TBD |                                                  |
+| `no-suspicious-comment`               | TBD |                                                  |
+| `no-typeof-undefined`                 | TBD |                                                  |
+| `no-unexternalized-strings`           | TBD |                                                  |
+| `no-unnecessary-bind`                 | TBD |                                                  |
+| `no-unnecessary-field-initialization` | TBD |                                                  |
+| `no-unnecessary-local-variable`       | TBD |                                                  |
+| `no-unnecessary-override`             | TBD |                                                  |
+| `no-unnecessary-semicolons`           | TBD |                                                  |
+| `no-useless-files`                    | TBD |                                                  |
+| `no-with-statement`                   | TBD |                                                  |
+| `promise-must-complete`               | TBD |                                                  |
+| `underscore-consistent-invocation`    | TBD |                                                  |
+| `use-named-parameter`                 | TBD |                                                  |
+| `use-simple-attributes`               | TBD |                                                  |
+
+[insecure-random]: https://github.com/desktop/desktop/blob/master/eslint-rules/insecure-random.js
+
+### Security
+
+| tslint-microsoft-contrib rule              |     | ESLint rule |
+| ------------------------------------------ | :-: | ----------- |
+| `no-disable-auto-sanitization`             | TBD |             |
+| `no-document-domain`                       | TBD |             |
+| `no-function-constructor-with-string-args` | TBD |             |
+| `no-http-string`                           | TBD |             |
+| `no-inner-html`                            | TBD |             |
+| `no-string-based-set-immediate`            | TBD |             |
+| `no-string-based-set-interval`             | TBD |             |
+| `no-string-based-set-timeout`              | TBD |             |
+| `react-iframe-missing-sandbox`             | TBD |             |
+| `react-no-dangerous-html`                  | TBD |             |
+
+### Browser
+
+| tslint-microsoft-contrib rule       |     | ESLint rule |
+| ----------------------------------- | :-: | ----------- |
+| `jquery-deferred-must-complete`     | 🛑  | N/A         |
+| `no-backbone-get-set-outside-model` | TBD |             |
+| `no-cookies`                        | TBD |             |
+| `no-document-write`                 | TBD |             |
+| `no-exec-script`                    | TBD |             |
+| `no-jquery-raw-elements`            | TBD |             |
+| `no-unsupported-browser-code`       | TBD |             |
+| `react-this-binding-issue`          | TBD |             |
+| `react-tsx-curly-spacing`           | TBD |             |
+| `react-unused-props-and-state`      | TBD |             |
+
+### Node
+
+| tslint-microsoft-contrib rule |     | ESLint rule |
+| ----------------------------- | :-: | ----------- |
+| `non-literal-fs-path`         | TBD |             |
+| `non-literal-require`         | TBD |             |
+| `possible-timing-attack`      | TBD |             |
+
+### React A11y
+
+| tslint-microsoft-contrib rule             |     | ESLint rule                      |
+| ----------------------------------------- | :-: | -------------------------------- |
+| `react-a11y-accessible-headings`          | ❓  | [`jsx-a11y/heading-has-content`] |
+| `react-a11y-anchors`                      | TBD |                                  |
+| `react-a11y-aria-unsupported-elements`    | TBD |                                  |
+| `react-a11y-event-has-role`               | TBD |                                  |
+| `react-a11y-image-button-has-alt`         | TBD |                                  |
+| `react-a11y-img-has-alt`                  | TBD |                                  |
+| `react-a11y-input-elements`               | TBD |                                  |
+| `react-a11y-lang`                         | TBD |                                  |
+| `react-a11y-meta`                         | TBD |                                  |
+| `react-a11y-no-onchange`                  | TBD |                                  |
+| `react-a11y-props`                        | TBD |                                  |
+| `react-a11y-proptypes`                    | TBD |                                  |
+| `react-a11y-required`                     | TBD |                                  |
+| `react-a11y-role-has-required-aria-props` | TBD |                                  |
+| `react-a11y-role-supports-aria-props`     | TBD |                                  |
+| `react-a11y-role`                         | TBD |                                  |
+| `react-a11y-tabindex-no-positive`         | TBD |                                  |
+| `react-a11y-titles`                       | TBD |                                  |
+| `react-anchor-blank-noopener`             | TBD |                                  |
+
 [prettier]: https://prettier.io
 
 <!-- TSLint -->
@@ -408,6 +536,11 @@
 [no-underscore-dangle]: https://eslint.org/docs/rules/no-underscore-dangle
 [id-blacklist]: https://eslint.org/docs/rules/id-blacklist
 [id-match]: https://eslint.org/docs/rules/id-match
+[max-statements]: https://eslint.org/docs/rules/max-statements
+[no-constant-condition]: https://eslint.org/docs/rules/no-constant-condition
+[no-control-regex]: https://eslint.org/docs/rules/no-control-regex
+[no-invalid-regexp]: https://eslint.org/docs/rules/no-invalid-regexp
+[no-regex-spaces]: https://eslint.org/docs/rules/no-regex-spaces
 
 <!-- eslint-plugin-typescript -->
 
@@ -458,3 +591,5 @@
 [plugin:file-header]: https://github.com/Sekhmet/eslint-plugin-file-header
 [`no-null/no-null`]: https://github.com/nene/eslint-plugin-no-null
 [`unicorn/filename-case`]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
+[`jest/no-focused-tests`]: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-focused-tests.md
+[`jsx-a11y/heading-has-content`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
