@@ -72,7 +72,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-empty-interface`](./docs/rules/no-empty-interface.md) | Disallow the declaration of empty interfaces (`no-empty-interface` from TSLint) |  |  |
 | [`typescript/no-explicit-any`](./docs/rules/no-explicit-any.md) | Disallow usage of the `any` type (`no-any` from TSLint) |  |  |
 | [`typescript/no-extraneous-class`](./docs/rules/no-extraneous-class.md) | Forbids the use of classes as namespaces (`no-unnecessary-class` from TSLint) |  |  |
-| [`typescript/no-for-in-array`](./docs/rules/no-for-in-array.md) | Disallow iterating over an array with a for-in loop |  |  |
+| [`typescript/no-for-in-array`](./docs/rules/no-for-in-array.md) | Disallow iterating over an array with a for-in loop (`no-for-in-array` from TSLint) |  |  |
 | [`typescript/no-inferrable-types`](./docs/rules/no-inferrable-types.md) | Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean. (`no-inferrable-types` from TSLint) |  | :wrench: |
 | [`typescript/no-misused-new`](./docs/rules/no-misused-new.md) | Enforce valid definition of `new` and `constructor`. (`no-misused-new` from TSLint) |  |  |
 | [`typescript/no-namespace`](./docs/rules/no-namespace.md) | Disallow the use of custom TypeScript modules and namespaces (`no-namespace` from TSLint) |  |  |

@@ -2,10 +2,10 @@
 
 ## TSLint rules
 
-✅ = done  
-🌟 = in ESLint core  
-🔌 = in another plugin  
-🛑 = unimplemented  
+✅ = done
+🌟 = in ESLint core
+🔌 = in another plugin
+🛑 = unimplemented
 ❓ = implementations differ or ESLint version is missing functionality
 
 ### TypeScript-specific
@@ -59,7 +59,7 @@
 | [`no-empty`]                         | 🌟  | [`no-empty`](https://eslint.org/docs/rules/no-empty)                                                                                                                |
 | [`no-eval`]                          | 🌟  | [`no-eval`](https://eslint.org/docs/rules/no-eval)                                                                                                                  |
 | [`no-floating-promises`]             | 🛑  | N/A ([relevant plugin](https://github.com/xjamundx/eslint-plugin-promise))                                                                                          |
-| [`no-for-in-array`]                  | 🛑  | N/A                                                                                                                                                                 |
+| [`no-for-in-array`]                  | ✅  | [`typescript/no-for-in-array`]                                                                                                                                      |
 | [`no-implicit-dependencies`]         | 🔌  | [`import/no-extraneous-dependencies`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md)                       |
 | [`no-inferred-empty-object-type`]    | 🛑  | N/A                                                                                                                                                                 |
 | [`no-invalid-template-strings`]      | 🌟  | [`no-template-curly-in-string`](https://eslint.org/docs/rules/no-template-curly-in-string)                                                                          |
