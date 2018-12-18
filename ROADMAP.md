@@ -10,168 +10,177 @@
 
 ### TypeScript-specific
 
-| TSLint rule                       |     | ESLint rule                                                                                                                       |
-| --------------------------------- | :-: | --------------------------------------------------------------------------------------------------------------------------------- |
-| [`adjacent-overload-signatures`]  | ✅  | [`typescript/adjacent-overload-signatures`]                                                                                       |
-| [`ban-types`]                     | ✅  | [`typescript/ban-types`]                                                                                                          |
-| [`member-access`]                 | ✅  | [`typescript/explicit-member-accessibility`]                                                                                      |
-| [`member-ordering`]               | ✅  | [`typescript/member-ordering`]                                                                                                    |
-| [`no-any`]                        | ✅  | [`typescript/no-explicit-any`]                                                                                                    |
-| [`no-empty-interface`]            | ✅  | [`typescript/no-empty-interface`]                                                                                                 |
-| [`no-import-side-effect`]         | 🔌  | [`import/no-unassigned-import`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md) |
-| [`no-inferrable-types`]           | ✅  | [`typescript/no-inferrable-types`]                                                                                                |
-| [`no-internal-module`]            | ✅  | [`typescript/prefer-namespace-keyword`]                                                                                           |
-| [`no-magic-numbers`]              | 🌟  | [`no-magic-numbers`](https://eslint.org/docs/rules/no-magic-numbers)                                                              |
-| [`no-namespace`]                  | ✅  | [`typescript/no-namespace`]                                                                                                       |
-| [`no-non-null-assertion`]         | ✅  | [`typescript/no-non-null-assertion`]                                                                                              |
-| [`no-parameter-reassignment`]     | ✅  | [`no-parameter-reassignment`](https://eslint.org/docs/rules/no-param-reassign)                                                    |
-| [`no-reference`]                  | ✅  | [`typescript/no-triple-slash-reference`]                                                                                          |
-| [`no-unnecessary-type-assertion`] | 🛑  | N/A                                                                                                                               |
-| [`no-var-requires`]               | ✅  | [`typescript/no-var-requires`]                                                                                                    |
-| [`only-arrow-functions`]          | 🔌  | [`prefer-arrow/prefer-arrow-functions`](https://github.com/TristonJ/eslint-plugin-prefer-arrow)                                   |
-| [`prefer-for-of`]                 | 🛑  | N/A                                                                                                                               |
-| [`promise-function-async`]        | 🛑  | N/A ([relevant plugin](https://github.com/xjamundx/eslint-plugin-promise))                                                        |
-| [`typedef`]                       | 🛑  | N/A                                                                                                                               |
-| [`typedef-whitespace`]            | ✅  | [`typescript/type-annotation-spacing`]                                                                                            |
-| [`unified-signatures`]            | 🛑  | N/A                                                                                                                               |
+| TSLint rule                       |     | ESLint rule                                  |
+| --------------------------------- | :-: | -------------------------------------------- |
+| [`adjacent-overload-signatures`]  | ✅  | [`typescript/adjacent-overload-signatures`]  |
+| [`ban-types`]                     | ✅  | [`typescript/ban-types`]                     |
+| [`member-access`]                 | ✅  | [`typescript/explicit-member-accessibility`] |
+| [`member-ordering`]               | ✅  | [`typescript/member-ordering`]               |
+| [`no-any`]                        | ✅  | [`typescript/no-explicit-any`]               |
+| [`no-empty-interface`]            | ✅  | [`typescript/no-empty-interface`]            |
+| [`no-import-side-effect`]         | 🔌  | [`import/no-unassigned-import`]              |
+| [`no-inferrable-types`]           | ✅  | [`typescript/no-inferrable-types`]           |
+| [`no-internal-module`]            | ✅  | [`typescript/prefer-namespace-keyword`]      |
+| [`no-magic-numbers`]              | 🌟  | [`no-magic-numbers`][no-magic-numbers]       |
+| [`no-namespace`]                  | ✅  | [`typescript/no-namespace`]                  |
+| [`no-non-null-assertion`]         | ✅  | [`typescript/no-non-null-assertion`]         |
+| [`no-parameter-reassignment`]     | ✅  | [`no-param-reassign`][no-param-reassign]     |
+| [`no-reference`]                  | ✅  | [`typescript/no-triple-slash-reference`]     |
+| [`no-unnecessary-type-assertion`] | 🛑  | N/A                                          |
+| [`no-var-requires`]               | ✅  | [`typescript/no-var-requires`]               |
+| [`only-arrow-functions`]          | 🔌  | [`prefer-arrow/prefer-arrow-functions`]      |
+| [`prefer-for-of`]                 | 🛑  | N/A                                          |
+| [`promise-function-async`]        | 🛑  | N/A ([relevant plugin][plugin:promise])      |
+| [`typedef`]                       | 🛑  | N/A                                          |
+| [`typedef-whitespace`]            | ✅  | [`typescript/type-annotation-spacing`]       |
+| [`unified-signatures`]            | 🛑  | N/A                                          |
 
 ### Functionality
 
-| TSLint rule                          |     | ESLint rule                                                                                                                                                         |
-| ------------------------------------ | :-: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`await-promise`]                    | 🛑  | N/A                                                                                                                                                                 |
-| [`ban-comma-operator`]               | 🌟  | [`no-sequences`](https://eslint.org/docs/rules/no-sequences)                                                                                                        |
-| [`ban`]                              | 🌟  | [`no-restricted-properties`](https://eslint.org/docs/rules/no-restricted-properties) & [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax) |
-| [`curly`]                            | 🌟  | [`curly`](https://eslint.org/docs/rules/curly)                                                                                                                      |
-| [`forin`]                            | 🌟  | [`guard-for-in`](https://eslint.org/docs/rules/guard-for-in)                                                                                                        |
-| [`import-blacklist`]                 | 🌟  | [`no-restricted-imports`](https://eslint.org/docs/rules/no-restricted-imports)                                                                                      |
-| [`label-position`]                   | 🌟  | [`no-unused-labels`](https://eslint.org/docs/rules/no-unused-labels) (similar)                                                                                      |
-| [`no-arg`]                           | 🌟  | [`no-caller`](https://eslint.org/docs/rules/no-caller) (also blocks `arguments.caller`)                                                                             |
-| [`no-bitwise`]                       | 🌟  | [`no-bitwise`](https://eslint.org/docs/rules/no-bitwise)                                                                                                            |
-| [`no-conditional-assignment`]        | 🌟  | [`no-cond-assign`](https://eslint.org/docs/rules/no-cond-assign) (the ESLint rule also supports silencing with an extra set of parens (`if ((foo = bar)) {}`)       |
-| [`no-console`]                       | 🌟  | [`no-console`](https://eslint.org/docs/rules/no-console) (configuration works slightly differently)                                                                 |
-| [`no-construct`]                     | 🌟  | [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)                                                                                                  |
-| [`no-debugger`]                      | 🌟  | [`no-debugger`](https://eslint.org/docs/rules/no-debugger)                                                                                                          |
-| [`no-duplicate-super`]               | 🌟  | [`constructor-super`](https://eslint.org/docs/rules/constructor-super)                                                                                              |
-| [`no-duplicate-switch-case`]         | 🌟  | [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)                                                                                              |
-| [`no-duplicate-variable`]            | 🌟  | [`no-redeclare`](https://eslint.org/docs/rules/no-redeclare)                                                                                                        |
-| [`no-dynamic-delete`]                | 🛑  | N/A                                                                                                                                                                 |
-| [`no-empty`]                         | 🌟  | [`no-empty`](https://eslint.org/docs/rules/no-empty)                                                                                                                |
-| [`no-eval`]                          | 🌟  | [`no-eval`](https://eslint.org/docs/rules/no-eval)                                                                                                                  |
-| [`no-floating-promises`]             | 🛑  | N/A ([relevant plugin](https://github.com/xjamundx/eslint-plugin-promise))                                                                                          |
-| [`no-for-in-array`]                  | 🛑  | N/A                                                                                                                                                                 |
-| [`no-implicit-dependencies`]         | 🔌  | [`import/no-extraneous-dependencies`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md)                       |
-| [`no-inferred-empty-object-type`]    | 🛑  | N/A                                                                                                                                                                 |
-| [`no-invalid-template-strings`]      | 🌟  | [`no-template-curly-in-string`](https://eslint.org/docs/rules/no-template-curly-in-string)                                                                          |
-| [`no-invalid-this`]                  | 🌟  | [`no-invalid-this`](https://eslint.org/docs/rules/no-invalid-this)                                                                                                  |
-| [`no-misused-new`]                   | ✅  | [`typescript/no-misused-new`]                                                                                                                                       |
-| [`no-null-keyword`]                  | 🔌  | [`no-null/no-null`](https://github.com/nene/eslint-plugin-no-null)                                                                                                  |
-| [`no-object-literal-type-assertion`] | ✅  | [`typescript/no-object-literal-type-assertion`]                                                                                                                     |
-| [`no-return-await`]                  | 🌟  | [`no-return-await`](https://eslint.org/docs/rules/no-return-await)                                                                                                  |
-| [`no-shadowed-variable`]             | 🌟  | [`no-shadow`](https://eslint.org/docs/rules/no-shadow)                                                                                                              |
-| [`no-sparse-arrays`]                 | 🌟  | [`no-sparse-arrays`](https://eslint.org/docs/rules/no-sparse-arrays)                                                                                                |
-| [`no-string-literal`]                | 🌟  | [`dot-notation`](https://eslint.org/docs/rules/dot-notation)                                                                                                        |
-| [`no-string-throw`]                  | 🌟  | [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal)                                                                                                |
-| [`no-submodule-imports`]             | ❓  | [`import/no-internal-modules`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md) (slightly different)                |
-| [`no-switch-case-fall-through`]      | 🌟  | [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)                                                                                                    |
-| [`no-this-assignment`]               | ✅  | [`typescript/no-this-alias`]                                                                                                                                        |
-| [`no-unbound-method`]                | 🛑  | N/A                                                                                                                                                                 |
-| [`no-unnecessary-class`]             | ✅  | [`typescript/no-extraneous-class`]                                                                                                                                  |
-| [`no-unsafe-any`]                    | 🛑  | N/A                                                                                                                                                                 |
-| [`no-unsafe-finally`]                | 🌟  | [`no-unsafe-finally`](https://eslint.org/docs/rules/no-unsafe-finally)                                                                                              |
-| [`no-unused-expression`]             | 🌟  | [`no-unused-expression`](https://eslint.org/docs/rules/no-unused-expressions)                                                                                       |
-| [`no-unused-variable`]               | ❓  | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) & [`typescript/no-unused-vars`] (missing private class member support)                             |
-| [`no-use-before-declare`]            | ✅  | [`typescript/no-use-before-define`]                                                                                                                                 |
-| [`no-var-keyword`]                   | 🌟  | [`no-var`](https://eslint.org/docs/rules/no-var)                                                                                                                    |
-| [`no-void-expression`]               | 🌟  | [`no-void`](https://eslint.org/docs/rules/no-void)                                                                                                                  |
-| [`prefer-conditional-expression`]    | 🛑  | N/A                                                                                                                                                                 |
-| [`prefer-object-spread`]             | 🌟  | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)                                                                                        |
-| [`radix`]                            | 🌟  | [`radix`](https://eslint.org/docs/rules/radix)                                                                                                                      |
-| [`restrict-plus-operands`]           | 🛑  | N/A ([old WIP implementation](https://github.com/bradzacher/eslint-plugin-typescript/commit/8e2b22f18e829c9a4ea624760033df95c3385a9e))                              |
-| [`strict-boolean-expressions`]       | 🛑  | N/A                                                                                                                                                                 |
-| [`strict-type-predicates`]           | 🛑  | N/A                                                                                                                                                                 |
-| [`switch-default`]                   | 🌟  | [`default-case`](https://eslint.org/docs/rules/default-case)                                                                                                        |
-| [`triple-equals`]                    | 🌟  | [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq)                                                                                                                    |
-| [`typeof-compare`]                   | 🌟  | [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)                                                                                                        |
-| [`use-default-type-parameter`]       | 🛑  | N/A                                                                                                                                                                 |
-| [`use-isnan`]                        | 🌟  | [`use-isnan`](https://eslint.org/docs/rules/use-isnan)                                                                                                              |
+| TSLint rule                          |     | ESLint rule                                                           |
+| ------------------------------------ | :-: | --------------------------------------------------------------------- |
+| [`await-promise`]                    | 🛑  | N/A                                                                   |
+| [`ban-comma-operator`]               | 🌟  | [`no-sequences`][no-sequences]                                        |
+| [`ban`]                              | 🌟  | [`no-restricted-properties`][no-restricted-properties]                |
+| [`curly`]                            | 🌟  | [`curly`][curly]                                                      |
+| [`forin`]                            | 🌟  | [`guard-for-in`][guard-for-in]                                        |
+| [`import-blacklist`]                 | 🌟  | [`no-restricted-imports`][no-restricted-imports]                      |
+| [`label-position`]                   | 🌟  | [`no-unused-labels`][no-unused-labels] (similar)                      |
+| [`no-arg`]                           | 🌟  | [`no-caller`][no-caller] (also blocks `arguments.caller`)             |
+| [`no-bitwise`]                       | 🌟  | [`no-bitwise`][no-bitwise]                                            |
+| [`no-conditional-assignment`]        | 🌟  | [`no-cond-assign`][no-cond-assign]<sup>[1]</sup>                      |
+| [`no-console`]                       | 🌟  | [`no-console`][no-console] (configuration works slightly differently) |
+| [`no-construct`]                     | 🌟  | [`no-new-wrappers`][no-new-wrappers]                                  |
+| [`no-debugger`]                      | 🌟  | [`no-debugger`][no-debugger]                                          |
+| [`no-duplicate-super`]               | 🌟  | [`constructor-super`][constructor-super]                              |
+| [`no-duplicate-switch-case`]         | 🌟  | [`no-duplicate-case`][no-duplicate-case]                              |
+| [`no-duplicate-variable`]            | 🌟  | [`no-redeclare`][no-redeclare]                                        |
+| [`no-dynamic-delete`]                | 🛑  | N/A                                                                   |
+| [`no-empty`]                         | 🌟  | [`no-empty`][no-empty]                                                |
+| [`no-eval`]                          | 🌟  | [`no-eval`][no-eval]                                                  |
+| [`no-floating-promises`]             | 🛑  | N/A ([relevant plugin][plugin:promise])                               |
+| [`no-for-in-array`]                  | 🛑  | N/A                                                                   |
+| [`no-implicit-dependencies`]         | 🔌  | [`import/no-extraneous-dependencies`]                                 |
+| [`no-inferred-empty-object-type`]    | 🛑  | N/A                                                                   |
+| [`no-invalid-template-strings`]      | 🌟  | [`no-template-curly-in-string`][no-template-curly-in-string]          |
+| [`no-invalid-this`]                  | 🌟  | [`no-invalid-this`][no-invalid-this]                                  |
+| [`no-misused-new`]                   | ✅  | [`typescript/no-misused-new`]                                         |
+| [`no-null-keyword`]                  | 🔌  | [`no-null/no-null`] (doesn’t handle `null` type)                      |
+| [`no-object-literal-type-assertion`] | ✅  | [`typescript/no-object-literal-type-assertion`]                       |
+| [`no-return-await`]                  | 🌟  | [`no-return-await`][no-return-await]                                  |
+| [`no-shadowed-variable`]             | 🌟  | [`no-shadow`][no-shadow]                                              |
+| [`no-sparse-arrays`]                 | 🌟  | [`no-sparse-arrays`][no-sparse-arrays]                                |
+| [`no-string-literal`]                | 🌟  | [`dot-notation`][dot-notation]                                        |
+| [`no-string-throw`]                  | 🌟  | [`no-throw-literal`][no-throw-literal]                                |
+| [`no-submodule-imports`]             | ❓  | [`import/no-internal-modules`] (slightly different)                   |
+| [`no-switch-case-fall-through`]      | 🌟  | [`no-fallthrough`][no-fallthrough]                                    |
+| [`no-this-assignment`]               | ✅  | [`typescript/no-this-alias`]                                          |
+| [`no-unbound-method`]                | 🛑  | N/A                                                                   |
+| [`no-unnecessary-class`]             | ✅  | [`typescript/no-extraneous-class`]                                    |
+| [`no-unsafe-any`]                    | 🛑  | N/A                                                                   |
+| [`no-unsafe-finally`]                | 🌟  | [`no-unsafe-finally`][no-unsafe-finally]                              |
+| [`no-unused-expression`]             | 🌟  | [`no-unused-expression`][no-unused-expressions]                       |
+| [`no-unused-variable`]               | ❓  | [`no-unused-vars`][no-unused-vars] <sup>[2]</sup>                     |
+| [`no-use-before-declare`]            | ✅  | [`typescript/no-use-before-define`]                                   |
+| [`no-var-keyword`]                   | 🌟  | [`no-var`][no-var]                                                    |
+| [`no-void-expression`]               | 🌟  | [`no-void`][no-void]                                                  |
+| [`prefer-conditional-expression`]    | 🛑  | N/A                                                                   |
+| [`prefer-object-spread`]             | 🌟  | [`prefer-object-spread`][prefer-object-spread]                        |
+| [`radix`]                            | 🌟  | [`radix`][radix]                                                      |
+| [`restrict-plus-operands`]           | 🛑  | N/A                                                                   |
+| [`strict-boolean-expressions`]       | 🛑  | N/A                                                                   |
+| [`strict-type-predicates`]           | 🛑  | N/A                                                                   |
+| [`switch-default`]                   | 🌟  | [`default-case`][default-case]                                        |
+| [`triple-equals`]                    | 🌟  | [`eqeqeq`][eqeqeq]                                                    |
+| [`typeof-compare`]                   | 🌟  | [`valid-typeof`][valid-typeof]                                        |
+| [`use-default-type-parameter`]       | 🛑  | N/A                                                                   |
+| [`use-isnan`]                        | 🌟  | [`use-isnan`][use-isnan]                                              |
+
+<sup>[1]</sup> The ESLint rule also supports silencing with an extra set of parens (`if ((foo = bar)) {}`)  
+<sup>[2]</sup> Missing private class member support. [`typescript/no-unused-vars`] adds support for some TS-specific features.
 
 ### Maintainability
 
-| TSLint rule                  |     | ESLint rule                                                                                                                             |
-| ---------------------------- | :-: | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [`cyclomatic-complexity`]    | 🌟  | [`complexity`](https://eslint.org/docs/rules/complexity)                                                                                |
-| [`deprecation`]              | ❓  | [`import/no-deprecated`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md) only covers imports |
-| [`eofline`]                  | 🌟  | [`eol-last`](https://eslint.org/docs/rules/eol-last)                                                                                    |
-| [`indent`]                   | ✅  | [`typescript/indent`] or [Prettier]                                                                                                     |
-| [`linebreak-style`]          | 🌟  | [`linebreak-style`](https://eslint.org/docs/rules/linebreak-style) or [Prettier]                                                        |
-| [`max-classes-per-file`]     | 🌟  | [`max-classes-per-file`](https://eslint.org/docs/rules/max-classes-per-file)                                                            |
-| [`max-file-line-count`]      | 🌟  | [`max-lines`](https://eslint.org/docs/rules/max-lines)                                                                                  |
-| [`max-line-length`]          | 🌟  | [`max-len`](https://eslint.org/docs/rules/max-len) or [Prettier]                                                                        |
-| [`no-default-export`]        | 🔌  | [`import/no-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-default-export.md)             |
-| [`no-duplicate-imports`]     | 🔌  | [`import/no-duplicates`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md)                     |
-| [`no-mergeable-namespace`]   | 🛑  | N/A                                                                                                                                     |
-| [`no-require-imports`]       | 🛑  | N/A                                                                                                                                     |
-| [`object-literal-sort-keys`] | ❓  | [`sort-keys`](https://eslint.org/docs/rules/sort-keys) (missing support for blank line delimited sections)                              |
-| [`prefer-const`]             | 🌟  | [`prefer-const`](https://eslint.org/docs/rules/prefer-const)                                                                            |
-| [`prefer-readonly`]          | 🛑  | N/A                                                                                                                                     |
-| [`trailing-comma`]           | ❓  | [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle) or [Prettier]                                                              |
+| TSLint rule                  |     | ESLint rule                                        |
+| ---------------------------- | :-: | -------------------------------------------------- |
+| [`cyclomatic-complexity`]    | 🌟  | [`complexity`][complexity]                         |
+| [`deprecation`]              | ❓  | [`import/no-deprecated`] <sup>[1]</sup>            |
+| [`eofline`]                  | 🌟  | [`eol-last`][eol-last]                             |
+| [`indent`]                   | ✅  | [`typescript/indent`] or [Prettier]                |
+| [`linebreak-style`]          | 🌟  | [`linebreak-style`][linebreak-style] or [Prettier] |
+| [`max-classes-per-file`]     | 🌟  | [`max-classes-per-file`][max-classes-per-file]     |
+| [`max-file-line-count`]      | 🌟  | [`max-lines`][max-lines]                           |
+| [`max-line-length`]          | 🌟  | [`max-len`][max-len] or [Prettier]                 |
+| [`no-default-export`]        | 🔌  | [`import/no-default-export`]                       |
+| [`no-duplicate-imports`]     | 🔌  | [`import/no-duplicates`]                           |
+| [`no-mergeable-namespace`]   | 🛑  | N/A                                                |
+| [`no-require-imports`]       | 🛑  | N/A                                                |
+| [`object-literal-sort-keys`] | ❓  | [`sort-keys`][sort-keys] <sup>[2]</sup>            |
+| [`prefer-const`]             | 🌟  | [`prefer-const`][prefer-const]                     |
+| [`prefer-readonly`]          | 🛑  | N/A                                                |
+| [`trailing-comma`]           | ❓  | [`comma-dangle`][comma-dangle] or [Prettier]       |
+
+<sup>[1]</sup> Only warns when importing deprecated symbols  
+<sup>[2]</sup> Missing support for blank-line-delimited sections
 
 ### Style
 
-| TSLint rule                         |     | ESLint rule                                                                                                                                                                                                                                                     |
-| ----------------------------------- | :-: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`align`]                           | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`array-type`]                      | ✅  | [`typescript/array-type`]                                                                                                                                                                                                                                       |
-| [`arrow-parens`]                    | 🌟  | [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)                                                                                                                                                                                                    |
-| [`arrow-return-shorthand`]          | 🌟  | [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style)                                                                                                                                                                                            |
-| [`binary-expression-operand-order`] | 🌟  | [`yoda`](https://eslint.org/docs/rules/yoda)                                                                                                                                                                                                                    |
-| [`callable-types`]                  | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`class-name`]                      | ✅  | [`typescript/class-name-casing`]                                                                                                                                                                                                                                |
-| [`comment-format`]                  | 🌟  | [`capitalized-comments`](https://eslint.org/docs/rules/capitalized-comments) & [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)                                                                                                                 |
-| [`completed-docs`]                  | 🔌  | [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                                                                                                                                                                           |
-| [`encoding`]                        | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`file-header`]                     | 🔌  | [`eslint-plugin-header`](https://github.com/Stuk/eslint-plugin-header) or [`-file-header`](https://github.com/Sekhmet/eslint-plugin-file-header)                                                                                                                |
-| [`file-name-casing`]                | 🔌  | [`unicorn/filename-case`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md)                                                                                                                                        |
-| [`import-spacing`]                  | 🔌  | Use [Prettier]                                                                                                                                                                                                                                                  |
-| [`interface-name`]                  | ✅  | [`typescript/interface-name-prefix`]                                                                                                                                                                                                                            |
-| [`interface-over-type-literal`]     | ✅  | [`typescript/prefer-interface`]                                                                                                                                                                                                                                 |
-| [`jsdoc-format`]                    | ❓  | [`valid-jsdoc`](https://eslint.org/docs/rules/valid-jsdoc) or [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc) (slightly different)                                                                                                   |
-| [`match-default-export-name`]       | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`newline-before-return`]           | 🌟  | [`padding-line-between-statements`](https://eslint.org/docs/rules/padding-line-between-statements) (`{ blankLine: "always", prev: "*", next: "return" }`)                                                                                                       |
-| [`newline-per-chained-call`]        | 🌟  | [`newline-per-chained-call`](https://eslint.org/docs/rules/newline-per-chained-call)                                                                                                                                                                            |
-| [`new-parens`]                      | 🌟  | [`new-parens`](https://eslint.org/docs/rules/new-parens)                                                                                                                                                                                                        |
-| [`no-angle-bracket-type-assertion`] | ✅  | [`typescript/no-angle-bracket-type-assertion`]                                                                                                                                                                                                                  |
-| [`no-boolean-literal-compare`]      | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`no-consecutive-blank-lines`]      | 🌟  | [`no-multiple-empty-lines`](https://eslint.org/docs/rules/no-multiple-empty-lines)                                                                                                                                                                              |
-| [`no-irregular-whitespace`]         | 🌟  | [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace) with `skipStrings: false`                                                                                                                                                    |
-| [`no-parameter-properties`]         | ✅  | [`typescript/no-parameter-properties`]                                                                                                                                                                                                                          |
-| [`no-redundant-jsdoc`]              | 🛑  | N/A ([open issue](https://github.com/gajus/eslint-plugin-jsdoc/issues/134))                                                                                                                                                                                     |
-| [`no-reference-import`]             | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`no-trailing-whitespace`]          | 🌟  | [`no-trailing-spaces`](https://eslint.org/docs/rules/no-trailing-spaces)                                                                                                                                                                                        |
-| [`no-unnecessary-callback-wrapper`] | 🛑  | N/A and this might be unsafe (i.e. with `forEach`)                                                                                                                                                                                                              |
-| [`no-unnecessary-initializer`]      | 🌟  | [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)                                                                                                                                                                                                  |
-| [`no-unnecessary-qualifier`]        | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`number-literal-format`]           | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`object-literal-key-quotes`]       | 🌟  | [`quote-props`](https://eslint.org/docs/rules/quote-props)                                                                                                                                                                                                      |
-| [`object-literal-shorthand`]        | 🌟  | [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand)                                                                                                                                                                                            |
-| [`one-line`]                        | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`one-variable-per-declaration`]    | 🌟  | [`one-var`](https://eslint.org/docs/rules/one-var)                                                                                                                                                                                                              |
-| [`ordered-imports`]                 | 🔌  | [`import/order`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md)                                                                                                                                                             |
-| [`prefer-function-over-method`]     | 🌟  | [`class-methods-use-this`](https://eslint.org/docs/rules/class-methods-use-this)                                                                                                                                                                                |
-| [`prefer-method-signature`]         | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`prefer-switch`]                   | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`prefer-template`]                 | 🌟  | [`prefer-template`](https://eslint.org/docs/rules/prefer-template)                                                                                                                                                                                              |
-| [`prefer-while`]                    | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`quotemark`]                       | 🌟  | [`quotes`](https://eslint.org/docs/rules/quotes)                                                                                                                                                                                                                |
-| [`return-undefined`]                | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`semicolon`]                       | 🌟  | [`semi`](https://eslint.org/docs/rules/semi)                                                                                                                                                                                                                    |
-| [`space-before-function-paren`]     | 🌟  | [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren)                                                                                                                                                                      |
-| [`space-within-parens`]             | 🌟  | [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens)                                                                                                                                                                                              |
-| [`switch-final-break`]              | 🛑  | N/A                                                                                                                                                                                                                                                             |
-| [`type-literal-delimiter`]          | ✅  | [`typescript/member-delimiter-style`]                                                                                                                                                                                                                           |
-| [`variable-name`]                   | 🌟  | [`camelcase`](https://eslint.org/docs/rules/camelcase), [`no-underscore-dangle`](https://eslint.org/docs/rules/no-underscore-dangle), [`id-blacklist`](https://eslint.org/docs/rules/id-blacklist), and/or [`id-match`](https://eslint.org/docs/rules/id-match) |
-| [`whitespace`]                      | 🔌  | Use [Prettier]                                                                                                                                                                                                                                                  |
+| TSLint rule                         |     | ESLint rule                                                                         |
+| ----------------------------------- | :-: | ----------------------------------------------------------------------------------- |
+| [`align`]                           | 🛑  | N/A                                                                                 |
+| [`array-type`]                      | ✅  | [`typescript/array-type`]                                                           |
+| [`arrow-parens`]                    | 🌟  | [`arrow-parens`][arrow-parens]                                                      |
+| [`arrow-return-shorthand`]          | 🌟  | [`arrow-body-style`][arrow-body-style]                                              |
+| [`binary-expression-operand-order`] | 🌟  | [`yoda`][yoda]                                                                      |
+| [`callable-types`]                  | 🛑  | N/A                                                                                 |
+| [`class-name`]                      | ✅  | [`typescript/class-name-casing`]                                                    |
+| [`comment-format`]                  | 🌟  | [`capitalized-comments`][capitalized-comments] & [`spaced-comment`][spaced-comment] |
+| [`completed-docs`]                  | 🔌  | [`eslint-plugin-jsdoc`][plugin:jsdoc]                                               |
+| [`encoding`]                        | 🛑  | N/A                                                                                 |
+| [`file-header`]                     | 🔌  | [`eslint-plugin-header`][plugin:header] or [`-file-header`][plugin:file-header]     |
+| [`file-name-casing`]                | 🔌  | [`unicorn/filename-case`]                                                           |
+| [`import-spacing`]                  | 🔌  | Use [Prettier]                                                                      |
+| [`interface-name`]                  | ✅  | [`typescript/interface-name-prefix`]                                                |
+| [`interface-over-type-literal`]     | ✅  | [`typescript/prefer-interface`]                                                     |
+| [`jsdoc-format`]                    | ❓  | [`valid-jsdoc`][valid-jsdoc] or [`eslint-plugin-jsdoc`][plugin:jsdoc]               |
+| [`match-default-export-name`]       | 🛑  | N/A                                                                                 |
+| [`newline-before-return`]           | 🌟  | [`padding-line-between-statements`][padding-line-between-statements] <sup>[1]</sup> |
+| [`newline-per-chained-call`]        | 🌟  | [`newline-per-chained-call`][newline-per-chained-call]                              |
+| [`new-parens`]                      | 🌟  | [`new-parens`][new-parens]                                                          |
+| [`no-angle-bracket-type-assertion`] | ✅  | [`typescript/no-angle-bracket-type-assertion`]                                      |
+| [`no-boolean-literal-compare`]      | 🛑  | N/A                                                                                 |
+| [`no-consecutive-blank-lines`]      | 🌟  | [`no-multiple-empty-lines`][no-multiple-empty-lines]                                |
+| [`no-irregular-whitespace`]         | 🌟  | [`no-irregular-whitespace`][no-irregular-whitespace] with `skipStrings: false`      |
+| [`no-parameter-properties`]         | ✅  | [`typescript/no-parameter-properties`]                                              |
+| [`no-redundant-jsdoc`]              | 🛑  | N/A ([open issue](https://github.com/gajus/eslint-plugin-jsdoc/issues/134))         |
+| [`no-reference-import`]             | 🛑  | N/A                                                                                 |
+| [`no-trailing-whitespace`]          | 🌟  | [`no-trailing-spaces`][no-trailing-spaces]                                          |
+| [`no-unnecessary-callback-wrapper`] | 🛑  | N/A and this might be unsafe (i.e. with `forEach`)                                  |
+| [`no-unnecessary-initializer`]      | 🌟  | [`no-undef-init`][no-undef-init]                                                    |
+| [`no-unnecessary-qualifier`]        | 🛑  | N/A                                                                                 |
+| [`number-literal-format`]           | 🛑  | N/A                                                                                 |
+| [`object-literal-key-quotes`]       | 🌟  | [`quote-props`][quote-props]                                                        |
+| [`object-literal-shorthand`]        | 🌟  | [`object-shorthand`][object-shorthand]                                              |
+| [`one-line`]                        | 🛑  | N/A                                                                                 |
+| [`one-variable-per-declaration`]    | 🌟  | [`one-var`][one-var]                                                                |
+| [`ordered-imports`]                 | 🔌  | [`import/order`]                                                                    |
+| [`prefer-function-over-method`]     | 🌟  | [`class-methods-use-this`][class-methods-use-this]                                  |
+| [`prefer-method-signature`]         | 🛑  | N/A                                                                                 |
+| [`prefer-switch`]                   | 🛑  | N/A                                                                                 |
+| [`prefer-template`]                 | 🌟  | [`prefer-template`][prefer-template]                                                |
+| [`prefer-while`]                    | 🛑  | N/A                                                                                 |
+| [`quotemark`]                       | 🌟  | [`quotes`][quotes]                                                                  |
+| [`return-undefined`]                | 🛑  | N/A                                                                                 |
+| [`semicolon`]                       | 🌟  | [`semi`][semi]                                                                      |
+| [`space-before-function-paren`]     | 🌟  | [`space-before-function-paren`][space-after-function-paren]                         |
+| [`space-within-parens`]             | 🌟  | [`space-in-parens`][space-in-parens]                                                |
+| [`switch-final-break`]              | 🛑  | N/A                                                                                 |
+| [`type-literal-delimiter`]          | ✅  | [`typescript/member-delimiter-style`]                                               |
+| [`variable-name`]                   | 🌟  | <sup>[2]</sup>                                                                      |
+| [`whitespace`]                      | 🔌  | Use [Prettier]                                                                      |
+
+<sup>[1]</sup> Recommended config: `["error", { blankLine: "always", prev: "*", next: "return" }]`  
+<sup>[2]</sup> [`camelcase`][camelcase], [`no-underscore-dangle`][no-underscore-dangle], [`id-blacklist`][id-blacklist], and/or [`id-match`]
 
 [prettier]: https://prettier.io
 
@@ -323,7 +332,84 @@
 [`variable-name`]: https://palantir.github.io/tslint/rules/variable-name
 [`whitespace`]: https://palantir.github.io/tslint/rules/whitespace
 
-<!-- ESLint-plugin-TypeScript -->
+<!-- ESLint core -->
+
+[no-magic-numbers]: https://eslint.org/docs/rules/no-magic-numbers
+[no-param-reassign]: https://eslint.org/docs/rules/no-param-reassign
+[no-sequences]: https://eslint.org/docs/rules/no-sequences
+[no-restricted-properties]: https://eslint.org/docs/rules/no-restricted-properties
+[no-restricted-syntax]: https://eslint.org/docs/rules/no-restricted-syntax
+[curly]: https://eslint.org/docs/rules/curly
+[guard-for-in]: https://eslint.org/docs/rules/guard-for-in
+[no-restricted-imports]: https://eslint.org/docs/rules/no-restricted-imports
+[no-unused-labels]: https://eslint.org/docs/rules/no-unused-labels
+[no-caller]: https://eslint.org/docs/rules/no-caller
+[no-bitwise]: https://eslint.org/docs/rules/no-bitwise
+[no-cond-assign]: https://eslint.org/docs/rules/no-cond-assign
+[no-console]: https://eslint.org/docs/rules/no-console
+[no-new-wrappers]: https://eslint.org/docs/rules/no-new-wrappers
+[no-debugger]: https://eslint.org/docs/rules/no-debugger
+[constructor-super]: https://eslint.org/docs/rules/constructor-super
+[no-duplicate-case]: https://eslint.org/docs/rules/no-duplicate-case
+[no-redeclare]: https://eslint.org/docs/rules/no-redeclare
+[no-empty]: https://eslint.org/docs/rules/no-empty
+[no-eval]: https://eslint.org/docs/rules/no-eval
+[no-template-curly-in-string]: https://eslint.org/docs/rules/no-template-curly-in-string
+[no-invalid-this]: https://eslint.org/docs/rules/no-invalid-this
+[no-return-await]: https://eslint.org/docs/rules/no-return-await
+[no-shadow]: https://eslint.org/docs/rules/no-shadow
+[no-sparse-arrays]: https://eslint.org/docs/rules/no-sparse-arrays
+[dot-notation]: https://eslint.org/docs/rules/dot-notation
+[no-throw-literal]: https://eslint.org/docs/rules/no-throw-literal
+[no-fallthrough]: https://eslint.org/docs/rules/no-fallthrough
+[no-unsafe-finally]: https://eslint.org/docs/rules/no-unsafe-finally
+[no-unused-expressions]: https://eslint.org/docs/rules/no-unused-expressions
+[no-unused-vars]: https://eslint.org/docs/rules/no-unused-vars
+[no-var]: https://eslint.org/docs/rules/no-var
+[no-void]: https://eslint.org/docs/rules/no-void
+[prefer-object-spread]: https://eslint.org/docs/rules/prefer-object-spread
+[radix]: https://eslint.org/docs/rules/radix
+[default-case]: https://eslint.org/docs/rules/default-case
+[eqeqeq]: https://eslint.org/docs/rules/eqeqeq
+[valid-typeof]: https://eslint.org/docs/rules/valid-typeof
+[use-isnan]: https://eslint.org/docs/rules/use-isnan
+[complexity]: https://eslint.org/docs/rules/complexity
+[eol-last]: https://eslint.org/docs/rules/eol-last
+[linebreak-style]: https://eslint.org/docs/rules/linebreak-style
+[max-classes-per-file]: https://eslint.org/docs/rules/max-classes-per-file
+[max-lines]: https://eslint.org/docs/rules/max-lines
+[max-len]: https://eslint.org/docs/rules/max-len
+[sort-keys]: https://eslint.org/docs/rules/sort-keys
+[prefer-const]: https://eslint.org/docs/rules/prefer-const
+[comma-dangle]: https://eslint.org/docs/rules/comma-dangle
+[arrow-parens]: https://eslint.org/docs/rules/arrow-parens
+[arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
+[yoda]: https://eslint.org/docs/rules/yoda
+[capitalized-comments]: https://eslint.org/docs/rules/capitalized-comments
+[spaced-comment]: https://eslint.org/docs/rules/spaced-comment
+[valid-jsdoc]: https://eslint.org/docs/rules/valid-jsdoc
+[padding-line-between-statements]: https://eslint.org/docs/rules/padding-line-between-statements
+[newline-per-chained-call]: https://eslint.org/docs/rules/newline-per-chained-call
+[new-parens]: https://eslint.org/docs/rules/new-parens
+[no-multiple-empty-lines]: https://eslint.org/docs/rules/no-multiple-empty-lines
+[no-irregular-whitespace]: https://eslint.org/docs/rules/no-irregular-whitespace
+[no-trailing-spaces]: https://eslint.org/docs/rules/no-trailing-spaces
+[no-undef-init]: https://eslint.org/docs/rules/no-undef-init
+[quote-props]: https://eslint.org/docs/rules/quote-props
+[object-shorthand]: https://eslint.org/docs/rules/object-shorthand
+[one-var]: https://eslint.org/docs/rules/one-var
+[class-methods-use-this]: https://eslint.org/docs/rules/class-methods-use-this
+[prefer-template]: https://eslint.org/docs/rules/prefer-template
+[quotes]: https://eslint.org/docs/rules/quotes
+[semi]: https://eslint.org/docs/rules/semi
+[space-after-function-paren]: https://eslint.org/docs/rules/space-before-function-paren
+[space-in-parens]: https://eslint.org/docs/rules/space-in-parens
+[camelcase]: https://eslint.org/docs/rules/camelcase
+[no-underscore-dangle]: https://eslint.org/docs/rules/no-underscore-dangle
+[id-blacklist]: https://eslint.org/docs/rules/id-blacklist
+[id-match]: https://eslint.org/docs/rules/id-match
+
+<!-- eslint-plugin-typescript -->
 
 [`typescript/adjacent-overload-signatures`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/adjacent-overload-signatures.md
 [`typescript/ban-types`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/ban-types.md
@@ -352,3 +438,23 @@
 [`typescript/no-parameter-properties`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/no-parameter-properties.md
 [`typescript/member-delimiter-style`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md
 [`typescript/prefer-interface`]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/prefer-interface.md
+
+<!-- eslint-plugin-import -->
+
+[`import/no-unassigned-import`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
+[`import/no-extraneous-dependencies`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
+[`import/no-internal-modules`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
+[`import/no-deprecated`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
+[`import/no-default-export`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-default-export.md)
+[`import/no-duplicates`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
+[`import/order`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+
+<!-- Miscellaneous plugins -->
+
+[`prefer-arrow/prefer-arrow-functions`]: https://github.com/TristonJ/eslint-plugin-prefer-arrow
+[plugin:promise]: https://github.com/xjamundx/eslint-plugin-promise
+[plugin:jsdoc]: https://github.com/gajus/eslint-plugin-jsdoc
+[plugin:header]: https://github.com/Stuk/eslint-plugin-header
+[plugin:file-header]: https://github.com/Sekhmet/eslint-plugin-file-header
+[`no-null/no-null`]: https://github.com/nene/eslint-plugin-no-null
+[`unicorn/filename-case`]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
