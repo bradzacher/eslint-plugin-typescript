@@ -445,7 +445,7 @@
 [`import/no-extraneous-dependencies`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
 [`import/no-internal-modules`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
 [`import/no-deprecated`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
-[`import/no-default-export`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-default-export.md)
+[`import/no-default-export`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-default-export.md
 [`import/no-duplicates`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
 [`import/order`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
 
