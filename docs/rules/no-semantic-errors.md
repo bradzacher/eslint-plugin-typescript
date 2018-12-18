@@ -10,7 +10,7 @@ Examples of **incorrect** code for this rule:
 interface Foo {
     hello: string;
 }
-const foo: string = ({ hello: 2 } as Foo)!.foo
+const foo: string = ({ hello: 2 } as Foo)!.foo;
 ```
 
 Examples of **correct** code for this rule:
@@ -19,7 +19,7 @@ Examples of **correct** code for this rule:
 interface Foo {
     hello: string;
 }
-const foo: string = ({ hello: 'Bar' } as Foo).hello
+const foo: string = ({ hello: "Bar" } as Foo).hello;
 ```
 
 ### Options
