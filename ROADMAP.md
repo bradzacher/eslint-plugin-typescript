@@ -2,10 +2,10 @@
 
 ## TSLint rules
 
-✅ = done  
-🌟 = in ESLint core  
-🔌 = in another plugin  
-🛑 = unimplemented  
+✅ = done
+🌟 = in ESLint core
+🔌 = in another plugin
+🛑 = unimplemented
 ❓ = implementations differ or ESLint version is missing functionality
 
 ### TypeScript-specific
@@ -26,7 +26,7 @@
 | [`no-non-null-assertion`]         | ✅  | [`typescript/no-non-null-assertion`]                                                                                              |
 | [`no-parameter-reassignment`]     | ✅  | [`no-parameter-reassignment`](https://eslint.org/docs/rules/no-param-reassign)                                                    |
 | [`no-reference`]                  | ✅  | [`typescript/no-triple-slash-reference`]                                                                                          |
-| [`no-unnecessary-type-assertion`] | 🛑  | N/A                                                                                                                               |
+| [`no-unnecessary-type-assertion`] | ✅  | [`typescript/no-unnecessary-type-assertion`]                                                                                      |
 | [`no-var-requires`]               | ✅  | [`typescript/no-var-requires`]                                                                                                    |
 | [`only-arrow-functions`]          | 🔌  | [`prefer-arrow/prefer-arrow-functions`](https://github.com/TristonJ/eslint-plugin-prefer-arrow)                                   |
 | [`prefer-for-of`]                 | 🛑  | N/A                                                                                                                               |

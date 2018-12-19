@@ -95,6 +95,7 @@ You can also enable all the recommended rules at once. Add `plugin:typescript/re
 | [`typescript/no-this-alias`](./docs/rules/no-this-alias.md) | Disallow aliasing `this` (`no-this-assignment` from TSLint) |  |  |
 | [`typescript/no-triple-slash-reference`](./docs/rules/no-triple-slash-reference.md) | Disallow `/// <reference path="" />` comments (`no-reference` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-type-alias`](./docs/rules/no-type-alias.md) | Disallow the use of type aliases (`interface-over-type-literal` from TSLint) |  |  |
+| [`typescript/no-unnecessary-type-assertion`](./docs/rules/no-unnecessary-type-assertion.md) | Warns if a type assertion does not change the type of an expression (`no-unnecessary-type-assertion` from TSLint) |  | :wrench: |
 | [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) | Disallow unused variables (`no-unused-variable` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) | Disallow the use of variables before they are defined | :heavy_check_mark: |  |
 | [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) | Disallows the use of require statements except in import statements (`no-var-requires` from TSLint) | :heavy_check_mark: |  |
