@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 "use strict";
 
 const path = require("path");
@@ -5,6 +6,7 @@ const fs = require("fs");
 const requireIndex = require("requireindex");
 
 const bannedRecommendedRules = new Set(["camelcase", "indent"]);
+const MAX_RULE_NAME_LENGTH = 32 + "typescript/".length;
 
 /**
  * Generate recommended configuration
@@ -13,15 +15,22 @@ const bannedRecommendedRules = new Set(["camelcase", "indent"]);
 function generate() {
     // replace this with Object.entries when node > 8
     const allRules = requireIndex(path.resolve(__dirname, "../lib/rules"));
+
     const rules = Object.keys(allRules)
-        .filter(key => allRules[key].meta.docs.recommended)
+        .filter(key => !!allRules[key].meta.docs.recommended)
         .reduce((config, key) => {
             // having this here is just for output niceness (the keys will be ordered)
             if (bannedRecommendedRules.has(key)) {
+                console.log(key.padEnd(MAX_RULE_NAME_LENGTH), "= off");
                 config[key] = "off";
             }
 
-            config[`typescript/${key}`] = allRules[key].meta.docs.recommended;
+            const ruleName = `typescript/${key}`;
+            const setting = allRules[key].meta.docs.recommended;
+
+            console.log(ruleName.padEnd(MAX_RULE_NAME_LENGTH), "=", setting);
+            config[ruleName] = setting;
+
             return config;
         }, {});
 

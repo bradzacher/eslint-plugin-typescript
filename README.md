@@ -58,13 +58,13 @@ This guarantees 100% compatibility between the plugin and the parser.
 <!-- prettier-ignore -->
 | Name | Description | :heavy_check_mark: | :wrench: |
 | ---- | ----------- | ------------------ | -------- |
-| [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) |  |  |
-| [`typescript/array-type`](./docs/rules/array-type.md) | Requires using either `T[]` or `Array<T>` for arrays (`array-type` from TSLint) |  | :wrench: |
-| [`typescript/ban-types`](./docs/rules/ban-types.md) | Enforces that types will not to be used (`ban-types` from TSLint) |  | :wrench: |
-| [`typescript/camelcase`](./docs/rules/camelcase.md) | Enforce camelCase naming convention |  |  |
+| [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) | :heavy_check_mark: |  |
+| [`typescript/array-type`](./docs/rules/array-type.md) | Requires using either `T[]` or `Array<T>` for arrays (`array-type` from TSLint) | :heavy_check_mark: | :wrench: |
+| [`typescript/ban-types`](./docs/rules/ban-types.md) | Enforces that types will not to be used (`ban-types` from TSLint) | :heavy_check_mark: | :wrench: |
+| [`typescript/camelcase`](./docs/rules/camelcase.md) | Enforce camelCase naming convention | :heavy_check_mark: |  |
 | [`typescript/class-name-casing`](./docs/rules/class-name-casing.md) | Require PascalCased class and interface names (`class-name` from TSLint) | :heavy_check_mark: |  |
-| [`typescript/explicit-function-return-type`](./docs/rules/explicit-function-return-type.md) | Require explicit return types on functions and class methods |  |  |
-| [`typescript/explicit-member-accessibility`](./docs/rules/explicit-member-accessibility.md) | Require explicit accessibility modifiers on class properties and methods (`member-access` from TSLint) |  |  |
+| [`typescript/explicit-function-return-type`](./docs/rules/explicit-function-return-type.md) | Require explicit return types on functions and class methods | :heavy_check_mark: |  |
+| [`typescript/explicit-member-accessibility`](./docs/rules/explicit-member-accessibility.md) | Require explicit accessibility modifiers on class properties and methods (`member-access` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/generic-type-naming`](./docs/rules/generic-type-naming.md) | Enforces naming of generic type variables |  |  |
 | [`typescript/indent`](./docs/rules/indent.md) | Enforce consistent indentation (`indent` from TSLint) | :heavy_check_mark: | :wrench: |
 | [`typescript/interface-name-prefix`](./docs/rules/interface-name-prefix.md) | Require that interface names be prefixed with `I` (`interface-name` from TSLint) |  |  |

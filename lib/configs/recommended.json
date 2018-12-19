@@ -1,6 +1,22 @@
 {
+    "parser": "eslint-plugin-typescript/parser",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "typescript"
+    ],
     "rules": {
-        "class-name-casing": "error",
-        "no-unused-vars": "error"
+        "typescript/adjacent-overload-signatures": "error",
+        "typescript/array-type": "error",
+        "typescript/ban-types": "error",
+        "camelcase": "off",
+        "typescript/camelcase": "error",
+        "typescript/class-name-casing": "error",
+        "typescript/explicit-function-return-type": "warning",
+        "typescript/explicit-member-accessibility": "error",
+        "indent": "off",
+        "typescript/indent": true,
+        "typescript/no-unused-vars": true
     }
 }
