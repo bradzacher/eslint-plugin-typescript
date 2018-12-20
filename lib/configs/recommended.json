@@ -16,7 +16,7 @@
         "typescript/explicit-function-return-type": "warning",
         "typescript/explicit-member-accessibility": "error",
         "indent": "off",
-        "typescript/indent": true,
+        "typescript/indent": "error",
         "typescript/no-unused-vars": true
     }
 }
