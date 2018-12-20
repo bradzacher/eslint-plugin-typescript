@@ -18,6 +18,7 @@
         "indent": "off",
         "typescript/indent": "error",
         "typescript/interface-name-prefix": "error",
+        "typescript/member-delimiter-style": "error",
         "typescript/no-unused-vars": true
     }
 }
