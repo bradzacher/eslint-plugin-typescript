@@ -17,6 +17,7 @@
         "typescript/explicit-member-accessibility": "error",
         "indent": "off",
         "typescript/indent": "error",
+        "typescript/interface-name-prefix": "error",
         "typescript/no-unused-vars": true
     }
 }
