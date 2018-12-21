@@ -35,6 +35,7 @@
         "typescript/no-unused-vars": "warning",
         "typescript/no-use-before-define": "error",
         "typescript/no-var-requires": "error",
-        "typescript/prefer-interface": "error"
+        "typescript/prefer-interface": "error",
+        "typescript/prefer-namespace-keyword": "error"
     }
 }
