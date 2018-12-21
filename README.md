@@ -83,7 +83,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-object-literal-type-assertion`](./docs/rules/no-object-literal-type-assertion.md) | Forbids an object literal to appear in a type assertion expression (`no-object-literal-type-assertion` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-parameter-properties`](./docs/rules/no-parameter-properties.md) | Disallow the use of parameter properties in class constructors. (`no-parameter-properties` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-this-alias`](./docs/rules/no-this-alias.md) | Disallow aliasing `this` (`no-this-assignment` from TSLint) |  |  |
-| [`typescript/no-triple-slash-reference`](./docs/rules/no-triple-slash-reference.md) | Disallow `/// <reference path="" />` comments (`no-reference` from TSLint) |  |  |
+| [`typescript/no-triple-slash-reference`](./docs/rules/no-triple-slash-reference.md) | Disallow `/// <reference path="" />` comments (`no-reference` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-type-alias`](./docs/rules/no-type-alias.md) | Disallow the use of type aliases (`interface-over-type-literal` from TSLint) |  |  |
 | [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) | Prevent TypeScript-specific constructs from being erroneously flagged as unused | :heavy_check_mark: |  |
 | [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) | Disallow the use of variables before they are defined |  |  |

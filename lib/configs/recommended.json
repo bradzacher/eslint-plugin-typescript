@@ -30,6 +30,7 @@
         "typescript/no-non-null-assertion": "error",
         "typescript/no-object-literal-type-assertion": "error",
         "typescript/no-parameter-properties": "error",
+        "typescript/no-triple-slash-reference": "error",
         "typescript/no-unused-vars": true
     }
 }
