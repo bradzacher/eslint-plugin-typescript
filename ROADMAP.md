@@ -1,11 +1,11 @@
-# Roadmap
+﻿# Roadmap
 
 ## TSLint rules
 
-✅ = done
-🌟 = in ESLint core
-🔌 = in another plugin
-🛑 = unimplemented
+✅ = done  
+🌟 = in ESLint core  
+🔌 = in another plugin  
+🛑 = unimplemented  
 ❓ = implementations differ or ESLint version is missing functionality
 
 ### TypeScript-specific
