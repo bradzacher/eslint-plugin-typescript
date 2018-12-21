@@ -23,6 +23,7 @@
         "no-array-constructor": "off",
         "typescript/no-array-constructor": "error",
         "typescript/no-empty-interface": "error",
+        "typescript/no-explicit-any": "warning",
         "typescript/no-unused-vars": true
     }
 }
