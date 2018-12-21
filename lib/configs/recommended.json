@@ -28,6 +28,7 @@
         "typescript/no-misused-new": "error",
         "typescript/no-namespace": "error",
         "typescript/no-non-null-assertion": "error",
+        "typescript/no-object-literal-type-assertion": "error",
         "typescript/no-unused-vars": true
     }
 }
