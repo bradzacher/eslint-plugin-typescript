@@ -22,6 +22,7 @@
         "typescript/no-angle-bracket-type-assertion": "error",
         "no-array-constructor": "off",
         "typescript/no-array-constructor": "error",
+        "typescript/no-empty-interface": "error",
         "typescript/no-unused-vars": true
     }
 }
