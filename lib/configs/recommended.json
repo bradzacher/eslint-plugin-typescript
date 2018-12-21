@@ -27,6 +27,7 @@
         "typescript/no-inferrable-types": "error",
         "typescript/no-misused-new": "error",
         "typescript/no-namespace": "error",
+        "typescript/no-non-null-assertion": "error",
         "typescript/no-unused-vars": true
     }
 }
