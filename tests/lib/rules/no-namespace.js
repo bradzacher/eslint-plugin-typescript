@@ -64,18 +64,6 @@ ruleTester.run("no-namespace", rule, {
             ],
         },
         {
-            // TSModuleDeclaration -> TSModuleDeclaration -> TSModuleBody
-            code: "namespace Foo.Bar {}",
-            options: [{ allowDeclarations: false }],
-            errors: [
-                {
-                    messageId: "moduleSyntaxIsPreferred",
-                    row: 1,
-                    column: 1,
-                },
-            ],
-        },
-        {
             code: "module foo {}",
             options: [{ allowDeclarations: false }],
             errors: [
@@ -184,6 +172,38 @@ ruleTester.run("no-namespace", rule, {
                     messageId: "moduleSyntaxIsPreferred",
                     row: 1,
                     column: 1,
+                },
+            ],
+        },
+        {
+            code: "namespace Foo.Bar {}",
+            options: [{ allowDeclarations: false }],
+            errors: [
+                {
+                    messageId: "moduleSyntaxIsPreferred",
+                    row: 1,
+                    column: 1,
+                },
+            ],
+        },
+        {
+            code: `
+                namespace Foo.Bar {
+                    namespace Baz.Bas {
+                        interface X {}
+                    }
+                }
+            `,
+            errors: [
+                {
+                    messageId: "moduleSyntaxIsPreferred",
+                    row: 1,
+                    column: 17,
+                },
+                {
+                    messageId: "moduleSyntaxIsPreferred",
+                    row: 2,
+                    column: 21,
                 },
             ],
         },
