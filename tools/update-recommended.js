@@ -5,7 +5,11 @@ const path = require("path");
 const fs = require("fs");
 const requireIndex = require("requireindex");
 
-const bannedRecommendedRules = new Set(["camelcase", "indent"]);
+const bannedRecommendedRules = new Set([
+    "camelcase",
+    "indent",
+    "no-array-constructor",
+]);
 const MAX_RULE_NAME_LENGTH = 32 + "typescript/".length;
 
 /**

@@ -20,6 +20,8 @@
         "typescript/interface-name-prefix": "error",
         "typescript/member-delimiter-style": "error",
         "typescript/no-angle-bracket-type-assertion": "error",
+        "no-array-constructor": "off",
+        "typescript/no-array-constructor": "error",
         "typescript/no-unused-vars": true
     }
 }
