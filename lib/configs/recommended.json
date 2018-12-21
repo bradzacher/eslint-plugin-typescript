@@ -34,6 +34,7 @@
         "no-unused-vars": "off",
         "typescript/no-unused-vars": "warning",
         "typescript/no-use-before-define": "error",
-        "typescript/no-var-requires": "error"
+        "typescript/no-var-requires": "error",
+        "typescript/prefer-interface": "error"
     }
 }
