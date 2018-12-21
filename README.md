@@ -86,7 +86,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-triple-slash-reference`](./docs/rules/no-triple-slash-reference.md) | Disallow `/// <reference path="" />` comments (`no-reference` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-type-alias`](./docs/rules/no-type-alias.md) | Disallow the use of type aliases (`interface-over-type-literal` from TSLint) |  |  |
 | [`typescript/no-unused-vars`](./docs/rules/no-unused-vars.md) | Prevent TypeScript-specific constructs from being erroneously flagged as unused | :heavy_check_mark: |  |
-| [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) | Disallow the use of variables before they are defined |  |  |
+| [`typescript/no-use-before-define`](./docs/rules/no-use-before-define.md) | Disallow the use of variables before they are defined | :heavy_check_mark: |  |
 | [`typescript/no-var-requires`](./docs/rules/no-var-requires.md) | Disallows the use of require statements except in import statements (`no-var-requires` from TSLint) |  |  |
 | [`typescript/prefer-interface`](./docs/rules/prefer-interface.md) | Prefer an interface declaration over a type literal (type T = { ... }) (`interface-over-type-literal` from TSLint) |  | :wrench: |
 | [`typescript/prefer-namespace-keyword`](./docs/rules/prefer-namespace-keyword.md) | Require the use of the `namespace` keyword instead of the `module` keyword to declare custom TypeScript modules. (`no-internal-module` from TSLint) |  | :wrench: |

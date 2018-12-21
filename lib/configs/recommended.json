@@ -32,6 +32,7 @@
         "typescript/no-parameter-properties": "error",
         "typescript/no-triple-slash-reference": "error",
         "no-unused-vars": "off",
-        "typescript/no-unused-vars": "warning"
+        "typescript/no-unused-vars": "warning",
+        "typescript/no-use-before-define": "error"
     }
 }
