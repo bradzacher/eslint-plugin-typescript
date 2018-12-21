@@ -9,6 +9,7 @@ const bannedRecommendedRules = new Set([
     "camelcase",
     "indent",
     "no-array-constructor",
+    "no-unused-vars",
 ]);
 const MAX_RULE_NAME_LENGTH = 32 + "typescript/".length;
 
