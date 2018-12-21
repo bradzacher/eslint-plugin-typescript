@@ -25,6 +25,7 @@
         "typescript/no-empty-interface": "error",
         "typescript/no-explicit-any": "warning",
         "typescript/no-inferrable-types": "error",
+        "typescript/no-misused-new": "error",
         "typescript/no-unused-vars": true
     }
 }
