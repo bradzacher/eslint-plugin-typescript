@@ -78,7 +78,7 @@ This guarantees 100% compatibility between the plugin and the parser.
 | [`typescript/no-extraneous-class`](./docs/rules/no-extraneous-class.md) | Forbids the use of classes as namespaces (`no-unnecessary-class` from TSLint) |  |  |
 | [`typescript/no-inferrable-types`](./docs/rules/no-inferrable-types.md) | Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean. (`no-inferrable-types` from TSLint) | :heavy_check_mark: | :wrench: |
 | [`typescript/no-misused-new`](./docs/rules/no-misused-new.md) | Enforce valid definition of `new` and `constructor`. (`no-misused-new` from TSLint) | :heavy_check_mark: |  |
-| [`typescript/no-namespace`](./docs/rules/no-namespace.md) | Disallow the use of custom TypeScript modules and namespaces (`no-namespace` from TSLint) |  |  |
+| [`typescript/no-namespace`](./docs/rules/no-namespace.md) | Disallow the use of custom TypeScript modules and namespaces (`no-namespace` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/no-non-null-assertion`](./docs/rules/no-non-null-assertion.md) | Disallows non-null assertions using the `!` postfix operator (`no-non-null-assertion` from TSLint) |  |  |
 | [`typescript/no-object-literal-type-assertion`](./docs/rules/no-object-literal-type-assertion.md) | Forbids an object literal to appear in a type assertion expression (`no-object-literal-type-assertion` from TSLint) |  |  |
 | [`typescript/no-parameter-properties`](./docs/rules/no-parameter-properties.md) | Disallow the use of parameter properties in class constructors. (`no-parameter-properties` from TSLint) |  |  |
