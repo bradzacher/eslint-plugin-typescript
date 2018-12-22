@@ -5,10 +5,12 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "typescript"
   ],
-  "repository": "nzakas/eslint-plugin-typescript",
-  "author": "Nicholas C. Zakas",
+  "repository": "bradzacher/eslint-plugin-typescript",
+  "author": "Brad Zacher",
+  "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib/ tests/ tools/",
@@ -21,7 +23,8 @@
     "format-check": "yarn format-no-write --list-different && yarn prettier --list-different",
     "test": "nyc mocha tests --recursive --reporter=dot",
     "test:coverage": "nyc check-coverage --lines 95 --per-file",
-    "recommended:update": "node tools/update-recommended.js"
+    "recommended:update": "node tools/update-recommended.js",
+    "pre-commit": "yarn check --verify-tree && yarn lint && yarn format-check && yarn test && yarn docs:check"
   },
   "dependencies": {
     "requireindex": "^1.2.0",
@@ -58,11 +61,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn check --verify-tree && yarn lint && yarn format-check && yarn test && yarn docs:check && lint-staged"
+      "pre-commit": "yarn pre-commit && lint-staged"
     }
   },
   "engines": {
     "node": ">=6"
-  },
-  "license": "MIT"
+  }
 }
