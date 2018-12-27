@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "requireindex": "^1.2.0",
-    "typescript-eslint-parser": "21.0.2"
+    "typescript-eslint-parser": "git+https://github.com/armano2/typescript-eslint-parser.git#42f1801cdc9e26b271ab8ad7f8399669118ff34b"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
