@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-typescript",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "description": "TypeScript plugin for ESLint",
   "keywords": [
     "eslint",
@@ -48,7 +48,7 @@
   },
   "peerDependencies": {
     "eslint": ">=4.13.1 < 6",
-    "typescript": "*"
+    "typescript": "~3.1.1"
   },
   "nyc": {
     "include": [
