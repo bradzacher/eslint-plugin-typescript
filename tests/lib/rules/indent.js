@@ -236,6 +236,15 @@ type foo = [
     ...string[],
 ];
         `,
+        // TSThisType
+        `
+declare class MyArray<T> extends Array<T> {
+    sort(compareFn?: (a: T, b: T) => number): this;
+    meth() : {
+        a: number,
+    }
+}
+        `,
         // TSTupleType
         `
 type foo = [
