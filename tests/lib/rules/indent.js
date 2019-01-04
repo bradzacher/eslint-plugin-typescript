@@ -93,6 +93,175 @@ const foo : Foo = {
             `,
             options: [4, { VariableDeclarator: { const: 3 } }],
         },
+        // TSAbstractClassDeclaration
+        `
+abstract class Foo {
+    constructor() {}
+    method() {
+        console.log('hi');
+    }
+}
+        `,
+        // TSAbstractClassProperty
+        `
+class Foo {
+    abstract bar : baz;
+    abstract foo : {
+        a : number
+        b : number
+    };
+}
+        `,
+        // TSConstructSignature
+        `
+interface Foo {
+    new () : Foo
+    new () : {
+        bar : string
+        baz : string
+    }
+}
+        `,
+        // TSEmptyBodyDeclareFunction
+        `
+declare function foo() : {
+    bar : number,
+    baz : string,
+};
+        `,
+        // TSEnumDeclaration, TSEnumMember
+        `
+enum Foo {
+    bar = 1,
+    baz = 1,
+}
+        `,
+        // TSExportAssignment
+        `
+export = {
+    a: 1,
+    b: 2,
+}
+        `,
+        // TSInterfaceBody, TSInterfaceDeclaration
+        `
+interface Foo {
+    a : string
+    b : {
+        c : number
+        d : boolean
+    }
+}
+        `,
+        // TSInterfaceHeritage
+        `
+interface Foo extends Bar {
+    a : string
+    b : {
+        c : number
+        d : boolean
+    }
+}
+        `,
+        // TSImportEqualsDeclaration
+        `
+import foo = require(
+    'asdf'
+);
+        `,
+        // TSMethodSignature
+        `
+interface Foo {
+    method() : string
+    method2() : {
+        a : number
+        b : string
+    }
+}
+        `,
+        // TSModuleDeclaration
+        `
+declare module "foo" {
+    export const bar : {
+        a : string,
+        b : number,
+    }
+}
+        `,
+        // TSParameterProperty
+        `
+class Foo {
+    constructor(
+        private foo : string,
+        public bar : {
+            a : string,
+            b : number,
+        }
+    )
+}
+        `,
+        // TSParenthesizedType
+        `
+const x: Array<(
+    | {
+        __typename: "Foo",
+    }
+    | {
+        __typename: "Baz",
+    }
+    | (
+        | {
+            __typename: "Baz",
+        }
+        | {
+            __typename: "Buzz",
+        }
+    )
+)>;
+        `,
+        // TSPropertySignature
+        `
+interface Foo {
+    bar : string
+    baz : {
+        a : string
+        b : number
+    }
+}
+        `,
+        // TSRestType
+        `
+type foo = [
+    string,
+    ...string[],
+];
+        `,
+        // TSTupleType
+        `
+type foo = [
+    string,
+    number,
+];
+        `,
+        `
+type foo = [
+    [
+        string,
+        number,
+    ],
+];
+        `,
+        // TSUnknownType
+        {
+            code: `
+const foo : unknown = {
+                a: 1,
+                b: 2
+            },
+            bar = 1;
+            `,
+            options: [4, { VariableDeclarator: { const: 3 } }],
+        },
     ],
     invalid: [
         {
