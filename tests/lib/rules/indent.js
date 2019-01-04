@@ -112,6 +112,16 @@ class Foo {
     };
 }
         `,
+        // TSAbstractMethodDefinition
+        `
+class Foo {
+    abstract bar() : baz;
+    abstract foo() : {
+        a : number
+        b : number
+    };
+}
+        `,
         // TSConstructSignature
         `
 interface Foo {
