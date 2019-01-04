@@ -183,6 +183,12 @@ export = {
     b: 2,
 }
         `,
+        // TSIndexedAccessType
+        `
+type Foo = Bar[
+    'asdf'
+];
+        `,
         // TSIndexSignature
         `
 type Foo = {
@@ -231,6 +237,30 @@ type Foo = string & {
 import foo = require(
     'asdf'
 );
+        `,
+        // TSMappedType
+        `
+type Partial<T> = {
+    [P in keyof T]: T[P];
+}
+        `,
+        `
+// TSQuestionToken
+type Partial<T> = {
+    [P in keyof T]?: T[P];
+}
+        `,
+        `
+// TSPlusToken
+type Partial<T> = {
+    [P in keyof T]+?: T[P];
+}
+        `,
+        `
+// TSMinusToken
+type Partial<T> = {
+    [P in keyof T]-?: T[P];
+}
         `,
         // TSMethodSignature
         `
