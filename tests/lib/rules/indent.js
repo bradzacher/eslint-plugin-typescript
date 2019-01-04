@@ -183,6 +183,15 @@ export = {
     b: 2,
 }
         `,
+        // TSIndexSignature
+        `
+type Foo = {
+    [a : string] : {
+        x : foo
+        [b : number] : boolean
+    }
+}
+        `,
         // TSInterfaceBody, TSInterfaceDeclaration
         `
 interface Foo {
