@@ -163,6 +163,12 @@ interface Foo extends Bar {
     }
 }
         `,
+        // TSIntersectionType
+        `
+type Foo = string & {
+    a : number
+} & number;
+        `,
         // TSImportEqualsDeclaration
         `
 import foo = require(
