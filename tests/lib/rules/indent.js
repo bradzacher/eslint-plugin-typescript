@@ -192,6 +192,14 @@ type Foo = {
     }
 }
         `,
+        // TSInferType
+        `
+type Foo<T> = T extends string
+    ? infer U
+    : {
+        a : string
+    };
+        `,
         // TSInterfaceBody, TSInterfaceDeclaration
         `
 interface Foo {
