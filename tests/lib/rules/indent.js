@@ -251,6 +251,12 @@ type foo = [
     ],
 ];
         `,
+        // TSUnionType
+        `
+type Foo = string | {
+    a : number
+} | number;
+        `,
         // TSUnknownType
         {
             code: `
