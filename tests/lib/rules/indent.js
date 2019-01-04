@@ -122,6 +122,36 @@ class Foo {
     };
 }
         `,
+        // TSConditionalType
+        // Includes a normal ternary so we can ensure they follow the same rules
+        `
+const Foo = T
+    ? {
+        a: number,
+        b: boolean
+    }
+    : {
+        c: string
+    };
+type Foo<T> = T extends string
+    ? {
+        a: number,
+        b: boolean
+    }
+    : {
+        c: string
+    };
+        `,
+        `
+const Foo = T ? {
+    a: number,
+    b: boolean
+} : string;
+type Foo<T> = T extends string ? {
+    a: number,
+    b: boolean
+} : string;
+        `,
         // TSConstructSignature
         `
 interface Foo {
