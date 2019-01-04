@@ -11,6 +11,430 @@
 const rule = require("../../../lib/rules/indent"),
     RuleTester = require("eslint").RuleTester;
 
+const individualNodeTests = [
+    {
+        node: "TSAbstractClassDeclaration",
+        code: [
+            `
+abstract class Foo {
+    constructor() {}
+    method() {
+        console.log('hi');
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSAbstractClassProperty",
+        code: [
+            `
+class Foo {
+    abstract bar : baz;
+    abstract foo : {
+        a : number
+        b : number
+    };
+}
+            `,
+        ],
+    },
+    {
+        node: "TSAbstractMethodDefinition",
+        code: [
+            `
+class Foo {
+    abstract bar() : baz;
+    abstract foo() : {
+        a : number
+        b : number
+    };
+}
+            `,
+        ],
+    },
+    {
+        node: "TSConditionalType",
+        // Includes a normal ternary so we can ensure they follow the same rules
+        code: [
+            `
+const Foo = T
+    ? {
+        a: number,
+        b: boolean
+    }
+    : {
+        c: string
+    };
+type Foo<T> = T extends string
+    ? {
+        a: number,
+        b: boolean
+    }
+    : {
+        c: string
+    };
+            `,
+            `
+const Foo = T ? {
+    a: number,
+    b: boolean
+} : string;
+type Foo<T> = T extends string ? {
+    a: number,
+    b: boolean
+} : string;
+            `,
+        ],
+    },
+    {
+        node: "TSConstructSignature",
+        code: [
+            `
+interface Foo {
+    new () : Foo
+    new () : {
+        bar : string
+        baz : string
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSEmptyBodyDeclareFunction",
+        code: [
+            `
+declare function foo() : {
+    bar : number,
+    baz : string,
+};
+            `,
+        ],
+    },
+    {
+        node: "TSEnumDeclaration, TSEnumMember",
+        code: [
+            `
+enum Foo {
+    bar = 1,
+    baz = 1,
+}
+            `,
+        ],
+    },
+    {
+        node: "TSExportAssignment",
+        code: [
+            `
+export = {
+    a: 1,
+    b: 2,
+}
+            `,
+        ],
+    },
+    {
+        node: "TSIndexedAccessType",
+        code: [
+            `
+type Foo = Bar[
+    'asdf'
+];
+            `,
+        ],
+    },
+    {
+        node: "TSIndexSignature",
+        code: [
+            `
+type Foo = {
+    [a : string] : {
+        x : foo
+        [b : number] : boolean
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSInferType",
+        code: [
+            `
+type Foo<T> = T extends string
+    ? infer U
+    : {
+        a : string
+    };
+            `,
+        ],
+    },
+    {
+        node: "TSInterfaceBody, TSInterfaceDeclaration",
+        code: [
+            `
+interface Foo {
+    a : string
+    b : {
+        c : number
+        d : boolean
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSInterfaceHeritage",
+        code: [
+            `
+interface Foo extends Bar {
+    a : string
+    b : {
+        c : number
+        d : boolean
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSIntersectionType",
+        code: [
+            `
+type Foo = string & {
+    a : number
+} & number;
+            `,
+        ],
+    },
+    {
+        node: "TSImportEqualsDeclaration",
+        code: [
+            `
+import foo = require(
+    'asdf'
+);
+            `,
+        ],
+    },
+    {
+        node: "TSMappedType",
+        code: [
+            `
+type Partial<T> = {
+    [P in keyof T]: T[P];
+}
+            `,
+            `
+// TSQuestionToken
+type Partial<T> = {
+    [P in keyof T]?: T[P];
+}
+            `,
+            `
+// TSPlusToken
+type Partial<T> = {
+    [P in keyof T]+?: T[P];
+}
+            `,
+            `
+// TSMinusToken
+type Partial<T> = {
+    [P in keyof T]-?: T[P];
+}
+            `,
+        ],
+    },
+    {
+        node: "TSMethodSignature",
+        code: [
+            `
+interface Foo {
+    method() : string
+    method2() : {
+        a : number
+        b : string
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSModuleDeclaration",
+        code: [
+            `
+declare module "foo" {
+    export const bar : {
+        a : string,
+        b : number,
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSParameterProperty",
+        code: [
+            `
+class Foo {
+    constructor(
+        private foo : string,
+        public bar : {
+            a : string,
+            b : number,
+        }
+    )
+}
+            `,
+        ],
+    },
+    {
+        node: "TSParenthesizedType",
+        code: [
+            `
+const x: Array<(
+    | {
+        __typename: "Foo",
+    }
+    | {
+        __typename: "Baz",
+    }
+    | (
+        | {
+            __typename: "Baz",
+        }
+        | {
+            __typename: "Buzz",
+        }
+    )
+)>;
+            `,
+        ],
+    },
+    {
+        node: "TSPropertySignature",
+        code: [
+            `
+interface Foo {
+    bar : string
+    baz : {
+        a : string
+        b : number
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSRestType",
+        code: [
+            `
+type foo = [
+    string,
+    ...string[],
+];
+            `,
+        ],
+    },
+    {
+        node: "TSThisType",
+        code: [
+            `
+declare class MyArray<T> extends Array<T> {
+    sort(compareFn?: (a: T, b: T) => number): this;
+    meth() : {
+        a: number,
+    }
+}
+            `,
+        ],
+    },
+    {
+        node: "TSTupleType",
+        code: [
+            `
+type foo = [
+    string,
+    number,
+];
+            `,
+            `
+type foo = [
+    [
+        string,
+        number,
+    ],
+];
+            `,
+        ],
+    },
+    {
+        node: "TSUnionType",
+        code: [
+            `
+type Foo = string | {
+    a : number
+} | number;
+            `,
+        ],
+    },
+    {
+        node: "TSUnknownType",
+        code: [
+            `
+const foo : unknown = {
+        a: 1,
+        b: 2
+    },
+    bar = 1;
+            `,
+        ],
+    },
+].reduce(
+    (acc, testCase) => {
+        const indent = "    ";
+
+        const codeCases = testCase.code.map(code =>
+            [
+                "", // newline to make test error messages nicer
+                `// ${testCase.node}`, // add comment to easily identify which node a test belongs to
+                code.trim(), // remove leading/trailing spaces from the case
+            ].join("\n")
+        );
+
+        codeCases.forEach(code => {
+            // valid test case is just the code
+            acc.valid.push(code);
+
+            acc.invalid.push({
+                // test the fixer by removing all the spaces
+                code: code.replace(new RegExp(indent, "g"), ""),
+                output: code,
+                errors: code
+                    .split("\n")
+                    .map((line, lineNum) => {
+                        const indentCount = line.split(indent).length - 1;
+                        const spaceCount = indentCount * indent.length;
+
+                        if (indentCount < 1) {
+                            return null;
+                        }
+
+                        return {
+                            message: `Expected indentation of ${spaceCount} spaces but found 0.`,
+                            line: lineNum + 1,
+                            column: 1,
+                        };
+                    })
+                    .filter(error => error !== null),
+            });
+        });
+
+        return acc;
+    },
+    { valid: [], invalid: [] }
+);
+
 const ruleTester = new RuleTester({
     parserOptions: {
         ecmaVersion: 6,
@@ -22,6 +446,7 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("indent", rule, {
     valid: [
+        ...individualNodeTests.valid,
         `
 @Component({
     components: {
@@ -93,285 +518,9 @@ const foo : Foo = {
             `,
             options: [4, { VariableDeclarator: { const: 3 } }],
         },
-        // TSAbstractClassDeclaration
-        `
-abstract class Foo {
-    constructor() {}
-    method() {
-        console.log('hi');
-    }
-}
-        `,
-        // TSAbstractClassProperty
-        `
-class Foo {
-    abstract bar : baz;
-    abstract foo : {
-        a : number
-        b : number
-    };
-}
-        `,
-        // TSAbstractMethodDefinition
-        `
-class Foo {
-    abstract bar() : baz;
-    abstract foo() : {
-        a : number
-        b : number
-    };
-}
-        `,
-        // TSConditionalType
-        // Includes a normal ternary so we can ensure they follow the same rules
-        `
-const Foo = T
-    ? {
-        a: number,
-        b: boolean
-    }
-    : {
-        c: string
-    };
-type Foo<T> = T extends string
-    ? {
-        a: number,
-        b: boolean
-    }
-    : {
-        c: string
-    };
-        `,
-        `
-const Foo = T ? {
-    a: number,
-    b: boolean
-} : string;
-type Foo<T> = T extends string ? {
-    a: number,
-    b: boolean
-} : string;
-        `,
-        // TSConstructSignature
-        `
-interface Foo {
-    new () : Foo
-    new () : {
-        bar : string
-        baz : string
-    }
-}
-        `,
-        // TSEmptyBodyDeclareFunction
-        `
-declare function foo() : {
-    bar : number,
-    baz : string,
-};
-        `,
-        // TSEnumDeclaration, TSEnumMember
-        `
-enum Foo {
-    bar = 1,
-    baz = 1,
-}
-        `,
-        // TSExportAssignment
-        `
-export = {
-    a: 1,
-    b: 2,
-}
-        `,
-        // TSIndexedAccessType
-        `
-type Foo = Bar[
-    'asdf'
-];
-        `,
-        // TSIndexSignature
-        `
-type Foo = {
-    [a : string] : {
-        x : foo
-        [b : number] : boolean
-    }
-}
-        `,
-        // TSInferType
-        `
-type Foo<T> = T extends string
-    ? infer U
-    : {
-        a : string
-    };
-        `,
-        // TSInterfaceBody, TSInterfaceDeclaration
-        `
-interface Foo {
-    a : string
-    b : {
-        c : number
-        d : boolean
-    }
-}
-        `,
-        // TSInterfaceHeritage
-        `
-interface Foo extends Bar {
-    a : string
-    b : {
-        c : number
-        d : boolean
-    }
-}
-        `,
-        // TSIntersectionType
-        `
-type Foo = string & {
-    a : number
-} & number;
-        `,
-        // TSImportEqualsDeclaration
-        `
-import foo = require(
-    'asdf'
-);
-        `,
-        // TSMappedType
-        `
-type Partial<T> = {
-    [P in keyof T]: T[P];
-}
-        `,
-        `
-// TSQuestionToken
-type Partial<T> = {
-    [P in keyof T]?: T[P];
-}
-        `,
-        `
-// TSPlusToken
-type Partial<T> = {
-    [P in keyof T]+?: T[P];
-}
-        `,
-        `
-// TSMinusToken
-type Partial<T> = {
-    [P in keyof T]-?: T[P];
-}
-        `,
-        // TSMethodSignature
-        `
-interface Foo {
-    method() : string
-    method2() : {
-        a : number
-        b : string
-    }
-}
-        `,
-        // TSModuleDeclaration
-        `
-declare module "foo" {
-    export const bar : {
-        a : string,
-        b : number,
-    }
-}
-        `,
-        // TSParameterProperty
-        `
-class Foo {
-    constructor(
-        private foo : string,
-        public bar : {
-            a : string,
-            b : number,
-        }
-    )
-}
-        `,
-        // TSParenthesizedType
-        `
-const x: Array<(
-    | {
-        __typename: "Foo",
-    }
-    | {
-        __typename: "Baz",
-    }
-    | (
-        | {
-            __typename: "Baz",
-        }
-        | {
-            __typename: "Buzz",
-        }
-    )
-)>;
-        `,
-        // TSPropertySignature
-        `
-interface Foo {
-    bar : string
-    baz : {
-        a : string
-        b : number
-    }
-}
-        `,
-        // TSRestType
-        `
-type foo = [
-    string,
-    ...string[],
-];
-        `,
-        // TSThisType
-        `
-declare class MyArray<T> extends Array<T> {
-    sort(compareFn?: (a: T, b: T) => number): this;
-    meth() : {
-        a: number,
-    }
-}
-        `,
-        // TSTupleType
-        `
-type foo = [
-    string,
-    number,
-];
-        `,
-        `
-type foo = [
-    [
-        string,
-        number,
-    ],
-];
-        `,
-        // TSUnionType
-        `
-type Foo = string | {
-    a : number
-} | number;
-        `,
-        // TSUnknownType
-        {
-            code: `
-const foo : unknown = {
-                a: 1,
-                b: 2
-            },
-            bar = 1;
-            `,
-            options: [4, { VariableDeclarator: { const: 3 } }],
-        },
     ],
     invalid: [
+        ...individualNodeTests.invalid,
         {
             code: `
 type Foo = {
