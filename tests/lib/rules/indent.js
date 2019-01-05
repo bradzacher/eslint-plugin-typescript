@@ -11,6 +11,15 @@
 const rule = require("../../../lib/rules/indent"),
     RuleTester = require("eslint").RuleTester;
 
+/**
+ * Marks a test case as a plain javascript case which should be indented the same
+ * @param {string} example the code
+ * @returns {string} marked code
+ */
+function nonTsTestCase(example) {
+    return [`// Non-TS Test Case`, example].join("\n");
+}
+
 const individualNodeTests = [
     {
         node: "TSAbstractClassDeclaration",
@@ -55,18 +64,9 @@ class Foo {
     },
     {
         node: "TSConditionalType",
-        // Includes a normal ternary so we can ensure they follow the same rules
         code: [
-            `
+            nonTsTestCase`
 const Foo = T
-    ? {
-        a: number,
-        b: boolean
-    }
-    : {
-        c: string
-    };
-type Foo<T> = T extends string
     ? {
         a: number,
         b: boolean
@@ -76,10 +76,22 @@ type Foo<T> = T extends string
     };
             `,
             `
+type Foo<T> = T extends string
+    ? {
+        a: number,
+        b: boolean
+    }
+    : {
+        c: string
+    };
+            `,
+            nonTsTestCase`
 const Foo = T ? {
     a: number,
     b: boolean
 } : string;
+            `,
+            `
 type Foo<T> = T extends string ? {
     a: number,
     b: boolean
@@ -113,6 +125,21 @@ declare function foo() : {
         ],
     },
     {
+        node: "TSEmptyBodyFunctionExpression",
+        code: [
+            `
+class Foo {
+    constructor(
+        a : string,
+        b : {
+            c : number
+        }
+    )
+}
+            `,
+        ],
+    },
+    {
         node: "TSEnumDeclaration, TSEnumMember",
         code: [
             `
@@ -137,6 +164,11 @@ export = {
     {
         node: "TSIndexedAccessType",
         code: [
+            nonTsTestCase`
+const Foo = Bar[
+    'asdf'
+];
+            `,
             `
 type Foo = Bar[
     'asdf'
@@ -201,7 +233,7 @@ interface Foo extends Bar {
         node: "TSIntersectionType",
         code: [
             `
-type Foo = string & {
+type Foo = "string" & {
     a : number
 } & number;
             `,
@@ -210,7 +242,7 @@ type Foo = string & {
     {
         node: "TSImportEqualsDeclaration, TSExternalModuleReference",
         code: [
-            `
+            nonTsTestCase`
 const foo = require(
     'asdf'
 );
@@ -222,6 +254,7 @@ import foo = require(
             `,
         ],
     },
+    // TSLiteralType
     {
         node: "TSMappedType",
         code: [
@@ -264,6 +297,7 @@ interface Foo {
             `,
         ],
     },
+    // TSMinusToken - tested in TSMappedType
     {
         node: "TSModuleDeclaration",
         code: [
@@ -318,6 +352,7 @@ const x: Array<(
             `,
         ],
     },
+    // TSPlusToken - tested in TSMappedType
     {
         node: "TSPropertySignature",
         code: [
@@ -332,6 +367,7 @@ interface Foo {
             `,
         ],
     },
+    // TSQuestionToken - tested in TSMappedType
     {
         node: "TSRestType",
         code: [
@@ -359,7 +395,7 @@ declare class MyArray<T> extends Array<T> {
     {
         node: "TSTupleType",
         code: [
-            `
+            nonTsTestCase`
 const foo = [
     string,
     number,
@@ -371,7 +407,7 @@ type foo = [
     number,
 ];
             `,
-            `
+            nonTsTestCase`
 const foo = [
     [
         string,
@@ -389,6 +425,28 @@ type foo = [
             `,
         ],
     },
+    // TSTypeAnnotation - tested in everything..
+    // TSTypeLiteral - tested in everything..
+    {
+        node: "TSTypeParameter, TSTypeParameterDeclaration",
+        code: [
+            `
+type Foo<T> = {
+    a : unknown,
+    b : never,
+}
+            `,
+            `
+function foo<
+    T,
+    U
+>() {
+    console.log('');
+}
+            `,
+        ],
+    },
+    // TSTypeReference - tested in everything..
     {
         node: "TSUnionType",
         code: [
@@ -396,18 +454,6 @@ type foo = [
 type Foo = string | {
     a : number
 } | number;
-            `,
-        ],
-    },
-    {
-        node: "TSUnknownType",
-        code: [
-            `
-const foo : unknown = {
-        a: 1,
-        b: 2
-    },
-    bar = 1;
             `,
         ],
     },
