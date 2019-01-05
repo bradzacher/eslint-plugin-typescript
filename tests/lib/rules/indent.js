@@ -208,8 +208,13 @@ type Foo = string & {
         ],
     },
     {
-        node: "TSImportEqualsDeclaration",
+        node: "TSImportEqualsDeclaration, TSExternalModuleReference",
         code: [
+            `
+const foo = require(
+    'asdf'
+);
+            `,
             `
 import foo = require(
     'asdf'
@@ -283,7 +288,9 @@ class Foo {
             a : string,
             b : number,
         }
-    )
+    ) {
+        console.log('foo')
+    }
 }
             `,
         ],
@@ -353,9 +360,23 @@ declare class MyArray<T> extends Array<T> {
         node: "TSTupleType",
         code: [
             `
+const foo = [
+    string,
+    number,
+];
+            `,
+            `
 type foo = [
     string,
     number,
+];
+            `,
+            `
+const foo = [
+    [
+        string,
+        number,
+    ],
 ];
             `,
             `
