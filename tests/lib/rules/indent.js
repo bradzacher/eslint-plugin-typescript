@@ -63,6 +63,31 @@ class Foo {
         ],
     },
     {
+        node: "TSAsExpression",
+        code: [
+            `
+const foo = {} as {
+    foo: string,
+    bar: number,
+};
+            `,
+            nonTsTestCase`
+const foo = {} ===
+{
+    foo: string,
+    bar: number,
+};
+            `,
+            `
+const foo = {} as
+{
+    foo: string,
+    bar: number,
+};
+            `,
+        ],
+    },
+    {
         node: "TSConditionalType",
         code: [
             nonTsTestCase`
