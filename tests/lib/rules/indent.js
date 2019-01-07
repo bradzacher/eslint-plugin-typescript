@@ -415,6 +415,21 @@ declare module "foo" {
         ],
     },
     {
+        node: "TSNonNullExpression",
+        code: [
+            nonTsTestCase`
+const foo = a
+    .b.
+    c;
+            `,
+            `
+const foo = a!
+    .b!.
+    c;
+            `,
+        ],
+    },
+    {
         node: "TSParameterProperty",
         code: [
             `
