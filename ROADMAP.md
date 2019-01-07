@@ -1,4 +1,4 @@
-# Roadmap
+﻿# Roadmap
 
 ## TSLint rules
 
@@ -126,7 +126,7 @@
 | [`arrow-parens`]                    | 🌟  | [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens)                                                                                                                                                                                                    |
 | [`arrow-return-shorthand`]          | 🌟  | [`arrow-body-style`](https://eslint.org/docs/rules/arrow-body-style)                                                                                                                                                                                            |
 | [`binary-expression-operand-order`] | 🌟  | [`yoda`](https://eslint.org/docs/rules/yoda)                                                                                                                                                                                                                    |
-| [`callable-types`]                  | 🛑  | N/A                                                                                                                                                                                                                                                             |
+| [`callable-types`]                  | ✅  | [`typescript/callable-types`]                                                                                                                                                                                                                                   |
 | [`class-name`]                      | ✅  | [`typescript/class-name-casing`]                                                                                                                                                                                                                                |
 | [`comment-format`]                  | 🌟  | [`capitalized-comments`](https://eslint.org/docs/rules/capitalized-comments) & [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)                                                                                                                 |
 | [`completed-docs`]                  | 🔌  | [`eslint-plugin-jsdoc`](https://github.com/gajus/eslint-plugin-jsdoc)                                                                                                                                                                                           |

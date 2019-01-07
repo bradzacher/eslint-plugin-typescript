@@ -1,36 +1,57 @@
 # Use function types instead of interfaces with call signatures (callable-types)
 
-Please describe the origin of the rule here.
-
-
 ## Rule Details
 
-This rule aims to...
+This rule suggests using a function type instead of an interface or object type literal with a single call signature.
 
 Examples of **incorrect** code for this rule:
 
-```js
+```ts
+interface Foo {
+    (): string;
+}
+```
 
-// fill me in
+```ts
+function foo(bar: { (): number }): number {
+    return bar();
+}
+```
 
+```ts
+interface Foo extends Function {
+    (): void;
+}
 ```
 
 Examples of **correct** code for this rule:
 
-```js
-
-// fill me in
-
+```ts
+interface Foo {
+    (): void;
+    bar: number;
+}
 ```
 
-### Options
+```ts
+function foo(bar: { (): string; baz: number }): string {
+    return bar();
+}
+```
 
-If there are any options, describe them here. Otherwise, delete this section.
+```ts
+interface Foo {
+    bar: string;
+}
+interface Bar extends Foo {
+    (): void;
+}
+```
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
+If you specifically want to use an interface or type literal with a single call signature for stylistic reasons, you can disable this rule.
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+-   TSLint: ['callable-types'](https://palantir.github.io/tslint/rules/callable-types/)

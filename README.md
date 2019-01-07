@@ -77,6 +77,7 @@ You can also enable all the recommended rules at once. Add `plugin:typescript/re
 | [`typescript/adjacent-overload-signatures`](./docs/rules/adjacent-overload-signatures.md) | Require that member overloads be consecutive (`adjacent-overload-signatures` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/array-type`](./docs/rules/array-type.md) | Requires using either `T[]` or `Array<T>` for arrays (`array-type` from TSLint) | :heavy_check_mark: | :wrench: |
 | [`typescript/ban-types`](./docs/rules/ban-types.md) | Enforces that types will not to be used (`ban-types` from TSLint) | :heavy_check_mark: | :wrench: |
+| [`typescript/callable-types`](./docs/rules/callable-types.md) | Use function types instead of interfaces with call signatures (`callable-types` from TSLint) |  | :wrench: |
 | [`typescript/camelcase`](./docs/rules/camelcase.md) | Enforce camelCase naming convention | :heavy_check_mark: |  |
 | [`typescript/class-name-casing`](./docs/rules/class-name-casing.md) | Require PascalCased class and interface names (`class-name` from TSLint) | :heavy_check_mark: |  |
 | [`typescript/explicit-function-return-type`](./docs/rules/explicit-function-return-type.md) | Require explicit return types on functions and class methods | :heavy_check_mark: |  |
