@@ -485,6 +485,33 @@ interface Foo {
             `,
         ],
     },
+    {
+        node: "TSQualifiedName",
+        code: [
+            `
+const a: Foo.bar = {
+    a: 1,
+    b: 2,
+};
+            `,
+            nonTsTestCase`
+const a = Foo.
+    bar
+    .baz = {
+        a: 1,
+        b: 2,
+    };
+            `,
+            `
+const a: Foo.
+    bar
+    .baz = {
+        a: 1,
+        b: 2,
+    };
+            `,
+        ],
+    },
     // TSQuestionToken - tested in TSMappedType
     {
         node: "TSRestType",
