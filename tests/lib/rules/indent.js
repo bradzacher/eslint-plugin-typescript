@@ -63,6 +63,14 @@ class Foo {
         ],
     },
     {
+        node: "TSArrayType",
+        code: [
+            `
+type foo = ArrType[];
+            `,
+        ],
+    },
+    {
         node: "TSAsExpression",
         code: [
             `
@@ -394,7 +402,7 @@ interface Foo {
     },
     // TSMinusToken - tested in TSMappedType
     {
-        node: "TSModuleDeclaration",
+        node: "TSModuleBlock, TSModuleDeclaration",
         code: [
             `
 declare module "foo" {
