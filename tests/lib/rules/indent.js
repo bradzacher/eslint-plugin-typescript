@@ -197,6 +197,66 @@ export = {
         ],
     },
     {
+        node: "TSFunctionType",
+        code: [
+            `
+const foo: () => void = () => ({
+    a: 1,
+    b: 2,
+});
+            `,
+            `
+const foo: () => {
+    a: number,
+    b: number,
+} = () => ({
+    a: 1,
+    b: 2,
+});
+            `,
+            `
+const foo: ({
+    a: number,
+    b: number,
+}) => void = (arg) => ({
+    a: 1,
+    b: 2,
+});
+            `,
+            `
+const foo: ({
+    a: number,
+    b: number,
+}) => {
+    a: number,
+    b: number,
+} = (arg) => ({
+    a: arg.a,
+    b: arg.b,
+});
+            `,
+        ],
+    },
+    {
+        node: "TSImportType",
+        code: [
+            `
+const foo: import("bar") = {
+    a: 1,
+    b: 2,
+};
+            `,
+            `
+const foo: import(
+    "bar"
+) = {
+    a: 1,
+    b: 2,
+};
+            `,
+        ],
+    },
+    {
         node: "TSIndexedAccessType",
         code: [
             nonTsTestCase`
