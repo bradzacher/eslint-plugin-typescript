@@ -573,6 +573,17 @@ type foo = [
     // TSTypeAnnotation - tested in everything..
     // TSTypeLiteral - tested in everything..
     {
+        node: "TSTypeOperator",
+        code: [
+            `
+type T = keyof {
+    a: 1,
+    b: 2,
+};
+            `,
+        ],
+    },
+    {
         node: "TSTypeParameter, TSTypeParameterDeclaration",
         code: [
             `
