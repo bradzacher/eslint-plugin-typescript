@@ -125,6 +125,16 @@ type Foo<T> = T extends string ? {
         ],
     },
     {
+        node: "TSConstructorType",
+        code: [
+            `
+type Constructor<T> = new (
+    ...args: any[]
+) => T;
+            `,
+        ],
+    },
+    {
         node: "TSConstructSignature",
         code: [
             `
