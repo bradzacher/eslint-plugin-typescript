@@ -218,7 +218,6 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 | `informative-docs`                    | TBD | ?                                                |
 | `insecure-random`                     | 🔌  | [custom implementation][insecure-random]         |
 | `max-func-body-length`                | 🌟  | [`max-statements`][max-statements]               |
-| `missing-jsdoc`                       | TBD | [`max-statements`][max-statements]               |
 | `no-banned-terms`                     | 🌟  | [`no-callee`][no-callee] & [`no-eval`][no-eval]  |
 | `no-constant-condition`               | 🌟  | [`no-constant-condition`][no-constant-condition] |
 | `no-control-regex`                    | 🌟  | [`no-control-regex`][no-control-regex]           |
