@@ -185,7 +185,7 @@
 ## tslint-microsoft-contrib rules
 
 Rule listing is [here](https://github.com/Microsoft/tslint-microsoft-contrib#supported-rules).
-Deprecated rules are excluded (`missing-jsdoc`, `missing-optional-annotation`, `no-duplicate-case`, `no-duplicate-parameter-names`, `no-empty-interfaces`, `no-missing-visibility-modifiers`, `no-multiple-var-decl`, `no-reserved-keywords`, `no-stateless-class`, `no-var-self`, and `valid-typeof`). See the docs in the link above to find out what to use instead.
+Deprecated rules are excluded (`missing-jsdoc`, `missing-optional-annotation`, `no-duplicate-case`, `no-duplicate-parameter-names`, `no-increment-decrement`, `no-empty-interfaces`, `no-missing-visibility-modifiers`, `no-multiple-var-decl`, `no-reserved-keywords`, `no-stateless-class`, `no-var-self`, `no-unnecessary-bind`, and `valid-typeof`). See the docs in the link above to find out what to use instead.
 
 ### Testing
 
@@ -209,43 +209,47 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 
 ### Miscellaneous
 
-| tslint-microsoft-contrib rule         |     | ESLint rule                                      |
-| ------------------------------------- | :-: | ------------------------------------------------ |
-| `export-name`                         | TBD | ?                                                |
-| `function-name`                       | TBD | ?                                                |
-| `import-name`                         | TBD | ?                                                |
-| `function-name`                       | TBD | ?                                                |
-| `informative-docs`                    | TBD | ?                                                |
-| `insecure-random`                     | 🔌  | [custom implementation][insecure-random]         |
-| `max-func-body-length`                | 🌟  | [`max-statements`][max-statements]               |
-| `no-banned-terms`                     | 🌟  | [`no-callee`][no-callee] & [`no-eval`][no-eval]  |
-| `no-constant-condition`               | 🌟  | [`no-constant-condition`][no-constant-condition] |
-| `no-control-regex`                    | 🌟  | [`no-control-regex`][no-control-regex]           |
-| `no-delete-expression`                | TBD |                                                  |
-| `no-empty-line-after-opening-brace`   | TBD |                                                  |
-| `no-for-in`                           | TBD |                                                  |
-| `no-function-expression`              | TBD |                                                  |
-| `no-increment-decrement`              | TBD |                                                  |
-| `no-invalid-regexp`                   | 🌟  | [`no-invalid-regexp`][no-invalid-regexp]         |
-| `no-multiline-string`                 | TBD |                                                  |
-| `no-octal-literal`                    | TBD |                                                  |
-| `no-regex-spaces`                     | 🌟  | [`no-regex-spaces`][no-regex-spaces]             |
-| `no-relative-imports`                 | TBD |                                                  |
-| `no-single-line-block-comment`        | TBD |                                                  |
-| `no-suspicious-comment`               | TBD |                                                  |
-| `no-typeof-undefined`                 | TBD |                                                  |
-| `no-unexternalized-strings`           | TBD |                                                  |
-| `no-unnecessary-bind`                 | TBD |                                                  |
-| `no-unnecessary-field-initialization` | TBD |                                                  |
-| `no-unnecessary-local-variable`       | TBD |                                                  |
-| `no-unnecessary-override`             | TBD |                                                  |
-| `no-unnecessary-semicolons`           | TBD |                                                  |
-| `no-useless-files`                    | TBD |                                                  |
-| `no-with-statement`                   | TBD |                                                  |
-| `promise-must-complete`               | TBD |                                                  |
-| `underscore-consistent-invocation`    | TBD |                                                  |
-| `use-named-parameter`                 | TBD |                                                  |
-| `use-simple-attributes`               | TBD |                                                  |
+| tslint-microsoft-contrib rule         |     | ESLint rule                                                            |
+| ------------------------------------- | :-: | ---------------------------------------------------------------------- |
+| `export-name`                         | 🛑  | N/A ([relevant plugin](plugin:import))                                 |
+| `function-name`                       | 🛑  | N/A                                                                    |
+| `import-name`                         | 🛑  | N/A ([relevant plugin](plugin:import))                                 |
+| `function-name`                       | 🛑  | N/A                                                                    |
+| `informative-docs`                    | 🛑  | N/A                                                                    |
+| `insecure-random`                     | 🔌  | [custom implementation][insecure-random]                               |
+| `max-func-body-length`                | 🌟  | [`max-statements`][max-statements]                                     |
+| `no-banned-terms`                     | 🌟  | [`no-callee`][no-callee] & [`no-eval`][no-eval]                        |
+| `no-constant-condition`               | 🌟  | [`no-constant-condition`][no-constant-condition]                       |
+| `no-control-regex`                    | 🌟  | [`no-control-regex`][no-control-regex]                                 |
+| `no-delete-expression`                | ❓  | [`no-delete-var`][no-delete-var]                                       |
+| `no-empty-line-after-opening-brace`   | 🌟  | [`padded-blocks`][padded-blocks] <sup>[1]</sup> or [Prettier]          |
+| `no-for-in`                           | 🌟  | [`no-restricted-syntax`][no-restricted-syntax] <sup>[2]</sup>          |
+| `no-function-expression`              | 🌟  | [`func-style`][func-style] <sup>[3]</sup>                              |
+| `no-invalid-regexp`                   | 🌟  | [`no-invalid-regexp`][no-invalid-regexp]                               |
+| `no-multiline-string`                 | 🌟  | [`no-multi-str`][no-multi-str]                                         |
+| `no-octal-literal`                    | 🌟  | [`no-octal-escape`][no-octal-escape], see also [`no-octal`][no-octal]  |
+| `no-regex-spaces`                     | 🌟  | [`no-regex-spaces`][no-regex-spaces]                                   |
+| `no-relative-imports`                 | 🛑  | N/A, _Not recommended by the maintainers_                              |
+| `no-single-line-block-comment`        | 🛑  | N/A                                                                    |
+| `no-suspicious-comment`               | 🌟  | [`no-warning-comments`][no-warning-comments] <sup>[4]</sup>            |
+| `no-typeof-undefined`                 | 🛑  | N/A (this actually has a valid use: checking if a variable is defined) |
+| `no-unexternalized-strings`           | 🛑  | N/A                                                                    |
+| `no-unnecessary-field-initialization` | ❓  | [`no-undef-init`][no-undef-init] <sup>[5]</sup>                        |
+| `no-unnecessary-local-variable`       | 🛑  | N/A                                                                    |
+| `no-unnecessary-override`             | 🛑  | N/A                                                                    |
+| `no-unnecessary-semicolons`           | 🌟  | [`no-extra-semi`][no-extra-semi] or [Prettier]                         |
+| `no-useless-files`                    | 🛑  | N/A                                                                    |
+| `no-with-statement`                   | 🌟  | [`no-with`][no-with]                                                   |
+| `promise-must-complete`               | 🛑  | N/A                                                                    |
+| `underscore-consistent-invocation`    | 🔌  | [`lodash/chaining`]                                                    |
+| `use-named-parameter`                 | 🛑  | N/A                                                                    |
+| `use-simple-attributes`               | 🛑  | N/A                                                                    |
+
+<sup>[1]</sup> Enforces blank lines both at the beginning and end of a block  
+<sup>[2]</sup> Recommended config: `["error", "ForInStatement"]`  
+<sup>[3]</sup> Recommended config: `["error", "declaration", { "allowArrowFunctions": true }]`  
+<sup>[4]</sup> Recommended config: `["error", { "terms": ["BUG", "HACK", "FIXME", "LATER", "LATER2", "TODO"], "location": "anywhere" }]`  
+<sup>[5]</sup> Does not check class fields.
 
 [insecure-random]: https://github.com/desktop/desktop/blob/master/eslint-rules/insecure-random.js
 
@@ -541,6 +545,14 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 [no-invalid-regexp]: https://eslint.org/docs/rules/no-invalid-regexp
 [no-regex-spaces]: https://eslint.org/docs/rules/no-regex-spaces
 [no-new-func]: https://eslint.org/docs/rules/no-new-func
+[no-delete-var]: https://eslint.org/docs/rules/no-delete-var
+[padded-blocks]: https://eslint.org/docs/rules/padded-blocks
+[func-style]: https://eslint.org/docs/rules/func-style
+[no-multi-str]: https://eslint.org/docs/rules/no-multi-str
+[no-octal]: https://eslint.org/docs/rules/no-octal
+[no-octal-escape]: https://eslint.org/docs/rules/no-octal-escape
+[no-extra-semi]: https://eslint.org/docs/rules/no-extra-semi
+[no-with]: https://eslint.org/docs/rules/no-with
 
 <!-- eslint-plugin-typescript -->
 
@@ -575,6 +587,7 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 
 <!-- eslint-plugin-import -->
 
+[plugin:import]: https://github.com/benmosher/eslint-plugin-import
 [`import/no-unassigned-import`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unassigned-import.md
 [`import/no-extraneous-dependencies`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
 [`import/no-internal-modules`]: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
@@ -623,3 +636,4 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 [`unicorn/filename-case`]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/filename-case.md
 [`jest/no-focused-tests`]: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-focused-tests.md
 [`jsx-a11y/heading-has-content`]: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
+[`lodash/chaining`]: https://github.com/wix/eslint-plugin-lodash/blob/master/docs/rules/chaining.md
