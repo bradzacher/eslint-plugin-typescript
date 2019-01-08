@@ -64,6 +64,8 @@ interface Foo {
                     type: "TSCallSignature",
                 },
             ],
+            output: `
+type Foo = () => string;`,
         },
         {
             code: `
@@ -76,18 +78,24 @@ type Foo = {
                     type: "TSCallSignature",
                 },
             ],
+            output: `
+type Foo = () => string`,
         },
         {
             code: `
-function foo(bar: { (): number }): number {
-    return bar();
+function foo(bar: { (s: string): number }): number {
+    return bar("hello");
 }`,
             errors: [
                 {
-                    message: `Type literal has only a call signature - use \`() => number\` instead.`,
+                    message: `Type literal has only a call signature - use \`(s: string) => number\` instead.`,
                     type: "TSCallSignature",
                 },
             ],
+            output: `
+function foo(bar: (s: string) => number): number {
+    return bar("hello");
+}`,
         },
         {
             code: `
@@ -100,6 +108,8 @@ interface Foo extends Function {
                     type: "TSCallSignature",
                 },
             ],
+            output: `
+type Foo = () => void;`,
         },
     ],
 });
