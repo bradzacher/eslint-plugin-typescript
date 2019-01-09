@@ -1,12 +1,12 @@
 # Roadmap
 
-## TSLint rules
+✅ (27) = done  
+🌟 (79) = in ESLint core  
+🔌 (33) = in another plugin  
+◐ (16) = implementations differ or ESLint version is missing functionality  
+🛑 (71)= unimplemented  
 
-✅ = done  
-🌟 = in ESLint core  
-🔌 = in another plugin  
-🛑 = unimplemented  
-◐ = implementations differ or ESLint version is missing functionality
+## TSLint rules
 
 ### TypeScript-specific
 
@@ -211,14 +211,14 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 
 | tslint-microsoft-contrib rule         |     | ESLint rule                                                            |
 | ------------------------------------- | :-: | ---------------------------------------------------------------------- |
-| `export-name`                         | 🛑  | N/A ([relevant plugin](plugin:import))                                 |
+| `export-name`                         | 🛑  | N/A ([relevant plugin][plugin:import])                                 |
 | `function-name`                       | 🛑  | N/A                                                                    |
-| `import-name`                         | 🛑  | N/A ([relevant plugin](plugin:import))                                 |
+| `import-name`                         | 🛑  | N/A ([relevant plugin][plugin:import])                                 |
 | `function-name`                       | 🛑  | N/A                                                                    |
 | `informative-docs`                    | 🛑  | N/A                                                                    |
 | `insecure-random`                     | 🔌  | [custom implementation][insecure-random]                               |
 | `max-func-body-length`                | 🌟  | [`max-statements`][max-statements]                                     |
-| `no-banned-terms`                     | 🌟  | [`no-callee`][no-callee] & [`no-eval`][no-eval]                        |
+| `no-banned-terms`                     | 🌟  | [`no-caller`][no-caller] & [`no-eval`][no-eval]                        |
 | `no-constant-condition`               | 🌟  | [`no-constant-condition`][no-constant-condition]                       |
 | `no-control-regex`                    | 🌟  | [`no-control-regex`][no-control-regex]                                 |
 | `no-delete-expression`                |  ◐  | [`no-delete-var`][no-delete-var]                                       |
@@ -553,6 +553,7 @@ Relevant plugins: [`chai-expect-keywords`](https://github.com/gavinaiken/eslint-
 [no-octal-escape]: https://eslint.org/docs/rules/no-octal-escape
 [no-extra-semi]: https://eslint.org/docs/rules/no-extra-semi
 [no-with]: https://eslint.org/docs/rules/no-with
+[no-warning-comments]: https://eslint.org/docs/rules/no-warning-comments
 
 <!-- eslint-plugin-typescript -->
 
