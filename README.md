@@ -1,3 +1,6 @@
+# THIS REPOSITORY HAS BEEN ARCHIVED. SEE https://github.com/bradzacher/eslint-plugin-typescript/issues/290
+
+
 # eslint-plugin-typescript
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-typescript.svg)](https://www.npmjs.com/package/eslint-plugin-typescript)
